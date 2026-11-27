@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id">
+<title>Toko Ivan Setiadi · Galaksi</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Template website, ebook, dan panduan digital dari Ivan Setiadi. Bayar aman lewat lynk.id.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,600;0,800;1,800&family=Nunito+Sans:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* Tema GALAKSI — luar angkasa yang ramah: nebula lembut, bintang berkelip, bintang jatuh,
+   planet bercincin, bulan mengorbit foto profil, astronot kecil melayang. */
+:root {
+  --bg: #090C26;
+  --page: rgba(16, 20, 54, .8);
+  --card: #161B45;
+  --ink: #EEF1FF;
+  --muted: #A7AEDC;
+  --accent: #FFB547;
+  --accent-ink: #1A1233;
+  --accent-2: #7CF2C8;
+  --on-accent-2: #0B2A22;
+  --soft: #1E2457;
+  --line: #2B3274;
+  --price: #FFB547;
+  --mark: rgba(124, 242, 200, .4);
+  --radius: 22px; --radius-img: 16px; --radius-btn: 999px; --page-radius: 34px;
+  --fab-bg: #FFB547; --fab-ink: #1A1233;
+  --page-shadow: 0 0 0 1px rgba(167,174,220,.18), 0 30px 80px -20px rgba(0,0,0,.7);
+  --f-head: "Exo 2", system-ui, sans-serif;
+  --f-body: "Nunito Sans", system-ui, sans-serif;
+  --err: #FFB3C0;
+  color-scheme: dark;
+}
+body { background: radial-gradient(60% 40% at 20% 10%, rgba(255,111,180,.28), transparent 70%), radial-gradient(50% 40% at 85% 40%, rgba(90,140,255,.3), transparent 70%), radial-gradient(60% 50% at 40% 95%, rgba(124,242,200,.16), transparent 70%), var(--bg); background-attachment: fixed; }
+.space { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.stars, .stars2 { position: absolute; inset: 0; background-image: radial-gradient(1.6px 1.6px at 8% 12%, #fff, transparent), radial-gradient(1px 1px at 22% 68%, #fff, transparent), radial-gradient(1.4px 1.4px at 38% 28%, #fff, transparent), radial-gradient(1px 1px at 52% 82%, #fff, transparent), radial-gradient(1.8px 1.8px at 66% 18%, #fff, transparent), radial-gradient(1px 1px at 78% 58%, #fff, transparent), radial-gradient(1.4px 1.4px at 91% 32%, #fff, transparent), radial-gradient(1px 1px at 14% 88%, #fff, transparent), radial-gradient(1.2px 1.2px at 60% 48%, #fff, transparent), radial-gradient(1px 1px at 84% 90%, #fff, transparent); animation: twinkle 3s ease-in-out infinite; }
+.stars2 { transform: translate(37px, 61px) scale(1.3); animation-delay: 1.5s; opacity: .7; }
+@keyframes twinkle { 50% { opacity: .35; } }
+.shoot { position: absolute; top: 12%; left: -10%; width: 140px; height: 2px; background: linear-gradient(90deg, transparent, #fff); border-radius: 2px; transform: rotate(18deg); animation: shoot 7s ease-in 2s infinite; opacity: 0; }
+@keyframes shoot { 0% { translate: 0 0; opacity: 0; } 4% { opacity: 1; } 14% { translate: 120vw 38vh; opacity: 0; } 100% { opacity: 0; } }
+.planet { position: absolute; border-radius: 50%; }
+.planet-a { top: 9%; right: max(30px, calc(50% - 520px)); width: 130px; height: 130px; background: radial-gradient(circle at 35% 30%, #FFD48A, #FF8A5C 60%, #C2456B); box-shadow: inset -16px -12px 30px rgba(0,0,0,.35); }
+.planet-a::after { content: ""; position: absolute; left: -40px; right: -40px; top: 52px; height: 26px; border-radius: 50%; border: 5px solid rgba(255,219,160,.75); transform: rotate(-16deg); }
+.planet-b { bottom: 12%; left: max(40px, calc(50% - 500px)); width: 84px; height: 84px; background: radial-gradient(circle at 35% 30%, #A7FFE4, #4CC9A8 60%, #22617E); box-shadow: inset -10px -8px 20px rgba(0,0,0,.35); }
+.astro { position: absolute; top: 46%; left: max(60px, calc(50% - 470px)); width: 96px; animation: float 6s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-16px) rotate(8deg); } }
+.page { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+@media (max-width: 519px) { .page { background: rgba(12, 15, 42, .88); } }
+.round { background: rgba(255,255,255,.06); border-color: var(--line); color: var(--ink); }
+.ava-wrap { width: 170px; height: 170px; display: grid; place-items: center; margin-top: 4px; }
+.ava-wrap::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 1.5px dashed rgba(167,174,220,.5); transform: rotateX(62deg); }
+.orbit { position: absolute; inset: 0; animation: orbit 9s linear infinite; }
+.orbit i { position: absolute; top: 50%; left: -6px; width: 22px; height: 22px; margin-top: -11px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #C9CEEA 60%, #8A90B8); box-shadow: 0 0 12px rgba(255,255,255,.6); }
+@keyframes orbit { to { rotate: 360deg; } }
+.ava { width: 120px; height: 120px; border: 4px solid #2B3274; background: radial-gradient(circle at 30% 30%, #6E7BFF, #3A2F8F 70%); color: #fff; font: 800 40px var(--f-head); box-shadow: 0 0 40px rgba(110,123,255,.55); }
+.ava-badge { right: 18px; bottom: 18px; background: var(--accent-2); color: var(--on-accent-2); }
+.hi { font: 600 13px var(--f-body); letter-spacing: .3em; text-transform: uppercase; color: var(--accent-2); }
+.name { font: italic 800 clamp(36px, 10vw, 44px)/1 var(--f-head); background: linear-gradient(90deg, #FFD48A, #FF8AB8, #9DB6FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.role { color: var(--muted); letter-spacing: .2em; font-size: 11px; }
+.socials a { background: rgba(255,255,255,.06); color: var(--ink); }
+.sec-title { gap: 10px; margin: 36px 0 16px; font: italic 800 22px var(--f-head); }
+.sec-title::before { content: ""; width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FFD48A, #FF8A5C); box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px rgba(255,212,138,.6); }
+.sec-title svg { display: none; }
+.search input { background: rgba(255,255,255,.05); border-color: var(--line); }
+.chip { background: rgba(255,255,255,.04); border-color: var(--line); color: var(--muted); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.card { background: linear-gradient(160deg, #1B2153, #121640); border-color: var(--line); }
+.card:hover { border-color: var(--accent-2); box-shadow: 0 0 30px rgba(124,242,200,.18); }
+.off { background: var(--accent-2); color: var(--on-accent-2); }
+.ribbon { background: var(--accent); color: var(--accent-ink); }
+.ctype { color: var(--accent-2); }
+.cname { font: 800 14.5px/1.3 var(--f-body); }
+.now { font: 800 17px var(--f-head); }
+.buy { font: 800 14px var(--f-head); box-shadow: 0 6px 20px -6px rgba(255,181,71,.6); }
+.add { background: transparent; border-color: var(--accent-2); color: var(--accent-2); }
+.add.in { color: var(--on-accent-2); }
+.cta { border-color: var(--accent-2); color: var(--accent-2); }
+.cta:hover { background: var(--accent-2); color: var(--on-accent-2); }
+.lrow { background: rgba(255,255,255,.04); border-color: var(--line); }
+.lrow:hover { border-color: var(--accent); }
+.tick { background: transparent; border: 2px solid var(--accent-2); color: var(--accent-2); }
+.paycard { background: rgba(255,255,255,.04); border: 1px solid var(--line); }
+.paycard h3 { color: var(--accent-2); }
+.faq details { background: rgba(255,255,255,.04); border-color: var(--line); }
+.faq summary::after { background: var(--soft); color: var(--accent); }
+.sign svg { width: 54px; color: var(--accent); }
+.sign b { font: italic 800 24px var(--f-head); }
+.fab { font: 800 15px var(--f-head); box-shadow: 0 10px 30px -8px rgba(255,181,71,.6); }
+.fab .bubble { background: var(--accent-ink); color: var(--accent); }
+.sheet { background: #10143A; border-top: 1px solid var(--line); }
+.voucher { background: transparent; }
+.toast { border: 1px solid var(--line); }
+.gen { background: radial-gradient(circle at 70% 30%, #FF8AB8 0 18%, transparent 19%), radial-gradient(circle at 30% 120%, #6E7BFF, #1B2153 70%); }
+.gen span { font: italic 800 18px var(--f-head); color: #fff; }
+</style>
+
+<div class="space" aria-hidden="true">
+  <div class="stars"></div><div class="stars2"></div>
+  <div class="shoot"></div>
+  <div class="planet planet-a side-only"></div>
+  <div class="planet planet-b side-only"></div>
+  <svg class="astro side-only" viewBox="0 0 96 110">
+    <rect x="22" y="48" width="52" height="44" rx="18" fill="#EEF1FF"/>
+    <rect x="10" y="54" width="16" height="30" rx="8" fill="#D6DBF5"/><rect x="70" y="54" width="16" height="30" rx="8" fill="#D6DBF5"/>
+    <rect x="28" y="86" width="16" height="20" rx="7" fill="#D6DBF5"/><rect x="52" y="86" width="16" height="20" rx="7" fill="#D6DBF5"/>
+    <circle cx="48" cy="34" r="28" fill="#EEF1FF"/><rect x="28" y="22" width="40" height="26" rx="13" fill="#2B3274"/>
+    <rect x="34" y="27" width="12" height="6" rx="3" fill="#7CF2C8" opacity=".8"/>
+    <rect x="38" y="60" width="20" height="12" rx="3" fill="#FFB547"/>
+  </svg>
+</div>
+
+<main class="page" id="top">
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="orbit" aria-hidden="true"><i></i></div>
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk">Produk</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Navigasi</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, penjelajah!",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Produk digital untuk meluncurkan bisnis online kamu lebih tinggi. Siap lepas landas? 🚀",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Sampai jumpa di orbit berikutnya!",
+  motif: '<svg viewBox="0 0 64 40" aria-hidden="true"><circle cx="32" cy="20" r="13" fill="currentColor"/><ellipse cx="32" cy="21" rx="30" ry="7" fill="none" stroke="currentColor" stroke-width="3" opacity=".8" transform="rotate(-12 32 21)"/></svg>',
+  text: {
+    favorite: "✦ Unggulan", soldOverlay: "Habis", promo: "Promo", emptySearchTitle: "Belum terdeteksi",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap meluncur!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-galaksi" }
+};
+</script>
+<script src="app.js"></script>

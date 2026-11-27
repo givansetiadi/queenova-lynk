@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="id">
+<title>{{title}}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="{{description}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&family=Varela+Round&display=swap">
+<link rel="stylesheet" href="/base.css">
+<style>
+/* Tema TOKO KUE — toko roti manis: lelehan krim stroberi di atas halaman, taburan sprinkles,
+   kartu bertopping krim, tombol macaron, warna stroberi-cokelat-mint. */
+:root {
+  --bg: #FFE9EF;
+  --page: #FFF8F1;
+  --card: #FFFFFF;
+  --ink: #5B3A29;
+  --muted: #9B7A68;
+  --accent: #FF6F91;
+  --accent-ink: #FFFFFF;
+  --accent-2: #6FCFA8;
+  --on-accent-2: #FFFFFF;
+  --choco: #5B3A29;
+  --cream: #FFF3DF;
+  --soft: #FFEFF3;
+  --line: #F8D9E2;
+  --price: #E2537A;
+  --mark: #FFE3A3;
+  --radius: 24px; --radius-img: 18px; --radius-btn: 999px; --page-radius: 34px;
+  --fab-bg: #5B3A29; --fab-ink: #FFF8F1;
+  --f-head: "Sniglet", "Arial Rounded MT Bold", sans-serif;
+  --f-body: "Varela Round", system-ui, sans-serif;
+  --sprinkles: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cg stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M10 12l7 3' stroke='%23FF6F91'/%3E%3Cpath d='M40 8l-3 7' stroke='%236FCFA8'/%3E%3Cpath d='M64 20l6-4' stroke='%23FFC94D'/%3E%3Cpath d='M22 40l2 7' stroke='%2378B7FF'/%3E%3Cpath d='M52 44l7 2' stroke='%23FF6F91'/%3E%3Cpath d='M8 66l6-4' stroke='%23FFC94D'/%3E%3Cpath d='M36 70l7-2' stroke='%23B48CFF'/%3E%3Cpath d='M68 62l-2 7' stroke='%236FCFA8'/%3E%3C/g%3E%3C/svg%3E");
+  --drip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40' preserveAspectRatio='none'%3E%3Cpath fill='%23FF8FAB' d='M0 0h120v14c-6 0-8 4-8 10s-3 10-7 10-7-4-7-10-2-8-8-8-8 3-8 8-2 6-6 6-6-2-6-6-3-10-9-10-8 4-8 12-3 12-8 12-8-4-8-12-2-8-7-8-7 3-7 6-2 4-5 4-5-2-5-8V0z'/%3E%3C/svg%3E");
+  color-scheme: light;
+}
+body { background-color: var(--bg); background-image: var(--sprinkles); background-size: 90px 90px; }
+.page { overflow: hidden; }
+.frost { position: relative; margin: -20px -18px 0; height: 120px; background: linear-gradient(180deg, #FFB1C4, #FF8FAB); }
+@media (min-width: 520px) { .frost { margin: -24px -22px 0; } }
+.frost::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 46px; background: var(--drip) top / 100% 100% no-repeat; }
+.frost::before { content: ""; position: absolute; inset: 0; background-image: var(--sprinkles); background-size: 70px 70px; opacity: .9; }
+.top-actions { position: absolute; top: 14px; left: 14px; right: 14px; z-index: 3; }
+.round { border: 0; background: #fff; color: var(--accent); box-shadow: 0 4px 0 rgba(91,58,41,.12); }
+.profile { margin-top: -30px; z-index: 2; }
+.ava { border: 6px solid #fff; background: radial-gradient(circle at 35% 30%, #FFE3A3, #F4B860 70%); color: var(--choco); font: 800 44px var(--f-head); box-shadow: 0 8px 0 rgba(91,58,41,.12); }
+.ava-badge { width: 46px; height: 46px; right: -8px; background: #fff; color: var(--accent); box-shadow: 0 4px 0 rgba(91,58,41,.12); }
+.ava-badge svg { width: 30px; }
+.hi { font: 400 18px var(--f-head); color: var(--accent); }
+.name { font: 800 clamp(38px, 11vw, 46px)/1 var(--f-head); color: var(--choco); }
+.role { display: inline-block; margin-top: 8px; padding: 5px 14px; border-radius: 999px; background: var(--accent-2); color: #fff; font: 400 12px var(--f-body); letter-spacing: .08em; }
+.about { color: var(--muted); font-size: 15px; }
+.socials a { background: var(--soft); color: var(--accent); }
+.sec-title { position: relative; width: fit-content; margin: 38px auto 22px; padding: 10px 28px 12px; border-radius: 999px; background: var(--choco); color: var(--cream); font: 800 20px var(--f-head); }
+.sec-title::after { content: ""; position: absolute; left: 10%; right: 10%; top: 0; height: 12px; border-radius: 999px 999px 8px 8px; background: #FFB1C4; }
+.sec-title svg { width: 22px; height: 22px; }
+.search input { border-color: var(--line); background: #fff; }
+.chip { border-color: var(--line); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+.grid { gap: 16px; }
+.card { border: 0; padding: 10px; box-shadow: 0 6px 0 rgba(91,58,41,.08), 0 14px 26px -18px rgba(91,58,41,.4); }
+.card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 26px; z-index: 2; border-radius: var(--radius) var(--radius) 0 0; background: var(--drip) top / 100% 100% no-repeat; pointer-events: none; }
+.card:nth-child(3n+2)::before { filter: hue-rotate(110deg) saturate(.8); }
+.card:nth-child(3n+3)::before { filter: sepia(1) saturate(2) hue-rotate(-20deg) brightness(.6); }
+.card:hover { transform: translateY(-5px) rotate(-.8deg); }
+.cimg { margin-top: 10px; }
+.off { top: 18px; width: 54px; height: 54px; padding: 0; display: grid; place-items: center; border-radius: 50%; background: var(--accent); font: 800 13px var(--f-head); border: 3px dotted #fff; }
+.ribbon { top: 20px; background: var(--choco); color: var(--cream); font: 800 12px var(--f-head); }
+.ctype { color: var(--accent-2); }
+.cname { font: 400 14.5px/1.35 var(--f-body); color: var(--choco); }
+.card.wide .cname { font-size: 18px; }
+.now { font: 800 18px var(--f-head); }
+.card.wide .now { font-size: 22px; }
+.buy { position: relative; min-height: 42px; font: 400 15px var(--f-body); background: var(--accent); box-shadow: inset 0 -7px 0 #FFD6E0, inset 0 -10px 0 #FF6F91, 0 4px 0 #D9506F; padding-bottom: 6px; }
+.add { border: 0; background: var(--accent-2); color: #fff; box-shadow: 0 4px 0 #4FAE88; }
+.add:hover { background: #5CC29A; }
+.add.in { background: var(--choco); box-shadow: 0 4px 0 #3D2618; }
+.cta { border: 0; background: var(--choco); color: var(--cream); font: 800 15px var(--f-head); }
+.cta:hover { background: var(--accent); color: #fff; }
+.lrow { border: 0; min-height: 62px; border-radius: 999px; box-shadow: 0 5px 0 rgba(91,58,41,.1); }
+.lrow:nth-child(1) { background: #FFE0E8; }
+.lrow:nth-child(2) { background: #DFF6EC; }
+.lrow:nth-child(3) { background: #FFF0CC; }
+.tick { background: var(--choco); color: var(--cream); }
+.ltext b { font: 800 16px var(--f-head); color: var(--choco); }
+.paycard { background: var(--cream); border: 3px dashed var(--line); }
+.paycard h3 { color: var(--accent); }
+.faq details { border: 0; box-shadow: 0 4px 0 rgba(91,58,41,.08); }
+.faq summary { font: 400 14.5px var(--f-body); color: var(--choco); }
+.faq summary::after { background: var(--accent); color: #fff; }
+.sign b { font: 800 26px var(--f-head); color: var(--choco); }
+.sign svg { width: 56px; color: var(--accent); }
+.fab { font: 800 16px var(--f-head); box-shadow: 0 5px 0 #3D2618, 0 14px 30px -10px rgba(91,58,41,.6); }
+.fab .bubble { background: var(--accent); }
+.shead h2 { font: 800 26px var(--f-head); color: var(--choco); }
+.line { border: 0; box-shadow: 0 4px 0 rgba(91,58,41,.08); }
+.lname { color: var(--choco); }
+.voucher { border-color: var(--accent); }
+.sum { background: var(--cream); }
+.go { font: 800 17px var(--f-head); box-shadow: 0 5px 0 #D9506F; }
+.toast i { background: var(--accent-2); }
+.gen { background-color: var(--soft); background-image: var(--sprinkles); background-size: 60px 60px; }
+.gen span { font: 800 18px var(--f-head); color: var(--choco); background: #fff; padding: 2px 10px; border-radius: 999px; }
+
+/* Kue di samping (layar lebar) */
+.cake { position: fixed; z-index: 1; }
+.cupcake { bottom: 8%; left: max(40px, calc(50% - 480px)); width: 170px; animation: bounce 3s ease-in-out infinite; }
+.donut { top: 14%; right: max(40px, calc(50% - 480px)); width: 140px; animation: spin 14s linear infinite; }
+@keyframes bounce { 50% { transform: translateY(-12px); } }
+@keyframes spin { to { rotate: 360deg; } }
+</style>
+
+<svg class="cake cupcake side-only" viewBox="0 0 170 190" aria-hidden="true">
+  <path d="M30 100h110l-14 84H44z" fill="#F4B860"/><path d="M48 100l6 84M68 100l3 84M88 100v84M108 100l-3 84M128 100l-6 84" stroke="#D99A3E" stroke-width="4"/>
+  <path d="M20 104c-6-30 20-40 30-40 0-30 30-44 50-30 20-10 50 6 46 34 20 4 30 20 24 36z" fill="#FF8FAB"/>
+  <circle cx="86" cy="20" r="14" fill="#E2374F"/><path d="M86 6c4-6 10-6 12-4" stroke="#4FAE88" stroke-width="3" fill="none"/>
+  <g stroke-width="5" stroke-linecap="round"><path d="M50 80l8 3" stroke="#6FCFA8"/><path d="M90 60l-4 7" stroke="#FFC94D"/><path d="M120 84l7-3" stroke="#78B7FF"/><path d="M70 92l2 7" stroke="#fff"/></g>
+</svg>
+<svg class="cake donut side-only" viewBox="0 0 140 140" aria-hidden="true">
+  <circle cx="70" cy="70" r="62" fill="#F4B860"/><path d="M70 14a56 56 0 1 1-1 0z" fill="#B48CFF"/><circle cx="70" cy="70" r="20" fill="#FFE9EF"/>
+  <g stroke-width="5" stroke-linecap="round"><path d="M40 40l8 4" stroke="#fff"/><path d="M96 36l-4 8" stroke="#FFC94D"/><path d="M104 90l8 2" stroke="#6FCFA8"/><path d="M44 96l4 7" stroke="#FF6F91"/><path d="M70 30l6 2" stroke="#78B7FF"/></g>
+</svg>
+
+<main class="page" id="top">
+  <div class="frost" aria-hidden="true"></div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Etalase manis</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Resep rahasia bikin website dan cuan online, dikemas manis dan siap disantap 🧁",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Terima kasih, semoga manis harimu!",
+  motif: '<svg viewBox="0 0 48 52" aria-hidden="true"><path d="M8 26h32l-4 24H12z" fill="#F4B860"/><path d="M5 28c-2-9 6-12 9-12 0-9 9-13 15-9 6-3 15 2 14 10 6 1 9 6 7 11z" fill="currentColor"/><circle cx="24" cy="5" r="4.5" fill="#E2374F"/></svg>',
+  text: {
+    favorite: "♥ Terlaris", soldOverlay: "habis terjual", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-toko-kue" }
+};
+</script>
+{{config}}
+<script src="/app.js?v={{v}}"></script>

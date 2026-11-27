@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Panduan Setup Pembeli Baru — Etalase lynk.id</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+@page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+@page :first { margin: 0; }
+:root { --ink: #1D1B22; --muted: #6B6775; --line: #E6E2DC; --soft: #F6F4F0; --acc: #FF5B37; --acc-soft: #FFECE6; --ok: #1F8F5F; --ok-soft: #E3F5EC; --warn: #8A5A00; --warn-soft: #FFF4D6; --wa: #1FAF5A; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; color: var(--ink); font: 10.5pt/1.55 "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif; }
+h1, h2, h3 { margin: 0; letter-spacing: -.01em; }
+p { margin: 0 0 8px; }
+code, .mono { font: 500 9.5pt "JetBrains Mono", Consolas, monospace; background: var(--soft); padding: 1px 5px; border-radius: 4px; }
+b { font-weight: 700; }
+
+/* Sampul */
+.cover { height: 297mm; padding: 26mm 22mm; display: flex; flex-direction: column; justify-content: space-between; background: #1D1B22; color: #fff; page-break-after: always; position: relative; overflow: hidden; }
+.cover::before { content: ""; position: absolute; right: -60mm; top: -40mm; width: 170mm; height: 170mm; border-radius: 50%; background: var(--acc); opacity: .95; }
+.cover::after { content: ""; position: absolute; right: 22mm; bottom: 40mm; width: 60mm; height: 60mm; border-radius: 50%; background: #FFE07A; }
+.cover .tag { position: relative; z-index: 1; display: inline-block; padding: 5px 12px; border: 1.5px solid rgba(255,255,255,.5); border-radius: 999px; font-size: 9.5pt; font-weight: 600; letter-spacing: .06em; }
+.cover h1 { position: relative; z-index: 1; font-size: 40pt; line-height: 1.02; font-weight: 800; max-width: 120mm; margin-top: 14mm; }
+.cover h1 em { font-style: normal; color: #FFE07A; }
+.cover .sub { position: relative; z-index: 1; margin-top: 8mm; max-width: 110mm; font-size: 12.5pt; color: #D9D6E0; }
+.cover .flow { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12mm; max-width: 150mm; }
+.cover .flow div { padding: 12px; border-radius: 12px; background: rgba(255,255,255,.08); font-size: 9.5pt; color: #E9E7EE; }
+.cover .flow b { display: block; color: #fff; font-size: 11pt; margin-bottom: 2px; }
+.cover .foot { position: relative; z-index: 1; display: flex; justify-content: space-between; font-size: 9.5pt; color: #B9B6C4; border-top: 1px solid rgba(255,255,255,.18); padding-top: 6mm; }
+
+/* Isi */
+.section { page-break-inside: auto; margin-bottom: 9mm; }
+.eyebrow { font-size: 8.5pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--acc); }
+h2.big { font-size: 20pt; font-weight: 800; margin: 2px 0 10px; }
+.lead { color: var(--muted); font-size: 11pt; }
+.overview { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin: 10px 0 4px; }
+.overview div { padding: 10px 8px; border-radius: 10px; background: var(--soft); text-align: center; font-size: 8.5pt; color: var(--muted); }
+.overview b { display: grid; place-items: center; width: 24px; height: 24px; margin: 0 auto 5px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 10pt; }
+.overview span { display: block; color: var(--ink); font-weight: 700; font-size: 9pt; }
+
+.step { display: grid; grid-template-columns: 34px 1fr; gap: 0 14px; margin-bottom: 8mm; }
+.step h3, .step .where { break-after: avoid; }
+.step ol { break-inside: avoid; }
+.num { width: 34px; height: 34px; border-radius: 50%; background: var(--acc); color: #fff; display: grid; place-items: center; font: 800 14pt "Plus Jakarta Sans", sans-serif; }
+.step h3 { font-size: 14pt; font-weight: 800; margin: 4px 0 6px; }
+.step .where { display: inline-block; margin-bottom: 8px; padding: 2px 9px; border-radius: 999px; background: var(--soft); font-size: 8.5pt; font-weight: 600; color: var(--muted); }
+ol, ul { margin: 0 0 8px; padding-left: 18px; }
+li { margin-bottom: 4px; }
+
+.box { border-radius: 12px; padding: 12px 14px; margin: 8px 0; page-break-inside: avoid; }
+.box.wa { background: #EAF8EF; border-left: 4px solid var(--wa); }
+.box.wa .label { font-size: 8.5pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--wa); margin-bottom: 6px; }
+.box.wa p { margin: 0 0 5px; }
+.box.warn { background: var(--warn-soft); color: var(--warn); }
+.box.ok { background: var(--ok-soft); color: #14613F; }
+.box.info { background: var(--soft); }
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0 8px; font-size: 9.5pt; page-break-inside: auto; }
+tr { page-break-inside: avoid; }
+th { text-align: left; font-size: 8.5pt; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 7px 9px; border-bottom: 1.5px solid var(--ink); }
+td { padding: 7px 9px; border-bottom: 1px solid var(--line); vertical-align: top; }
+td:first-child { font-weight: 600; }
+.req { display: inline-block; padding: 0 7px; border-radius: 999px; background: var(--acc-soft); color: var(--acc); font-size: 8pt; font-weight: 700; }
+.opt { display: inline-block; padding: 0 7px; border-radius: 999px; background: var(--soft); color: var(--muted); font-size: 8pt; font-weight: 700; }
+
+.page-break { page-break-before: always; }
+
+/* Checklist */
+.checklist { border: 2px solid var(--ink); border-radius: 16px; padding: 16px 18px; page-break-inside: avoid; }
+.checklist h2 { font-size: 16pt; font-weight: 800; margin-bottom: 2px; }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 12px 0 14px; }
+.fields div { border-bottom: 1px solid #BDB8B0; padding: 14px 0 3px; font-size: 8.5pt; color: var(--muted); }
+.checks { columns: 1; }
+.check { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; border-bottom: 1px dashed var(--line); font-size: 10pt; }
+.check i { flex: none; width: 15px; height: 15px; margin-top: 2px; border: 1.8px solid var(--ink); border-radius: 4px; }
+.check small { color: var(--muted); }
+.check .grp { flex: none; width: 70px; font-size: 8pt; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--acc); margin-top: 3px; }
+.footnote { margin-top: 10px; font-size: 8.5pt; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div>
+    <span class="tag">ETALASE LYNK.ID · PANDUAN INTERNAL</span>
+    <h1>Setup toko untuk <em>pembeli baru</em></h1>
+    <p class="sub">Langkah demi langkah dari pesan pertama sampai link toko diserahkan ke pembeli. Simpan sebagai acuan setiap ada order.</p>
+    <div class="flow">
+      <div><b>± 10 menit</b>waktu kerja per pembeli</div>
+      <div><b>3 data wajib</b>subdomain, token, tema</div>
+      <div><b>2 tempat</b>hPanel Hostinger &amp; panel admin</div>
+    </div>
+  </div>
+  <div class="foot"><span>queenovatech.com</span><span>Versi 1.0 · November 2026</span></div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">Gambaran umum</div>
+  <h2 class="big">Enam langkah, satu folder aplikasi</h2>
+  <p class="lead">Semua toko pembeli dilayani oleh satu aplikasi di <code>public_html/etalase</code>. Setiap pembeli hanya mendapat subdomain baru yang diarahkan ke folder itu, lalu didaftarkan di panel admin bersama token lynk.id miliknya.</p>
+  <div class="overview">
+    <div><b>1</b><span>Minta data</span>WhatsApp</div>
+    <div><b>2</b><span>Subdomain</span>hPanel</div>
+    <div><b>3</b><span>SSL</span>hPanel</div>
+    <div><b>4</b><span>Tambah toko</span>Admin</div>
+    <div><b>5</b><span>Cek</span>Browser</div>
+    <div><b>6</b><span>Serahkan</span>WhatsApp</div>
+  </div>
+  <div class="box info"><b>Syarat:</b> setup awal sudah selesai — aplikasi sudah diunggah ke <code>public_html/etalase</code> dan <code>admin.queenovatech.com</code> sudah bisa dibuka. Contoh di panduan ini: pembeli <b>Budi</b>, tema <b>Sakura</b>.</div>
+</section>
+
+<section class="step">
+  <div class="num">1</div>
+  <div>
+    <h3>Minta data ke pembeli</h3>
+    <span class="where">WhatsApp</span>
+    <p>Kirim pesan berikut. Yang <b>wajib</b> hanya subdomain, token, dan tema pilihan; sisanya boleh menyusul.</p>
+    <div class="box wa">
+      <div class="label">Template pesan · minta data</div>
+      <p>Halo kak Budi, terima kasih sudah order template etalase lynk.id 🙏</p>
+      <p>Untuk pemasangan, mohon kirimkan:</p>
+      <p>1. <b>Nama subdomain</b> yang diinginkan (contoh: <i>tokobudi</i> → tokobudi.queenovatech.com)</p>
+      <p>2. <b>Token API lynk.id</b>: buka lynk.id → <b>Settings → Integrations → API Keys</b> → buat key baru → salin (diawali <code>lynk_sk_…</code>). Token hanya tampil sekali, langsung disalin ya.</p>
+      <p>3. <i>(Opsional)</i> Nama toko, bio singkat, link foto profil, link sosmed (IG/TikTok/WA)</p>
+      <p style="margin:0">Token disimpan terenkripsi dan bisa kakak cabut kapan saja dari lynk.id.</p>
+    </div>
+  </div>
+</section>
+
+<section class="step">
+  <div class="num">2</div>
+  <div>
+    <h3>Buat subdomain</h3>
+    <span class="where">hPanel Hostinger</span>
+    <ol>
+      <li>Login hPanel → pilih website <b>queenovatech.com</b>.</li>
+      <li>Buka <b>Domains → Subdomains</b>.</li>
+      <li>Isi nama subdomain: <code>tokobudi</code>.</li>
+      <li>Centang <b>Custom folder for subdomain</b> → isi <code>public_html/etalase</code>.</li>
+      <li>Klik <b>Create</b>.</li>
+    </ol>
+    <div class="box warn"><b>Paling penting:</b> custom folder harus <code>public_html/etalase</code>. Kalau salah, toko tidak akan tampil. Nama menu bisa sedikit berbeda tergantung versi hPanel.</div>
+  </div>
+</section>
+
+<section class="step">
+  <div class="num">3</div>
+  <div>
+    <h3>Pasang SSL (https)</h3>
+    <span class="where">hPanel Hostinger</span>
+    <ol>
+      <li>Buka <b>Security → SSL</b>.</li>
+      <li>Cari <code>tokobudi.queenovatech.com</code> → klik <b>Install SSL</b> (gratis).</li>
+      <li>Tunggu status <b>Active</b>.</li>
+    </ol>
+    <p class="lead" style="font-size:9.5pt">Biasanya 5–15 menit. Subdomain yang baru dibuat kadang perlu sampai 1 jam untuk DNS.</p>
+  </div>
+</section>
+
+<section class="step">
+  <div class="num">4</div>
+  <div>
+    <h3>Tambah toko di panel admin</h3>
+    <span class="where">admin.queenovatech.com</span>
+    <p>Login → klik <b>+ Tambah toko</b>, lalu isi:</p>
+    <table>
+      <tr><th style="width:34%">Kolom</th><th>Isi / contoh</th><th style="width:16%"></th></tr>
+      <tr><td>Subdomain</td><td><code>tokobudi</code> — harus sama persis dengan langkah 2</td><td><span class="req">WAJIB</span></td></tr>
+      <tr><td>Tema</td><td>Sakura (pilih dari 30 tema)</td><td><span class="req">WAJIB</span></td></tr>
+      <tr><td>Token lynk.id</td><td><code>lynk_sk_…</code> dari pembeli</td><td><span class="req">WAJIB</span></td></tr>
+      <tr><td>Nama toko</td><td>Toko Budi <small>(kosong = username lynk.id)</small></td><td><span class="opt">OPSIONAL</span></td></tr>
+      <tr><td>Sapaan</td><td>Halo, aku <small>(kosong = bawaan tema)</small></td><td><span class="opt">OPSIONAL</span></td></tr>
+      <tr><td>Keterangan singkat</td><td>Ebook · Template · Kelas</td><td><span class="opt">OPSIONAL</span></td></tr>
+      <tr><td>Bio</td><td>Produk digital untuk bantu UMKM naik kelas.</td><td><span class="opt">OPSIONAL</span></td></tr>
+      <tr><td>Link foto profil</td><td>Link langsung ke gambar (.jpg / .png)</td><td><span class="opt">OPSIONAL</span></td></tr>
+      <tr><td>Sosmed</td><td>Satu link per baris, mis. <code>https://instagram.com/tokobudi</code>, <code>https://wa.me/6281234567890</code></td><td><span class="opt">OPSIONAL</span></td></tr>
+      <tr><td>Catatan internal</td><td>Budi · WA 0812xxx · paket 1 tahun · bayar 27/11 <small>(hanya terlihat di admin)</small></td><td><span class="opt">OPSIONAL</span></td></tr>
+    </table>
+    <p>Klik <b>Buat toko</b>. Token langsung dicek ke lynk.id; kalau valid, toko tersimpan dan username lynk.id terisi otomatis.</p>
+  </div>
+</section>
+
+<section class="step">
+  <div class="num">5</div>
+  <div>
+    <h3>Cek hasilnya</h3>
+    <span class="where">Browser</span>
+    <ol>
+      <li>Di daftar toko, klik <b>tokobudi</b> → terbuka <code>https://tokobudi.queenovatech.com</code>.</li>
+      <li>Pastikan nama dan foto benar, produk pembeli muncul (pembukaan pertama perlu beberapa detik).</li>
+      <li>Klik <b>Beli</b> → harus membuka checkout lynk.id milik <b>Budi</b>, bukan milikmu.</li>
+      <li>Produk baru belum muncul? Klik <b>Muat ulang</b> di admin.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="step">
+  <div class="num">6</div>
+  <div>
+    <h3>Serahkan ke pembeli</h3>
+    <span class="where">WhatsApp</span>
+    <div class="box wa">
+      <div class="label">Template pesan · serah terima</div>
+      <p>Toko kakak sudah online 🎉</p>
+      <p>👉 <b>https://tokobudi.queenovatech.com</b></p>
+      <p>Pasang link ini di bio Instagram/TikTok ya kak. Produk otomatis mengikuti lynk.id — kalau kakak tambah produk atau ubah harga, website ikut berubah dalam ±5 menit.</p>
+      <p style="margin:0">Pembayaran tetap lewat lynk.id seperti biasa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section page-break">
+  <div class="eyebrow">Kalau ada masalah</div>
+  <h2 class="big">Gejala, penyebab, solusi</h2>
+  <table>
+    <tr><th style="width:28%">Gejala</th><th style="width:34%">Penyebab</th><th>Solusi</th></tr>
+    <tr><td>"Toko tidak ditemukan"</td><td>Subdomain di admin beda dengan hPanel, atau toko nonaktif</td><td>Samakan nama subdomain, atau klik <b>Aktifkan</b></td></tr>
+    <tr><td>Halaman default Hostinger / 404</td><td>Custom folder subdomain salah</td><td>Ubah folder subdomain ke <code>public_html/etalase</code></td></tr>
+    <tr><td>"Not secure" / https gagal</td><td>SSL belum aktif</td><td>Tunggu, atau install ulang SSL di hPanel</td></tr>
+    <tr><td>"Token tidak valid" saat simpan</td><td>Token salah salin, dicabut, atau kedaluwarsa</td><td>Minta pembeli membuat token baru</td></tr>
+    <tr><td>"Akun lynk.id ini belum punya akses API"</td><td>Akun pembeli belum mendapat akses API</td><td>Pembeli menghubungi lynk.id</td></tr>
+    <tr><td>Produk kosong</td><td>Belum ada produk yang dipublikasikan</td><td>Cek lynk.id pembeli, lalu klik <b>Muat ulang</b></td></tr>
+    <tr><td>Foto profil tidak muncul</td><td>Link bukan link langsung ke gambar</td><td>Pakai link berakhiran .jpg/.png atau upload ke hosting gambar</td></tr>
+  </table>
+</section>
+
+<section class="section">
+  <div class="eyebrow">Perawatan rutin</div>
+  <h2 class="big">Setelah toko berjalan</h2>
+  <table>
+    <tr><th style="width:30%">Kebutuhan</th><th>Caranya di admin</th></tr>
+    <tr><td>Ganti tema</td><td><b>Ubah</b> → pilih tema lain → simpan. Langsung tampil.</td></tr>
+    <tr><td>Pembeli ganti token</td><td><b>Ubah</b> → tempel token baru di kolom token. Kosongkan kalau tidak diganti.</td></tr>
+    <tr><td>Langganan habis</td><td><b>Nonaktifkan</b>. Data tetap aman, bisa diaktifkan lagi kapan saja.</td></tr>
+    <tr><td>Pembeli berhenti total</td><td><b>Ubah</b> → <b>Hapus permanen</b>. Minta pembeli juga mencabut token di lynk.id.</td></tr>
+    <tr><td>Backup</td><td>Unduh <code>data/app.sqlite</code> <b>dan</b> <code>config.php</code> dari File Manager. Simpan berpasangan.</td></tr>
+  </table>
+  <div class="box warn"><b>Jangan ubah <code>app_key</code> di <code>config.php</code>.</b> Kalau kunci itu hilang atau berubah, semua token tersimpan tidak bisa dibuka dan harus diinput ulang satu per satu.</div>
+</section>
+
+<section class="checklist page-break">
+  <h2>Checklist pembeli baru</h2>
+  <p class="lead" style="font-size:9.5pt;margin:0">Cetak atau duplikat halaman ini untuk setiap order.</p>
+  <div class="fields">
+    <div>Nama pembeli</div><div>No. WhatsApp</div>
+    <div>Subdomain</div><div>Tema</div>
+    <div>Tanggal order</div><div>Paket / masa aktif</div>
+  </div>
+  <div class="checks">
+    <div class="check"><span class="grp">Data</span><i></i><span>Subdomain, token, dan tema diterima <small>· opsional: nama, bio, foto, sosmed</small></span></div>
+    <div class="check"><span class="grp">hPanel</span><i></i><span>Subdomain dibuat dengan custom folder <code>public_html/etalase</code></span></div>
+    <div class="check"><span class="grp">hPanel</span><i></i><span>SSL terpasang dan berstatus Active</span></div>
+    <div class="check"><span class="grp">Admin</span><i></i><span>Toko ditambahkan, token valid, username terisi otomatis</span></div>
+    <div class="check"><span class="grp">Admin</span><i></i><span>Catatan internal diisi (nama, WA, paket)</span></div>
+    <div class="check"><span class="grp">Cek</span><i></i><span>Toko terbuka lewat https, nama &amp; foto benar</span></div>
+    <div class="check"><span class="grp">Cek</span><i></i><span>Produk pembeli tampil</span></div>
+    <div class="check"><span class="grp">Cek</span><i></i><span>Tombol Beli membuka checkout lynk.id milik pembeli</span></div>
+    <div class="check"><span class="grp">Serah</span><i></i><span>Link toko dikirim ke pembeli + saran pasang di bio</span></div>
+  </div>
+  <p class="footnote">Panduan lengkap teknis: <code>D:\project\lynk-saas\README.md</code></p>
+</section>
+
+</body>
+</html>

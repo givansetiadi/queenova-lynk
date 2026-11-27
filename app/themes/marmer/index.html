@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="id">
+<title>{{title}}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="{{description}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,600;1,500&family=Raleway:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/base.css">
+<style>
+/* Tema MARMER EMAS — mewah & tenang: halaman marmer putih berurat di atas marmer hijau gelap,
+   aksen emas foil, huruf Didone miring, garis emas tipis di semua bingkai. */
+:root {
+  --bg: #0E1A16;
+  --page: #F8F6F2;
+  --card: #FFFFFF;
+  --ink: #1B1B1A;
+  --muted: #77726A;
+  --accent: #1B1B1A;
+  --accent-ink: #EBD08A;
+  --accent-2: #B88A2E;
+  --on-accent-2: #FFFFFF;
+  --gold: linear-gradient(135deg, #A87A24 0%, #F3DC8C 28%, #C99A3B 50%, #F7E6A6 72%, #9C701E 100%);
+  --soft: #F1EEE8;
+  --line: #E4DCCB;
+  --price: #1B1B1A;
+  --mark: #F3E6BE;
+  --radius: 4px; --radius-img: 2px; --radius-btn: 2px; --page-radius: 6px;
+  --fab-bg: #1B1B1A; --fab-ink: #EBD08A;
+  --page-shadow: 0 0 0 1px #C99A3B, 0 0 0 7px #F8F6F2, 0 0 0 8px #C99A3B, 0 40px 90px -30px rgba(0,0,0,.8);
+  --f-head: "Bodoni Moda", Didot, Georgia, serif;
+  --f-body: "Raleway", system-ui, sans-serif;
+  color-scheme: light;
+}
+body { background-color: var(--bg); background-image: linear-gradient(118deg, transparent 46%, rgba(220,230,220,.09) 47%, transparent 48.5%), linear-gradient(32deg, transparent 60%, rgba(220,230,220,.07) 61%, transparent 62%), linear-gradient(160deg, transparent 20%, rgba(201,154,59,.12) 21%, transparent 22%), radial-gradient(60% 50% at 70% 20%, rgba(40,80,64,.6), transparent 70%), radial-gradient(50% 50% at 10% 90%, rgba(30,60,50,.8), transparent 70%); background-attachment: fixed; }
+.page { background-color: var(--page); background-image: linear-gradient(125deg, transparent 40%, rgba(150,145,135,.12) 41%, transparent 42.5%), linear-gradient(28deg, transparent 70%, rgba(150,145,135,.1) 71%, transparent 72%), linear-gradient(150deg, transparent 15%, rgba(201,154,59,.14) 15.6%, transparent 16.3%), radial-gradient(40% 30% at 20% 10%, rgba(180,175,165,.15), transparent 70%); }
+.round { border: 1px solid var(--line); background: var(--page); color: var(--ink); }
+.bubble { background: var(--accent-2); }
+.ava-wrap { width: 136px; height: 136px; padding: 3px; border-radius: 50%; background: var(--gold); margin-top: 8px; }
+.ava { border: 5px solid var(--page); background: linear-gradient(160deg, #EFEBE4, #D9D2C6); color: var(--accent-2); font: italic 500 46px var(--f-head); }
+.ava-badge { width: 34px; height: 34px; background: var(--gold); color: #fff; border: 3px solid var(--page); }
+.ava-badge svg { width: 16px; }
+.hi { margin-top: 16px; font: 600 10.5px var(--f-body); letter-spacing: .4em; text-transform: uppercase; color: var(--accent-2); }
+.name { margin-top: 4px; font: italic 500 clamp(38px, 11vw, 48px)/1.05 var(--f-head); background: var(--gold); -webkit-background-clip: text; background-clip: text; color: transparent; padding: 0 4px; }
+.role { margin-top: 6px; color: var(--ink); letter-spacing: .3em; font: 600 10.5px var(--f-body); }
+.about { color: var(--muted); font-size: 14.5px; }
+.socials a { background: transparent; border: 1px solid var(--line); color: var(--ink); }
+.sec-title { gap: 14px; margin: 42px 0 20px; font: 500 12px var(--f-body); letter-spacing: .36em; text-transform: uppercase; color: var(--accent-2); }
+.sec-title::before, .sec-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #C99A3B); }
+.sec-title::after { background: linear-gradient(90deg, #C99A3B, transparent); }
+.sec-title svg { display: none; }
+.sec-title span.t { font: italic 500 26px var(--f-head); letter-spacing: 0; text-transform: none; color: var(--ink); }
+.search input { border: 0; border-bottom: 1px solid #C99A3B; background: transparent; border-radius: 0; padding-left: 32px; }
+.search > svg { left: 4px; color: var(--accent-2); }
+.chip { border: 1px solid var(--line); background: transparent; font: 600 11px var(--f-body); letter-spacing: .14em; text-transform: uppercase; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #EBD08A; }
+.grid { gap: 18px 14px; }
+.card { border: 1px solid var(--line); padding: 10px; box-shadow: 0 18px 30px -24px rgba(0,0,0,.35); }
+.card::after { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(201,154,59,.45); pointer-events: none; }
+.card:hover { border-color: #C99A3B; }
+.off { border-radius: 0; background: var(--ink); color: #EBD08A; font: 600 11px var(--f-body); letter-spacing: .1em; }
+.ribbon { border-radius: 0; background: var(--gold); color: var(--ink); font: 700 10px var(--f-body); letter-spacing: .2em; text-transform: uppercase; }
+.cbody { text-align: center; justify-items: center; }
+.ctype { color: var(--accent-2); letter-spacing: .26em; font-size: 9.5px; }
+.cname { font: 500 17px/1.2 var(--f-head); }
+.card.wide .cname { font-size: 24px; }
+.cprice { justify-content: center; }
+.now { font: 600 15px var(--f-body); letter-spacing: .06em; }
+.buy { font: 600 11.5px var(--f-body); letter-spacing: .24em; text-transform: uppercase; }
+.add { border: 1px solid var(--ink); color: var(--ink); }
+.add.in { background: var(--gold); border-color: #C99A3B; color: var(--ink); }
+.cta { border: 1px solid var(--ink); color: var(--ink); font: 600 11px var(--f-body); letter-spacing: .24em; text-transform: uppercase; }
+.cta:hover { background: var(--ink); color: #EBD08A; }
+.lrow { border: 1px solid var(--line); background: rgba(255,255,255,.7); }
+.lrow:hover { border-color: #C99A3B; transform: none; }
+.tick { background: transparent; border: 1px solid #C99A3B; color: var(--accent-2); }
+.ltext b { font: italic 500 19px var(--f-head); }
+.paycard { background: rgba(255,255,255,.75); border: 1px solid var(--line); }
+.paycard h3 { color: var(--accent-2); letter-spacing: .24em; }
+.pm { border: 1px solid var(--line); font-weight: 500; }
+.faq { gap: 0; border-top: 1px solid var(--line); }
+.faq details { border: 0; border-bottom: 1px solid var(--line); background: transparent; }
+.faq summary { font: italic 500 18px var(--f-head); }
+.faq summary::after { background: transparent; color: var(--accent-2); font-weight: 400; }
+.sign b { font: italic 500 26px var(--f-head); }
+.sign svg { width: 40px; color: #C99A3B; }
+.fab { font: 600 12px var(--f-body); letter-spacing: .22em; text-transform: uppercase; border: 1px solid #C99A3B; }
+.fab .bubble { background: var(--gold); color: var(--ink); }
+.sheet { border-top: 2px solid #C99A3B; }
+.shead h2 { font: italic 500 28px var(--f-head); }
+.line { border: 1px solid var(--line); }
+.lname { font: 500 16px var(--f-head); }
+.voucher { border: 1px solid #C99A3B; border-style: dashed; }
+.go { font: 600 13px var(--f-body); letter-spacing: .24em; text-transform: uppercase; }
+.toast { border: 1px solid #C99A3B; }
+.toast i { background: var(--gold); color: var(--ink); }
+.gen { background: linear-gradient(125deg, #EFEBE4 40%, #E1D9CC 41%, #EFEBE4 43%), #EFEBE4; }
+.gen span { font: italic 500 20px var(--f-head); color: var(--accent-2); }
+
+/* Ornamen samping (layar lebar) */
+.orn { position: fixed; z-index: 1; width: 160px; color: #C99A3B; opacity: .7; }
+.orn-l { top: 10%; left: max(30px, calc(50% - 480px)); }
+.orn-r { bottom: 10%; right: max(30px, calc(50% - 480px)); transform: rotate(180deg); }
+</style>
+
+<svg class="orn orn-l side-only" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M2 2h60M2 2v60M12 12h40M12 12v40"/><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M62 2c20 0 20 20 40 20M2 62c0 20 20 20 20 40"/></svg>
+<svg class="orn orn-r side-only" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M2 2h60M2 2v60M12 12h40M12 12v40"/><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M62 2c20 0 20 20 40 20M2 62c0 20 20 20 20 40"/></svg>
+
+<main class="page" id="top">
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span class="t">Koleksi</span></h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title"><span class="t">Tautan</span></h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar"><span class="t">Cara bayar</span></h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, Anda langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email Anda.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab"><span class="t">Tanya jawab</span></h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran Anda.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang Anda isi saat checkout.</p></details>
+    <details><summary>Bisa membeli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Mengapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa Anda atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Selamat datang",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Produk digital yang dirancang dengan teliti, untuk bisnis yang ingin tampil berkelas.",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap dan checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Sebelum Anda membeli", href: "#tanya-jawab" }
+  ],
+  signoff: "Terima kasih atas kunjungan Anda.",
+  motif: '<svg viewBox="0 0 40 40" aria-hidden="true"><path fill="currentColor" d="M20 2l4 14 14 4-14 4-4 14-4-14-14-4 14-4z"/></svg>',
+  text: {
+    favorite: "Signature", soldOverlay: "Habis", promo: "Penawaran", emptySearchTitle: "Tidak ditemukan",
+    emptyCartTitle: "Keranjang masih kosong", emptyCartBody: "Tekan tombol keranjang pada produk pilihan Anda.",
+    ready: "Siap dibayar", added: "Ditambahkan", voucher: "Kode voucher (opsional)"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-marmer" }
+};
+</script>
+{{config}}
+<script src="/app.js?v={{v}}"></script>

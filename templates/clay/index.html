@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="id">
+<title>Toko Ivan Setiadi · Clay 3D</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Template website, ebook, dan panduan digital dari Ivan Setiadi. Bayar aman lewat lynk.id.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* Tema CLAY 3D — semua elemen empuk seperti mainan tanah liat: bayangan dalam terang-gelap,
+   sudut sangat bulat, warna permen, dan bentuk 3D (bola, donat, kapsul) melayang. */
+:root {
+  --bg: #FFE6D8;
+  --page: #FFF3EC;
+  --card: #FFFFFF;
+  --ink: #3B2A4A;
+  --muted: #8A7896;
+  --accent: #7B61FF;
+  --accent-ink: #FFFFFF;
+  --accent-2: #FF7AA2;
+  --on-accent-2: #FFFFFF;
+  --mint: #8EE6C4;
+  --sky: #9CD3FF;
+  --lemon: #FFE27A;
+  --pink: #FFB3C7;
+  --soft: #F6E9FF;
+  --line: #F1DDE8;
+  --price: #7B61FF;
+  --mark: #FFE27A;
+  --radius: 30px; --radius-img: 22px; --radius-btn: 999px; --page-radius: 44px;
+  --fab-bg: #7B61FF; --fab-ink: #FFFFFF;
+  --clay: inset -6px -8px 14px rgba(0,0,0,.1), inset 6px 8px 14px rgba(255,255,255,.85), 10px 16px 30px -14px rgba(90,50,110,.35);
+  --clay-sm: inset -3px -4px 8px rgba(0,0,0,.12), inset 3px 4px 8px rgba(255,255,255,.7), 4px 8px 16px -8px rgba(90,50,110,.4);
+  --page-shadow: inset -10px -12px 24px rgba(0,0,0,.06), inset 10px 12px 24px rgba(255,255,255,.9), 0 40px 80px -30px rgba(120,60,100,.45);
+  --f-head: "Fredoka", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --f-body: "Fredoka", "Arial Rounded MT Bold", system-ui, sans-serif;
+  color-scheme: light;
+}
+body { font-weight: 500; background: radial-gradient(60% 50% at 10% 10%, #FFD1E3, transparent 70%), radial-gradient(60% 50% at 90% 80%, #D7E8FF, transparent 70%), var(--bg); background-attachment: fixed; }
+.blob { position: fixed; z-index: 0; pointer-events: none; animation: float 7s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-22px) rotate(10deg); } }
+.b-ball { top: 10%; left: max(30px, calc(50% - 470px)); width: 110px; height: 110px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #FFFFFF, #FFB3C7 40%, #FF7AA2 85%); box-shadow: 10px 20px 30px -10px rgba(255,90,140,.45); }
+.b-ring { top: 54%; right: max(40px, calc(50% - 480px)); width: 130px; height: 130px; border-radius: 50%; border: 30px solid #9CD3FF; box-shadow: inset 6px 8px 12px rgba(255,255,255,.8), inset -6px -8px 12px rgba(0,60,120,.18), 10px 20px 30px -10px rgba(60,120,200,.4); animation-delay: -2s; }
+.b-pill { bottom: 10%; left: max(60px, calc(50% - 440px)); width: 140px; height: 60px; border-radius: 30px; background: linear-gradient(90deg, #FFE27A 50%, #8EE6C4 50%); box-shadow: inset 6px 8px 12px rgba(255,255,255,.8), inset -6px -8px 12px rgba(0,0,0,.1), 10px 20px 30px -10px rgba(120,100,40,.4); transform: rotate(-24deg); animation-delay: -4s; }
+.b-cube { top: 18%; right: max(70px, calc(50% - 420px)); width: 64px; height: 64px; border-radius: 18px; background: linear-gradient(145deg, #B9A6FF, #7B61FF); box-shadow: inset 4px 6px 10px rgba(255,255,255,.5), 10px 16px 24px -10px rgba(90,60,200,.5); transform: rotate(18deg); animation-delay: -1s; }
+.page { border: 0; }
+.round { border: 0; background: var(--card); color: var(--ink); box-shadow: var(--clay-sm); }
+.bubble { box-shadow: var(--clay-sm); }
+.ava-wrap { width: 136px; height: 136px; }
+.ava { border: 0; border-radius: 42% 58% 55% 45% / 50% 45% 55% 50%; background: radial-gradient(circle at 35% 30%, #D7CCFF, #9F88FF 70%); color: #fff; font: 700 46px var(--f-head); box-shadow: var(--clay); }
+.ava-badge { width: 46px; height: 46px; background: var(--lemon); color: var(--ink); box-shadow: var(--clay-sm); }
+.hi { font: 600 17px var(--f-head); color: var(--accent-2); }
+.name { font: 700 clamp(38px, 11vw, 46px)/1 var(--f-head); color: var(--ink); text-shadow: 0 3px 0 rgba(123,97,255,.25); }
+.role { display: inline-block; margin-top: 8px; padding: 6px 14px; border-radius: 999px; background: var(--mint); color: var(--ink); font: 600 12px var(--f-head); letter-spacing: .06em; box-shadow: var(--clay-sm); }
+.about { color: var(--muted); font-size: 15px; }
+.socials a { background: var(--card); box-shadow: var(--clay-sm); }
+.sec-title { width: fit-content; margin: 34px auto 18px; padding: 10px 24px; border-radius: 999px; background: var(--lemon); font: 700 20px var(--f-head); box-shadow: var(--clay); }
+.sec-title svg { width: 22px; height: 22px; }
+.search input { border: 0; box-shadow: inset 4px 5px 10px rgba(0,0,0,.08), inset -4px -5px 10px rgba(255,255,255,.9); background: var(--page); font-weight: 600; }
+.chip { border: 0; background: var(--card); color: var(--ink); font: 600 13.5px var(--f-head); box-shadow: var(--clay-sm); }
+.chip[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.grid { gap: 16px; }
+.card { border: 0; padding: 10px; box-shadow: var(--clay); }
+.card:nth-child(4n+1) { background: #FFF; }
+.card:nth-child(4n+2) { background: #EAF6FF; }
+.card:nth-child(4n+3) { background: #FFF0F5; }
+.card:nth-child(4n+4) { background: #EDFBF4; }
+.card:hover { transform: translateY(-6px) scale(1.02); }
+.cimg { box-shadow: inset 0 0 0 4px rgba(255,255,255,.7); }
+.off { background: var(--accent-2); font: 700 13px var(--f-head); padding: 7px 11px; box-shadow: var(--clay-sm); }
+.ribbon { background: var(--lemon); color: var(--ink); font: 700 12px var(--f-head); box-shadow: var(--clay-sm); }
+.ctype { color: var(--accent-2); font: 600 11px var(--f-head); }
+.cname { font: 600 15px/1.3 var(--f-head); }
+.card.wide .cname { font-size: 19px; }
+.now { font: 700 18px var(--f-head); }
+.buy { font: 700 15px var(--f-head); box-shadow: var(--clay-sm); background: linear-gradient(180deg, #9580FF, #7B61FF); }
+.buy:active { transform: scale(.96); }
+.add { border: 0; background: var(--card); color: var(--accent); box-shadow: var(--clay-sm); }
+.add.in { background: var(--accent-2); color: #fff; }
+.cta { border: 0; background: var(--card); color: var(--accent); font: 700 15px var(--f-head); box-shadow: var(--clay-sm); }
+.cta:hover { background: var(--accent); color: #fff; }
+.lrow { border: 0; border-radius: 999px; box-shadow: var(--clay); min-height: 62px; }
+.lrow:nth-child(1) { background: #EAF6FF; }
+.lrow:nth-child(2) { background: #FFF0F5; }
+.lrow:nth-child(3) { background: #FFF8DA; }
+.lrow:hover { transform: translateY(-3px); }
+.tick { width: 34px; height: 34px; background: var(--accent); box-shadow: var(--clay-sm); }
+.ltext b { font: 600 16px var(--f-head); }
+.paycard { background: var(--card); box-shadow: var(--clay); }
+.paycard h3 { font: 600 12px var(--f-head); color: var(--accent-2); }
+.pm { background: var(--page); box-shadow: var(--clay-sm); font: 600 12.5px var(--f-head); }
+.faq details { border: 0; box-shadow: var(--clay-sm); border-radius: 24px; }
+.faq summary { font: 600 15px var(--f-head); }
+.faq summary::after { background: var(--lemon); color: var(--ink); box-shadow: var(--clay-sm); }
+.sign b { font: 700 24px var(--f-head); }
+.sign svg { width: 52px; color: var(--accent-2); }
+.fab { font: 700 16px var(--f-head); box-shadow: var(--clay), 0 18px 30px -10px rgba(123,97,255,.6); background: linear-gradient(180deg, #9580FF, #7B61FF); }
+.fab .bubble { background: var(--lemon); color: var(--ink); }
+.sheet { box-shadow: 0 -20px 50px -20px rgba(120,60,100,.4); }
+.shead h2 { font: 700 26px var(--f-head); }
+.line { border: 0; box-shadow: var(--clay-sm); border-radius: 24px; }
+.qty { box-shadow: inset 2px 3px 6px rgba(0,0,0,.08); }
+.qty button { box-shadow: var(--clay-sm); }
+.lname { font: 600 14px var(--f-head); }
+.voucher { border: 0; box-shadow: inset 4px 5px 10px rgba(0,0,0,.08), inset -4px -5px 10px rgba(255,255,255,.9); background: var(--page); font-family: var(--f-head); }
+.sum { background: var(--card); box-shadow: var(--clay-sm); }
+.go { font: 700 17px var(--f-head); background: linear-gradient(180deg, #9580FF, #7B61FF); box-shadow: var(--clay); }
+.ghost { border: 0; box-shadow: var(--clay-sm); }
+.toast { box-shadow: var(--clay); font-family: var(--f-head); }
+.gen { background: radial-gradient(circle at 30% 30%, #fff, var(--soft) 70%); }
+.gen span { font: 700 18px var(--f-head); }
+</style>
+
+<div class="blob b-ball side-only" aria-hidden="true"></div>
+<div class="blob b-ring side-only" aria-hidden="true"></div>
+<div class="blob b-pill side-only" aria-hidden="true"></div>
+<div class="blob b-cube side-only" aria-hidden="true"></div>
+
+<main class="page" id="top">
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Haii, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Produk digital yang empuk dipakai: gampang, cepat, dan langsung jalan ✨",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Makasih udah main ke sini!",
+  motif: '<svg viewBox="0 0 40 40" aria-hidden="true"><path fill="currentColor" d="M20 0c1.6 10.2 9.8 18.4 20 20-10.2 1.6-18.4 9.8-20 20C18.4 29.8 10.2 21.6 0 20 10.2 18.4 18.4 10.2 20 0z"/></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-clay" }
+};
+</script>
+<script src="app.js"></script>

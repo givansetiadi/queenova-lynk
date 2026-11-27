@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id">
+<title>Toko Ivan Setiadi · Neon Malam</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Template website, ebook, dan panduan digital dari Ivan Setiadi. Bayar aman lewat lynk.id.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Sora:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* Tema NEON MALAM — kota malam ala synthwave: matahari bergaris di cakrawala, lantai grid bercahaya, teks neon cyan & magenta. */
+:root {
+  --bg: #07060F;
+  --page: rgba(15, 14, 30, .86);
+  --card: #15142A;
+  --ink: #F1EEFF;
+  --muted: #A29EC2;
+  --accent: #2EF2FF;
+  --accent-ink: #06121A;
+  --accent-2: #FF3EA5;
+  --on-accent-2: #FFFFFF;
+  --soft: #1E1C38;
+  --line: #2E2B55;
+  --price: #2EF2FF;
+  --mark: rgba(255, 62, 165, .45);
+  --radius: 18px; --radius-img: 12px; --radius-btn: 12px; --page-radius: 28px;
+  --fab-bg: #FF3EA5; --fab-ink: #FFFFFF;
+  --page-shadow: 0 0 0 1px rgba(46,242,255,.35), 0 0 60px rgba(255,62,165,.25), 0 30px 80px -20px rgba(0,0,0,.8);
+  --f-head: "Unbounded", system-ui, sans-serif;
+  --f-body: "Sora", system-ui, sans-serif;
+  --err: #FF8DB4;
+  color-scheme: dark;
+}
+body { background: radial-gradient(120% 60% at 50% 0%, #2A0F4A 0%, #0B0820 55%, #07060F 100%) fixed; }
+.sky { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.stars { position: absolute; inset: 0 0 45% 0; background-image: radial-gradient(1.5px 1.5px at 10% 20%, #fff, transparent), radial-gradient(1px 1px at 30% 70%, #fff, transparent), radial-gradient(1.5px 1.5px at 55% 30%, #fff, transparent), radial-gradient(1px 1px at 75% 15%, #fff, transparent), radial-gradient(1.5px 1.5px at 88% 55%, #fff, transparent), radial-gradient(1px 1px at 20% 45%, #fff, transparent), radial-gradient(1px 1px at 65% 60%, #fff, transparent); opacity: .7; }
+.horizon-sun { position: absolute; left: 50%; bottom: 30vh; width: 460px; height: 230px; margin-left: -230px; border-radius: 230px 230px 0 0; background: linear-gradient(180deg, #FFD23F 0%, #FF7A59 45%, #FF3EA5 100%); -webkit-mask: repeating-linear-gradient(180deg, #000 0 18px, transparent 18px 24px); mask: repeating-linear-gradient(180deg, #000 0 18px, transparent 18px 24px); opacity: .85; filter: drop-shadow(0 0 40px rgba(255,62,165,.6)); }
+.floor { position: absolute; left: -50%; right: -50%; bottom: 0; height: 30vh; background-image: linear-gradient(rgba(46,242,255,.55) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(46,242,255,.55) 1.5px, transparent 1.5px); background-size: 60px 40px; transform: perspective(260px) rotateX(58deg); transform-origin: top; animation: floor 2.5s linear infinite; box-shadow: inset 0 40px 60px #07060F; }
+@keyframes floor { to { background-position: 0 40px; } }
+.page { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+@media (max-width: 519px) { .page { background: rgba(10, 9, 22, .9); } }
+.round { background: rgba(255,255,255,.04); border-color: var(--line); color: var(--accent); }
+.round:hover { box-shadow: 0 0 16px rgba(46,242,255,.5); }
+.bubble { background: var(--accent-2); box-shadow: 0 0 12px var(--accent-2); }
+.ava-wrap { width: 136px; height: 136px; padding: 4px; border-radius: 50%; background: conic-gradient(var(--accent), var(--accent-2), #FFD23F, var(--accent)); box-shadow: 0 0 30px rgba(46,242,255,.45), 0 0 60px rgba(255,62,165,.3); animation: spin 8s linear infinite; }
+.ava { border: 4px solid #0F0E1E; background: #16142C; color: var(--accent); font: 800 40px var(--f-head); animation: spin 8s linear infinite reverse; }
+@keyframes spin { to { rotate: 360deg; } }
+.ava-badge { background: #FFD23F; color: #1A1030; box-shadow: 0 0 14px #FFD23F; }
+.hi { margin-top: 16px; font: 600 12px var(--f-body); letter-spacing: .3em; text-transform: uppercase; color: var(--accent-2); }
+.name { font: 800 clamp(30px, 9vw, 38px)/1.05 var(--f-head); color: #fff; text-shadow: 0 0 6px #fff, 0 0 18px var(--accent), 0 0 38px var(--accent); animation: flicker 6s infinite; }
+@keyframes flicker { 0%, 92%, 100% { opacity: 1; } 93% { opacity: .55; } 94% { opacity: 1; } 96% { opacity: .7; } }
+.role { color: var(--accent); letter-spacing: .2em; font: 600 11px var(--f-body); }
+.about { color: var(--muted); }
+.socials a { background: rgba(255,255,255,.04); border: 1px solid var(--line); color: var(--accent); }
+.socials a:hover { box-shadow: 0 0 16px rgba(46,242,255,.5); }
+.sec-title { justify-content: flex-start; gap: 10px; margin: 36px 0 16px; font: 700 15px var(--f-head); letter-spacing: .18em; text-transform: uppercase; color: var(--accent-2); text-shadow: 0 0 12px rgba(255,62,165,.8); }
+.sec-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--accent-2), transparent); box-shadow: 0 0 8px var(--accent-2); }
+.sec-title svg { color: var(--accent-2); }
+.search input { background: rgba(255,255,255,.03); border: 1px solid var(--line); }
+.search input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(46,242,255,.15), 0 0 20px rgba(46,242,255,.25); }
+.search .clear { background: var(--soft); }
+.chip { background: transparent; border: 1px solid var(--line); color: var(--muted); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); box-shadow: 0 0 14px rgba(46,242,255,.6); }
+.card { border: 1px solid transparent; background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(160deg, rgba(46,242,255,.5), rgba(255,62,165,.5)) border-box; }
+.card:hover { box-shadow: 0 0 24px rgba(46,242,255,.3), 0 0 40px rgba(255,62,165,.2); transform: translateY(-5px); }
+.off { background: var(--accent-2); box-shadow: 0 0 14px var(--accent-2); font: 700 12px var(--f-head); }
+.ribbon { background: #FFD23F; color: #1A1030; font: 700 11px var(--f-head); box-shadow: 0 0 14px rgba(255,210,63,.7); }
+.sold { color: var(--accent-2); text-shadow: 0 0 10px var(--accent-2); }
+.ctype { color: var(--accent-2); letter-spacing: .14em; font: 600 10.5px var(--f-body); }
+.cname { font: 700 14px/1.35 var(--f-body); }
+.now { font: 700 16px var(--f-head); text-shadow: 0 0 10px rgba(46,242,255,.6); }
+.card.wide .now { font-size: 20px; }
+.buy { font: 700 14px var(--f-head); box-shadow: 0 0 16px rgba(46,242,255,.5); }
+.buy:hover { box-shadow: 0 0 26px rgba(46,242,255,.8); filter: none; }
+.add { background: transparent; border: 1px solid var(--accent-2); color: var(--accent-2); }
+.add:hover { background: rgba(255,62,165,.12); }
+.add.in { box-shadow: 0 0 14px var(--accent-2); }
+.cta { border: 1px solid var(--accent); font: 600 14px var(--f-body); }
+.cta:hover { box-shadow: 0 0 20px rgba(46,242,255,.6); }
+.lrow { border: 1px solid transparent; background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(90deg, var(--accent), var(--accent-2)) border-box; }
+.lrow:hover { box-shadow: 0 0 22px rgba(255,62,165,.35); }
+.tick { background: transparent; border: 1.5px solid var(--accent); color: var(--accent); box-shadow: 0 0 10px rgba(46,242,255,.5); }
+.ltext b { font: 700 15px var(--f-body); }
+.paycard { background: rgba(255,255,255,.03); border: 1px solid var(--line); }
+.paycard h3 { color: var(--accent); }
+.pm { background: var(--soft); }
+.faq details { background: rgba(255,255,255,.03); border: 1px solid var(--line); }
+.faq details[open] { border-color: var(--accent-2); box-shadow: 0 0 20px rgba(255,62,165,.2); }
+.faq summary::after { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+.sign svg { width: 40px; color: #FFD23F; filter: drop-shadow(0 0 10px #FFD23F); }
+.sign b { font: 700 20px var(--f-head); text-shadow: 0 0 14px var(--accent-2); }
+.fab { font: 700 14px var(--f-head); box-shadow: 0 0 24px rgba(255,62,165,.7); }
+.fab .bubble { background: #fff; color: var(--accent-2); box-shadow: none; }
+.scrim { background: rgba(3,2,10,.7); }
+.sheet { background: #0F0E1E; border-top: 1px solid var(--accent); box-shadow: 0 -10px 40px rgba(46,242,255,.2); }
+.shead h2 { font: 700 22px var(--f-head); color: var(--accent); text-shadow: 0 0 12px rgba(46,242,255,.6); }
+.line { border: 1px solid var(--line); }
+.voucher { background: transparent; color: var(--ink); }
+.sum { background: var(--soft); }
+.go { font: 700 15px var(--f-head); box-shadow: 0 0 22px rgba(46,242,255,.55); }
+.ghost { border: 1px solid var(--line); background: transparent; }
+.toast { border: 1px solid var(--accent); box-shadow: 0 0 24px rgba(46,242,255,.4); }
+.gen { background: radial-gradient(circle at 50% 120%, #FF3EA5 0, #2A0F4A 60%); }
+.gen span { font: 700 15px var(--f-head); color: #fff; text-shadow: 0 0 10px var(--accent); }
+.empty b, .sempty b { font-family: var(--f-head); }
+</style>
+
+<div class="sky" aria-hidden="true">
+  <div class="stars"></div>
+  <div class="horizon-sun"></div>
+  <div class="floor"></div>
+</div>
+
+<main class="page" id="top">
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">FAQ</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Welcome to",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Produk digital untuk kamu yang mau naik level: bikin website, otomatisasi, dan cuan online.",
+  avatar: "",
+  socials: [],   // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "FAQ", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Stay up late, build something great.",
+  motif: '<svg viewBox="0 0 32 48" aria-hidden="true"><path fill="currentColor" d="M20 0 2 28h12l-4 20L30 18H17z"/></svg>',
+  text: {
+    favorite: "⚡ Hot", soldOverlay: "SOLD OUT", promo: "Promo", emptySearchTitle: "Tidak ditemukan",
+    emptyCartTitle: "Keranjang kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-neon-malam" }
+};
+</script>
+<script src="app.js"></script>

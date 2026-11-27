@@ -1,0 +1,18 @@
+# Rahasia & data lokal — JANGAN di-commit
+.env
+.env.local
+.env.*.local
+app/config.php
+app/data/*
+!app/data/.htaccess
+*.sqlite
+*.sqlite-journal
+
+# Hasil build / dependensi
+node_modules/
+.vercel/
+
+# Sistem
+.DS_Store
+Thumbs.db
+desktop.ini

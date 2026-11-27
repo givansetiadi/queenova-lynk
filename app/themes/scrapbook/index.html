@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="id">
+<title>{{title}}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="{{description}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Kalam:wght@400;700&display=swap">
+<link rel="stylesheet" href="/base.css">
+<style>
+/* Tema SCRAPBOOK — buku catatan bergaris di atas kertas kraft. Produk = foto polaroid berselotip washi,
+   link = sticky note, judul = stabilo kuning, tulisan tangan. */
+:root {
+  --bg: #D6C3A0;
+  --page: #FFFEF6;
+  --card: #FFFFFF;
+  --ink: #2D2A26;
+  --muted: #6B645A;
+  --accent: #2F5FD0;
+  --accent-ink: #FFFFFF;
+  --accent-2: #E0533D;
+  --on-accent-2: #FFFFFF;
+  --soft: #FFF3C4;
+  --line: #D8D0C0;
+  --price: #E0533D;
+  --mark: #FFE66B;
+  --radius: 4px; --radius-img: 2px; --page-radius: 6px;
+  --radius-btn: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --fab-bg: #2D2A26; --fab-ink: #FFFEF6;
+  --f-head: "Permanent Marker", "Comic Sans MS", cursive;
+  --f-body: "Kalam", "Comic Sans MS", cursive;
+  color-scheme: light;
+}
+body { font-size: 16px; background-color: var(--bg); background-image: radial-gradient(rgba(90,60,20,.12) 1px, transparent 1.4px), radial-gradient(rgba(255,255,255,.18) 1px, transparent 1.4px); background-size: 7px 7px, 11px 11px; }
+.page { background-color: var(--page); background-image: linear-gradient(90deg, transparent 38px, #F4A9A0 38px, #F4A9A0 40px, transparent 40px), linear-gradient(transparent 31px, #D4E3F6 31px, #D4E3F6 32px); background-size: 100% 100%, 100% 32px; padding-left: max(52px, env(safe-area-inset-left, 0px)); }
+@media (min-width: 520px) { .page { padding-left: 56px; box-shadow: 0 1px 0 #E8E2D2, 0 2px 0 #FFFEF6, 0 3px 0 #E0D9C8, 0 4px 0 #FFFEF6, 0 24px 50px -20px rgba(60,40,10,.5); } }
+.page::before { content: ""; position: absolute; top: 20px; bottom: 20px; left: 10px; width: 16px; background: radial-gradient(circle, #D6C3A0 5px, transparent 6px) center top / 16px 40px repeat-y; }
+.top-actions { margin-bottom: 4px; }
+.round { background: var(--page); border: 2px solid var(--ink); color: var(--ink); border-radius: var(--radius-btn); }
+.bubble { background: var(--accent-2); font-family: var(--f-body); }
+.profile { margin-top: 0; }
+.ava-wrap { width: 150px; height: 172px; padding: 10px 10px 32px; background: #fff; box-shadow: 0 8px 18px -8px rgba(0,0,0,.35); transform: rotate(-4deg); }
+.ava-wrap::before { content: ""; position: absolute; top: -12px; left: 50%; width: 80px; height: 24px; margin-left: -40px; background: repeating-linear-gradient(45deg, rgba(255,140,170,.75) 0 6px, rgba(255,190,205,.75) 6px 12px); transform: rotate(3deg); z-index: 2; }
+.ava { border-radius: 0; border: 0; background: linear-gradient(150deg, #FFE5B4, #FFD0D8); color: var(--accent-2); font: 400 44px var(--f-head); }
+.ava-badge { right: -18px; bottom: -10px; width: 52px; height: 52px; background: transparent; color: var(--accent-2); }
+.ava-badge svg { width: 48px; }
+.hi { margin-top: 16px; font: 700 19px var(--f-body); color: var(--accent); }
+.name { font: 400 clamp(34px, 10vw, 42px)/1.1 var(--f-head); background: linear-gradient(transparent 58%, var(--mark) 58%, var(--mark) 88%, transparent 88%); padding: 0 6px; transform: rotate(-1.5deg); }
+.role { font: 700 15px var(--f-body); letter-spacing: 0; text-transform: none; color: var(--accent-2); }
+.about { font-size: 16px; color: var(--muted); }
+.socials a { background: #fff; border: 2px solid var(--ink); border-radius: var(--radius-btn); color: var(--ink); }
+.sec-title { width: fit-content; margin: 36px auto 18px; padding: 0 10px; font: 400 26px var(--f-head); background: linear-gradient(transparent 55%, var(--mark) 55%, var(--mark) 90%, transparent 90%); transform: rotate(-1.5deg); }
+.sec-title svg { color: var(--accent-2); }
+.search input { border: 2px solid var(--ink); border-radius: var(--radius-btn); background: #fff; font: 700 16px var(--f-body); }
+.search > svg { color: var(--ink); }
+.chip { border: 2px solid var(--ink); color: var(--ink); font: 700 14px var(--f-body); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--page); }
+.grid { gap: 22px 14px; padding-top: 8px; }
+.card { border: 0; padding: 9px 9px 12px; box-shadow: 0 8px 16px -8px rgba(0,0,0,.35); }
+.card:nth-child(odd) { rotate: -2deg; }
+.card:nth-child(even) { rotate: 2deg; }
+.card:hover { rotate: 0deg; transform: translateY(-4px) scale(1.02); z-index: 3; }
+.card::before { content: ""; position: absolute; top: -11px; left: 50%; width: 70px; height: 22px; margin-left: -35px; z-index: 2; background: repeating-linear-gradient(-45deg, rgba(255,214,90,.8) 0 6px, rgba(255,232,150,.8) 6px 12px); rotate: -4deg; }
+.card:nth-child(3n+2)::before { background: repeating-linear-gradient(-45deg, rgba(140,220,190,.8) 0 6px, rgba(190,240,220,.8) 6px 12px); rotate: 5deg; }
+.card:nth-child(3n+3)::before { background: repeating-linear-gradient(-45deg, rgba(160,190,255,.8) 0 6px, rgba(200,215,255,.8) 6px 12px); rotate: -2deg; }
+.off { width: 56px; height: 56px; padding: 0; display: grid; place-items: center; background: transparent; color: var(--accent-2); border: 3px solid var(--accent-2); border-radius: 50% 45% 55% 48%; font: 400 15px var(--f-head); rotate: -10deg; background-color: rgba(255,255,255,.85); }
+.ribbon { border-radius: 2px; background: var(--mark); color: var(--ink); font: 400 13px var(--f-head); rotate: -5deg; box-shadow: 0 3px 6px -2px rgba(0,0,0,.3); }
+.ctype { font: 700 13px var(--f-body); letter-spacing: .02em; text-transform: none; color: var(--accent); }
+.cname { font: 700 15.5px/1.25 var(--f-body); }
+.card.wide .cname { font-size: 19px; }
+.now { font: 400 19px var(--f-head); }
+.card.wide .now { font-size: 23px; }
+.was { font-size: 14px; }
+.buy { background: var(--accent); font: 700 16px var(--f-body); border: 2px solid var(--ink); }
+.add { border: 2px solid var(--ink); color: var(--ink); background: #fff; border-radius: var(--radius-btn); }
+.add.in { background: var(--accent-2); border-color: var(--ink); }
+.cta { border: 2px solid var(--ink); color: var(--ink); font: 700 16px var(--f-body); }
+.cta:hover { background: var(--mark); color: var(--ink); }
+.links { gap: 14px; }
+.lrow { border: 0; border-radius: 2px; background: #FFF2A8; box-shadow: 0 8px 14px -8px rgba(0,0,0,.35); rotate: -1deg; }
+.lrow:nth-child(2) { background: #FFD6E0; rotate: 1deg; }
+.lrow:nth-child(3) { background: #CDEFE0; rotate: -.5deg; }
+.lrow:hover { transform: translateX(4px) rotate(0); }
+.tick { background: transparent; border: 2px solid var(--ink); color: var(--ink); border-radius: 50% 45% 55% 48%; }
+.ltext b { font: 700 17px var(--f-body); }
+.ltext span { font-size: 14px; }
+.lrow > svg { color: var(--ink); }
+.paycard { background: #fff; border-top: 4px solid var(--accent-2); box-shadow: 0 8px 16px -10px rgba(0,0,0,.35); }
+.paycard h3 { font: 400 15px var(--f-head); color: var(--accent); letter-spacing: 0; text-transform: none; }
+.pm { border: 1.5px solid var(--ink); background: #fff; border-radius: var(--radius-btn); font: 700 14px var(--f-body); }
+.faq details { border: 0; background: transparent; border-bottom: 2px dashed var(--line); border-radius: 0; }
+.faq summary { font: 700 17px var(--f-body); }
+.faq summary::after { content: "✎"; background: transparent; color: var(--accent-2); font-size: 18px; }
+.faq details[open] summary::after { transform: rotate(-20deg); }
+.faq details p { font-size: 15.5px; }
+.sign b { font: 400 26px var(--f-head); transform: rotate(-3deg); color: var(--accent); }
+.sign svg { width: 50px; color: var(--accent-2); }
+.fab { font: 700 17px var(--f-body); border: 2px solid var(--ink); }
+.fab .bubble { background: var(--mark); color: var(--ink); }
+.sheet { background-color: var(--page); background-image: linear-gradient(transparent 31px, #D4E3F6 31px, #D4E3F6 32px); background-size: 100% 32px; }
+.shead h2 { font: 400 28px var(--f-head); }
+.line { border: 0; box-shadow: 0 6px 12px -8px rgba(0,0,0,.35); }
+.lname { font: 700 15px var(--f-body); }
+.voucher { border: 2px dashed var(--ink); font: 700 15px var(--f-body); border-radius: 6px; }
+.sum { background: #FFF2A8; border-radius: 2px; }
+.go { background: var(--accent); border: 2px solid var(--ink); font: 700 18px var(--f-body); }
+.ghost { border: 2px solid var(--ink); }
+.toast { background: #FFF2A8; border-radius: 2px; font: 700 15px var(--f-body); }
+.toast i { background: var(--accent-2); }
+.gen { background: repeating-linear-gradient(transparent 0 23px, #D4E3F6 23px 24px), #fff; }
+.gen span { font: 400 20px var(--f-head); color: var(--accent); }
+.empty b, .sempty b { font: 400 22px var(--f-head); }
+
+/* Stiker & coretan di meja (layar lebar) */
+.doodle { position: fixed; z-index: 1; }
+.dd-arrow { top: 22%; left: max(30px, calc(50% - 470px)); width: 200px; color: #2D2A26; font: 700 24px/1.2 "Kalam", cursive; transform: rotate(-6deg); }
+.dd-arrow svg { width: 120px; margin-top: 6px; }
+.dd-polaroid { bottom: 10%; right: max(30px, calc(50% - 500px)); width: 170px; padding: 10px 10px 34px; background: #fff; box-shadow: 0 12px 24px -10px rgba(0,0,0,.45); transform: rotate(6deg); text-align: center; font: 700 18px "Kalam", cursive; }
+.dd-polaroid div { height: 130px; margin-bottom: 8px; background: linear-gradient(160deg, #FFD0D8, #FFE5B4 60%, #CDEFE0); display: grid; place-items: center; font: 400 44px "Permanent Marker", cursive; color: #E0533D; }
+.dd-star { top: 12%; right: max(60px, calc(50% - 420px)); width: 64px; color: #FFD43B; transform: rotate(14deg); }
+</style>
+
+<div class="doodle dd-arrow side-only" aria-hidden="true">psst… produknya<br>ada di sini!
+  <svg viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 10c30 40 70 44 104 30"/><path d="M96 28l14 12-16 8"/></svg>
+</div>
+<div class="doodle dd-polaroid side-only" aria-hidden="true"><div>♥</div>bayar aman di lynk.id</div>
+<svg class="doodle dd-star side-only" viewBox="0 0 40 40" aria-hidden="true"><path fill="currentColor" stroke="#2D2A26" stroke-width="1.6" d="M20 2l5 12 13 1-10 8 3 13-11-7-11 7 3-13L2 15l13-1z"/></svg>
+
+<main class="page" id="top">
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Koleksiku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Catatan penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjangku</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "hai, aku",
+  name: "Ivan Setiadi",
+  role: "bikin template, ebook & panduan ✎",
+  about: "Semua yang kupelajari soal website dan cuan online, kurangkum jadi produk yang gampang dipakai.",
+  avatar: "",
+  socials: [],   // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Yang sering ditanyain", href: "#tanya-jawab" }
+  ],
+  signoff: "makasih udah mampir ♡",
+  motif: '<svg viewBox="0 0 40 40" aria-hidden="true"><path fill="#FFD43B" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 2l5 12 13 1-10 8 3 13-11-7-11 7 3-13L2 15l13-1z"/></svg>',
+  text: {
+    favorite: "favorit!", soldOverlay: "habis :(", promo: "lagi diskon", emptySearchTitle: "belum ketemu…",
+    emptyCartTitle: "keranjang masih kosong", ready: "siap dibayar!", added: "masuk keranjang", voucher: "punya kode voucher?"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-scrapbook" }
+};
+</script>
+{{config}}
+<script src="/app.js?v={{v}}"></script>

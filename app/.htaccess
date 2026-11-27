@@ -1,0 +1,32 @@
+# Etalase lynk.id — semua permintaan diarahkan ke index.php kecuali file statis bersama.
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Paksa HTTPS (hapus 2 baris ini kalau SSL subdomain belum aktif)
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Blokir folder & file sensitif
+  RewriteRule ^(data|src|tools|themes)(/|$) - [F,L]
+  RewriteRule ^config(\.sample)?\.php$ - [F,L]
+
+  # File statis bersama dilayani langsung
+  RewriteRule ^(app\.js|base\.css|favicon\.ico|robots\.txt)$ - [L]
+
+  # Sisanya ke router
+  RewriteCond %{REQUEST_URI} !^/index\.php$
+  RewriteRule ^ index.php [L,QSA]
+</IfModule>
+
+<FilesMatch "\.(sqlite|sqlite-journal|db|mjs|md)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>
