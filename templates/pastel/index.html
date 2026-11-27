@@ -861,7 +861,7 @@ function apply(data, live) {
   saveCart(); updateBadge();
   renderChips(); renderGrid(); renderPayments();
   const when = state.updated ? state.updated.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" }) : "";
-  $("#foot").innerHTML = `© ${new Date().getFullYear()} ${esc(CONFIG.name)} · pembayaran oleh <a href="${esc(withUtm(profileUrl, "footer"))}" target="_blank" rel="noopener">lynk.id</a>${!live && when ? ` · katalog per ${esc(when)}` : ""}`;
+  $("#foot").innerHTML = `© ${new Date().getFullYear()} ${esc(CONFIG.name)} · pembayaran oleh <a href="${esc(withUtm(profileUrl, "footer"))}" target="_blank" rel="noopener">lynk.id</a>${!live && when ? ` · katalog per ${esc(when)}` : ""}<br>Template oleh <a href="https://lynk.queenovatech.com/?utm_source=tema&utm_medium=footer" target="_blank" rel="noopener">lynk.queenovatech.com</a>`;
 }
 async function load() {
   try { apply(await getJSON(CONFIG.api.catalog), true); return; } catch { /* coba cadangan */ }
