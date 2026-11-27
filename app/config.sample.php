@@ -19,5 +19,5 @@ return [
     // demo.<domain>/<tema>, mis. demo.queenovatech.com/sakura. Buat tokonya di admin (subdomain "demo").
     'demo_subdomain' => 'demo',
     // Tujuan tombol "← Galeri" di halaman demo (landing page). Kosongkan untuk menyembunyikan tombol.
-    'landing_url' => 'https://template.queenovatech.com/#template',
+    'landing_url' => 'https://lynk.queenovatech.com/#template',
 ];

@@ -4,7 +4,7 @@ Jasa template halaman toko untuk penjual lynk.id — landing page, aplikasi mult
 
 ```
 queenova-lynk/
-├── landing/     Landing page jualan (HTML statis)      → template.queenovatech.com
+├── landing/     Landing page jualan (HTML statis)      → lynk.queenovatech.com
 ├── app/         Aplikasi multi-toko PHP (Hostinger)    → admin.*, demo.*, <toko>.queenovatech.com
 └── templates/   Sumber 30 tema (+ _base, pastel)       → tidak di-deploy, di-build ke app/themes
 ```
@@ -27,7 +27,7 @@ Lihat panduan lengkap di `app/README.md`. Ringkasnya:
 
 | Subdomain | Folder di server | Isi |
 |---|---|---|
-| `template.queenovatech.com` | `public_html/queenova-lynk/landing` | Landing page |
+| `lynk.queenovatech.com` | `public_html/queenova-lynk/landing` | Landing page |
 | `admin.queenovatech.com` | `public_html/queenova-lynk/app` | Panel admin |
 | `demo.queenovatech.com` | `public_html/queenova-lynk/app` | Demo semua tema (`/sakura`, `/bento`, …) |
 | `<toko>.queenovatech.com` | `public_html/queenova-lynk/app` | Toko pembeli |
