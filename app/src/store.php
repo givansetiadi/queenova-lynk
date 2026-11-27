@@ -45,22 +45,7 @@ function render_store(array $t, bool $demo = false): never
     header('X-Content-Type-Options: nosniff');
     header('Referrer-Policy: strict-origin-when-cross-origin');
     echo strtr($html, $repl);
-    if ($demo) echo demo_badge($t['theme']);
     exit;
-}
-
-/** Tombol kecil di halaman demo: nama tema + kembali ke galeri landing page. */
-function demo_badge(string $theme): string
-{
-    $label = e(themes()[$theme] ?? $theme);
-    $url = (string) cfg('landing_url');
-    $style = 'position:fixed;z-index:35;left:max(14px,env(safe-area-inset-left,0px));bottom:calc(env(safe-area-inset-bottom,0px) + 22px);'
-        . 'display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:#1D1B22;color:#fff;'
-        . "font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;letter-spacing:0;text-transform:none;text-decoration:none;box-shadow:0 10px 24px -10px rgba(0,0,0,.6)";
-    $inner = '<span style="opacity:.7">Demo</span> <b>' . $label . '</b>';
-    return $url !== ''
-        ? "\n<a href=\"" . e($url) . "\" style=\"$style\" aria-label=\"Kembali ke galeri template\">← Galeri · $inner</a>"
-        : "\n<span style=\"$style\">$inner</span>";
 }
 
 function api_catalog(array $t): never
