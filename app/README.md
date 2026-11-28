@@ -15,7 +15,7 @@ admin.queenovatech.com    ─┘                                 (token disimpan
 |---|---|
 | `index.php` | Router: admin / halaman toko / API |
 | `src/` | Logika: database, enkripsi, lynk.id API, admin |
-| `themes/` | 30 tema (hasil `tools/build-themes.mjs`) |
+| `themes/` | 35 tema (hasil `tools/build-themes.mjs`) |
 | `app.js`, `base.css` | Logika & gaya bersama semua tema |
 | `config.php` | Pengaturan + **app_key** (kunci enkripsi) |
 | `data/` | Database SQLite (dibuat otomatis, diblokir dari web) |

@@ -17,7 +17,8 @@ const LABELS = {
   scrapbook: "Scrapbook", bento: "Bento", majalah: "Majalah", komik: "Komik", galaksi: "Galaksi", "nota-kasir": "Nota Kasir",
   clay: "Clay 3D", "kertas-lipat": "Kertas Lipat", lofi: "Lo-fi", sakura: "Sakura", lebaran: "Lebaran", "toko-kue": "Toko Kue",
   marmer: "Marmer Emas", "art-deco": "Art Deco", amalfi: "Amalfi", velvet: "Velvet", "galeri-seni": "Galeri Seni",
-  aurora: "Aurora", japandi: "Japandi", lavender: "Lavender", "senja-gurun": "Senja Gurun"
+  aurora: "Aurora", japandi: "Japandi", lavender: "Lavender", "senja-gurun": "Senja Gurun",
+  "kamar-mainan": "Kamar Mainan", "bawah-laut": "Bawah Laut", "kampung-ceria": "Kampung Ceria", "hutan-dongeng": "Hutan Dongeng", "kejar-kejaran": "Kejar-kejaran"
 };
 
 function generic(html) {

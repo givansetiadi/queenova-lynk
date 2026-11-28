@@ -1,0 +1,150 @@
+{
+  "products": [
+    {
+      "id": "86g3r356dzym",
+      "name": "White label website digital wedding invitation",
+      "type": "digital",
+      "price": 500000,
+      "original_price": 799000,
+      "price_type": "fixed",
+      "min_price": null,
+      "image": "https://cdn.lynkid.my.id/draft-products/26-11-2026/1795649518686_6406986.webp",
+      "has_variants": false,
+      "requires_shipping": false,
+      "url": "https://lynk.id/ivansetiadi/86g3r356dzym",
+      "checkout_url": "https://lynk.id/ivansetiadi/86g3r356dzym/checkout",
+      "description": "",
+      "in_stock": true,
+      "limit_per_checkout": 0,
+      "cart_ok": true,
+      "image_local": "img/86g3r356dzym.webp"
+    },
+    {
+      "id": "1nv51ev7qv3z",
+      "name": "Ubah fb pro jadi mesin pencetak dolar",
+      "type": "digital",
+      "price": 29000,
+      "original_price": 49000,
+      "price_type": "fixed",
+      "min_price": null,
+      "image": "https://cdn.lynkid.my.id/draft-products/26-11-2026/1795648911310_9382288.webp",
+      "has_variants": false,
+      "requires_shipping": false,
+      "url": "https://lynk.id/ivansetiadi/1nv51ev7qv3z",
+      "checkout_url": "https://lynk.id/ivansetiadi/1nv51ev7qv3z/checkout",
+      "description": "",
+      "in_stock": true,
+      "limit_per_checkout": 100,
+      "cart_ok": true,
+      "image_local": "img/1nv51ev7qv3z.webp"
+    },
+    {
+      "id": "elkn8oy0w2lr",
+      "name": "Ebook - Tutorial membuat website cafe dengan menggunakan Claude",
+      "type": "digital",
+      "price": 39000,
+      "original_price": 99000,
+      "price_type": "fixed",
+      "min_price": null,
+      "image": "https://cdn.lynkid.my.id/draft-products/26-11-2026/1795705670465_1524812.webp",
+      "has_variants": false,
+      "requires_shipping": false,
+      "url": "https://lynk.id/ivansetiadi/elkn8oy0w2lr",
+      "checkout_url": "https://lynk.id/ivansetiadi/elkn8oy0w2lr/checkout",
+      "description": "",
+      "in_stock": true,
+      "limit_per_checkout": 100,
+      "cart_ok": true,
+      "image_local": "img/elkn8oy0w2lr.webp"
+    }
+  ],
+  "payment_methods": [
+    {
+      "code": "SA",
+      "name": "ShopeePay",
+      "category": "Instant Payment",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/shopee-pay.png"
+    },
+    {
+      "code": "OV",
+      "name": "OVO",
+      "category": "Instant Payment",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/ovo.png"
+    },
+    {
+      "code": "SQ",
+      "name": "QRIS",
+      "category": "Instant Payment",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/qris.png"
+    },
+    {
+      "code": "DA",
+      "name": "DANA",
+      "category": "Instant Payment",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/dana.webp"
+    },
+    {
+      "code": "BC",
+      "name": "BCA Virtual Account",
+      "category": "Virtual Account",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/bca.png"
+    },
+    {
+      "code": "M2",
+      "name": "Mandiri Virtual Account",
+      "category": "Virtual Account",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/mandiri.png"
+    },
+    {
+      "code": "BR",
+      "name": "BRI Virtual Account",
+      "category": "Virtual Account",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/briva.webp"
+    },
+    {
+      "code": "BT",
+      "name": "Permata Virtual Account",
+      "category": "Virtual Account",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/permata%20bank.png"
+    },
+    {
+      "code": "VA",
+      "name": "Maybank Virtual Account",
+      "category": "Virtual Account",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/maybank.png"
+    },
+    {
+      "code": "BV",
+      "name": "BSI Virtual Account",
+      "category": "Virtual Account",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/bsi.webp"
+    },
+    {
+      "code": "I1",
+      "name": "BNI Virtual Account",
+      "category": "Virtual Account",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/bni.png"
+    },
+    {
+      "code": "B1",
+      "name": "CIMB Niaga Virtual Account",
+      "category": "Virtual Account",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/cimb.webp"
+    },
+    {
+      "code": "A1",
+      "name": "ATM Bersama Virtual Account",
+      "category": "Others",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/atm%20bersama.png"
+    },
+    {
+      "code": "FT",
+      "name": "Retail Outlet (Alfamart, Pegadaian, Pos)",
+      "category": "Others",
+      "image": "https://lynk.id/static/assets/imgs/payment-method/retail.png"
+    }
+  ],
+  "fee_paid_by_seller": false,
+  "updated_at": "2026-11-27T06:08:02.594Z",
+  "snapshot": true
+}

@@ -34,6 +34,11 @@ Tiap folder tema berdiri sendiri dan bisa di-deploy terpisah (Vercel).
 | `japandi/` | Kayu & linen, ensō, minimalis hangat |
 | `lavender/` | Ladang lavender, huruf sambung, segel lilin |
 | `senja-gurun/` | Bukit pasir berlapis, matahari terbenam |
+| `kamar-mainan/` | Kartun: rak kayu penuh mainan, wallpaper awan, kotak mainan berjendela |
+| `bawah-laut/` | Kartun: laut toska, gelembung, rumput laut, garis tepi bergelombang |
+| `kampung-ceria/` | Kartun: kampung Nusantara, rumah panggung, rambutan, layang-layang |
+| `hutan-dongeng/` | Kartun: hutan pinus bersalju, pondok berasap, madu, beruang |
+| `kejar-kejaran/` | Kartun klasik: lubang tikus, keju, debu kecepatan |
 | `_base/` | Sumber bersama: `app.js`, `base.css`, `dev-server.js`, `lib/lynk.js` |
 
 Semua tema selain `alam`, `sage`, dan `kawaii-pink` memakai `base.css` (struktur bersama) + CSS tema di `index.html`.
