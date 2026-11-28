@@ -74,6 +74,16 @@ Tiap folder tema berdiri sendiri dan bisa di-deploy terpisah (Vercel).
 | `laut-dalam/` | Samudra gelap dengan ubur-ubur bercahaya dan plankton berkilau. Memukau. |
 | `rumah-kaca/` | Greenhouse bercahaya: rangka kaca, tanaman gantung menjuntai, pot terakota. |
 | `matcha/` | Mangkuk matcha dengan latte art berputar, pengocok bambu, suasana tenang. |
+| `kereta-senja/` | Header berupa jendela kereta dengan pemandangan senja yang bergerak berlapis (parallax). |
+| `kantor-pos/` | Bingkai surat udara merah-biru, amplop beterbangan, produk jadi amplop berprangko. |
+| `perpustakaan/` | Rak buku berlis emas dan lampu baca hangat. Produk jadi sampul buku berpita. |
+| `buku-agenda/` | Kertas titik-titik, jilid spiral, sticky note, centang yang tergambar sendiri. |
+| `studio-keramik/` | Guci tanah liat berputar di roda, rak mangkuk berglasir, kartu dengan tetesan glasir. |
+| `kebun-teh/` | Bukit terasering hijau berlapis dan kabut tipis khas pegunungan Nusantara. |
+| `senja-kota/` | Langit senja ungu-jingga, siluet gedung yang lampunya menyala bergantian. |
+| `tenun-ikat/` | Motif tenun ikat Nusantara berwarna tanah, rumbai benang di setiap kartu. |
+| `swatch/` | Kipas kartu sampel cat. Setiap produk jadi kartu warna bernomor dan bernama. |
+| `soft-ui/` | Neumorphism: semua elemen timbul lembut, tombol aktif tampak tertekan. Sangat nyaman di mata. |
 | `_base/` | Sumber bersama: `app.js`, `base.css`, `dev-server.js`, `lib/lynk.js` |
 
 Semua tema selain `alam`, `sage`, dan `kawaii-pink` memakai `base.css` (struktur bersama) + CSS tema di `index.html`.

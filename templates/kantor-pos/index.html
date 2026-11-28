@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="id">
+<title>Toko Ivan Setiadi · Kantor Pos</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Template website, ebook, dan panduan digital dari Ivan Setiadi. Bayar aman lewat lynk.id.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Karla:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* KANTOR POS — halaman berbingkai garis surat udara (merah-biru), amplop beterbangan, cap pos bergelombang. Produk = amplop dengan tutup segitiga & prangko bergerigi. */
+:root {
+  --bg: #E6EDF4; --page: #FBF7EE; --card: #FFFDF8; --ink: #22324A; --muted: #5D6B7E;
+  --accent: #D64545; --accent-ink: #FFFFFF; --accent-2: #2F5D9E; --on-accent-2: #FFFFFF;
+  --soft: #F3EEE2; --line: #E4DCCB; --price: #C23A3A; --mark: #F5E7C6;
+  --airmail: repeating-linear-gradient(135deg, #D64545 0 14px, #FBF7EE 14px 22px, #2F5D9E 22px 36px, #FBF7EE 36px 44px);
+  --radius: 6px; --radius-img: 4px; --radius-btn: 6px; --page-radius: 6px;
+  --fab-bg: #22324A; --fab-ink: #FFFFFF;
+  --page-shadow: 0 0 0 10px transparent, 0 30px 60px -30px rgba(34,50,74,.5);
+  --f-head: "Special Elite", "Courier New", monospace;
+  --f-body: "Karla", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+.page { overflow: hidden; }
+.hdr { position: relative; margin: -20px -18px 0; height: 244px; overflow: hidden; }
+@media (min-width: 520px) { .hdr { margin: -24px -22px 0; } }
+.top-actions { position: absolute; top: 14px; left: 14px; right: 14px; }
+.lrow { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); min-height: 62px; }
+.tick { background: var(--accent); color: var(--accent-ink); }
+.ltext b { font: 400 17px var(--f-head); }
+.paycard { background: var(--card); border: var(--bw2, 1.5px) solid var(--line); }
+.paycard h3 { font-family: var(--f-head); color: var(--accent); }
+.pm { background: var(--soft); }
+.faq details { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); }
+.faq summary { font: 600 14.5px var(--f-body); }
+.faq summary::after { background: var(--accent); color: var(--accent-ink); }
+.sign b { font: 400 24px var(--f-head); color: var(--accent); }
+.sign svg { width: 64px; }
+.fab { font: 400 16px var(--f-head); }
+.fab .bubble { background: var(--accent-2); color: var(--on-accent-2); }
+.sheet { background: var(--page); color: var(--ink); }
+.shead h2 { font: 400 24px var(--f-head); }
+.line { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); }
+.go { font: 400 17px var(--f-head); }
+.buy { font: 400 15px var(--f-head); }
+.cta { font: 400 16px var(--f-head); }
+.now { font: 400 19px var(--f-head); color: var(--price); }
+.card.wide .now { font-size: 24px; }
+.cname { font: 600 14.5px/1.35 var(--f-body); }
+.add.in { background: var(--accent-2); border-color: var(--accent-2); color: var(--on-accent-2); }
+.side-x { position: fixed; z-index: 1; pointer-events: none; }
+
+body { background-color: var(--bg); background-image: linear-gradient(rgba(34,50,74,.05) 1px, transparent 1px); background-size: 100% 26px; }
+.page { border: 10px solid transparent; border-image: var(--airmail) 10; }
+.post { background: linear-gradient(180deg, #DCE8F3, #F4F1EA); }
+.post .mark { position: absolute; right: 20px; top: 26px; width: 120px; opacity: .55; }
+.post .env { position: absolute; width: 90px; animation: flyE 7s ease-in-out infinite; filter: drop-shadow(0 8px 10px rgba(34,50,74,.25)); }
+.post .e1 { left: 20px; top: 40px; transform: rotate(-12deg); } .post .e2 { left: 150px; top: 110px; width: 70px; animation-delay: -2.5s; } .post .e3 { right: 40px; top: 130px; width: 80px; animation-delay: -5s; }
+@keyframes flyE { 50% { translate: 10px -12px; rotate: 4deg; } }
+.post .stampH { position: absolute; left: 50%; top: 18px; width: 74px; margin-left: -37px; transform: rotate(6deg); }
+.round { border: 1.5px solid var(--ink); background: var(--page); color: var(--accent); }
+.profile { margin-top: -40px; }
+.ava { border: 6px solid #fff; outline: 2px dashed var(--accent-2); outline-offset: 3px; background: var(--mark); color: var(--accent); font: 400 40px var(--f-head); }
+.ava-badge { background: var(--accent); color: #fff; border: 3px solid #fff; }
+.hi { font: 400 14px var(--f-head); color: var(--accent-2); }
+.name { font: 400 clamp(34px, 9.5vw, 44px)/1.1 var(--f-head); }
+.role { margin-top: 8px; padding: 4px 12px; border: 1.5px solid var(--accent); color: var(--accent); font: 700 11px var(--f-body); letter-spacing: .2em; border-radius: 3px; transform: rotate(-2deg); }
+.socials a { background: var(--soft); color: var(--accent-2); border-radius: 6px; }
+.sec-title { gap: 12px; font: 400 22px var(--f-head); }
+.sec-title::before, .sec-title::after { content: ""; width: 40px; height: 8px; background: var(--airmail); background-size: 44px 8px; }
+.sec-title svg { display: none; }
+.search input { border: 1.5px solid var(--line); }
+.chip { border: 1.5px solid var(--line); background: #fff; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.grid { gap: 22px 14px; }
+.card { isolation: isolate; border: 1.5px solid var(--line); padding: 54px 10px 12px; background: var(--card); box-shadow: 0 14px 24px -18px rgba(34,50,74,.6); }
+.card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 46px; background: #F1E9D6; clip-path: polygon(0 0, 100% 0, 50% 100%); border-bottom: 0; }
+.card::after { content: ""; position: absolute; right: 10px; top: 8px; width: 28px; height: 34px; background: var(--accent-2); border: 3px solid #fff; outline: 1.5px dashed #9AA6B8; outline-offset: 1px; transform: rotate(6deg); box-shadow: 0 2px 4px rgba(0,0,0,.15); }
+.card:nth-child(2n)::after { background: var(--accent); }
+.card:hover { transform: translateY(-4px) rotate(-.5deg); }
+.off { top: 60px; background: var(--accent); color: #fff; }
+.ribbon { top: 60px; background: var(--ink); color: #fff; font-family: var(--f-head); }
+.ctype { color: var(--accent-2); font: 400 12px var(--f-head); letter-spacing: .06em; }
+.ctype::before { content: "KEPADA: "; color: var(--muted); }
+.buy { background: var(--accent); }
+.add { border: 1.5px solid var(--accent-2); color: var(--accent-2); background: #fff; }
+.cta { border: 1.5px dashed var(--ink); background: #fff; color: var(--ink); }
+.cta:hover { background: var(--ink); color: #fff; }
+.lrow { border-left: 6px solid var(--accent-2); }
+.lrow:nth-child(2) { border-left-color: var(--accent); }
+.tick { background: var(--mark); color: var(--accent); }
+.bigenv { width: 220px; animation: flyE 9s ease-in-out infinite; filter: drop-shadow(0 20px 20px rgba(34,50,74,.25)); }
+.be1 { top: 10%; left: max(20px, calc(50% - 560px)); rotate: -10deg; } .be2 { bottom: 8%; right: max(20px, calc(50% - 560px)); rotate: 8deg; animation-delay: -4s; }
+</style>
+
+<svg class="side-x bigenv be1 side-only" viewBox="0 0 220 140" aria-hidden="true"><rect x="4" y="4" width="212" height="132" rx="6" fill="#FFFDF8" stroke="#22324A" stroke-width="3"/><path d="M4 8l106 70L216 8" fill="none" stroke="#22324A" stroke-width="3"/><path d="M4 4h212v8H4z" fill="url(#am)"/><defs><pattern id="am" width="24" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#D64545"/><rect x="12" width="8" height="8" fill="#2F5D9E"/></pattern></defs><rect x="170" y="90" width="34" height="38" fill="#2F5D9E" stroke="#fff" stroke-width="3" stroke-dasharray="3 3"/></svg>
+<svg class="side-x bigenv be2 side-only" viewBox="0 0 220 140" aria-hidden="true"><rect x="4" y="4" width="212" height="132" rx="6" fill="#F5E7C6" stroke="#22324A" stroke-width="3"/><path d="M4 8l106 70L216 8" fill="none" stroke="#22324A" stroke-width="3"/><circle cx="60" cy="100" r="22" fill="none" stroke="#D64545" stroke-width="2.5"/><path d="M90 92q12-8 24 0t24 0t24 0M90 104q12-8 24 0t24 0t24 0" stroke="#D64545" stroke-width="2.5" fill="none"/></svg>
+
+<main class="page" id="top">
+  <div class="hdr post" aria-hidden="true">
+    <svg class="mark" viewBox="0 0 120 60" fill="none" stroke="#22324A" stroke-width="2.4"><circle cx="30" cy="30" r="26"/><text x="30" y="34" text-anchor="middle" font-family="Special Elite" font-size="10" fill="#22324A" stroke="none">TERKIRIM</text><path d="M60 18q10-8 20 0t20 0t20 0M60 30q10-8 20 0t20 0t20 0M60 42q10-8 20 0t20 0t20 0"/></svg>
+    <svg class="stampH" viewBox="0 0 74 86"><rect x="3" y="3" width="68" height="80" fill="#fff" stroke="#ccc" stroke-dasharray="4 3"/><rect x="10" y="10" width="54" height="56" fill="#F29E7A"/><path d="M10 50l16-14 12 10 10-8 16 16v12H10z" fill="#2F5D9E"/><circle cx="48" cy="24" r="7" fill="#FFE2A8"/><text x="37" y="78" text-anchor="middle" font-family="Special Elite" font-size="9" fill="#22324A">Rp 2.500</text></svg>
+    <svg class="env e1" viewBox="0 0 90 58"><rect x="2" y="2" width="86" height="54" rx="3" fill="#FFFDF8" stroke="#22324A" stroke-width="2"/><path d="M2 4l43 28L88 4" fill="none" stroke="#22324A" stroke-width="2"/><rect x="66" y="8" width="14" height="16" fill="#2F5D9E"/></svg><svg class="env e2" viewBox="0 0 90 58"><rect x="2" y="2" width="86" height="54" rx="3" fill="#F5E7C6" stroke="#22324A" stroke-width="2"/><path d="M2 4l43 28L88 4" fill="none" stroke="#22324A" stroke-width="2"/><rect x="66" y="8" width="14" height="16" fill="#D64545"/></svg><svg class="env e3" viewBox="0 0 90 58"><rect x="2" y="2" width="86" height="54" rx="3" fill="#FFFDF8" stroke="#22324A" stroke-width="2"/><path d="M2 4l43 28L88 4" fill="none" stroke="#22324A" stroke-width="2"/><rect x="66" y="8" width="14" height="16" fill="#2F5D9E"/></svg>
+  </div>
+  </div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Kiriman spesial untukmu sudah tiba. Silakan buka amplopnya satu per satu ✉️",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Salam hangat dari kami, sampai surat berikutnya",
+  motif: '<svg viewBox="0 0 60 40" aria-hidden="true"><rect x="2" y="2" width="56" height="36" rx="3" fill="#FBF7EE" stroke="#22324A" stroke-width="2"/><path d="M2 4l28 20L58 4" fill="none" stroke="#22324A" stroke-width="2"/></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-kantor-pos" }
+};
+</script>
+<script src="app.js"></script>

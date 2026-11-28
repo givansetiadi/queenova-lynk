@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="id">
+<title>{{title}}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="{{description}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/base.css">
+<style>
+/* KERETA SENJA — header adalah jendela kereta: pemandangan senja bergerak berlapis (parallax: gunung jauh pelan, bukit sedang, tiang listrik cepat). Kartu = jendela gerbong. */
+:root {
+  --bg: #EFE4DC; --page: #FFFBF7; --card: #FFFFFF; --ink: #2E2A3A; --muted: #6F6878;
+  --accent: #E2725B; --accent-ink: #FFFFFF; --accent-2: #3F5E73; --on-accent-2: #FFFFFF;
+  --soft: #F8EFE8; --line: #EADCD2; --price: #C9583F; --mark: #F5C07A;
+  --wood: #8A5A44;
+  --radius: 22px; --radius-img: 14px; --radius-btn: 999px; --page-radius: 30px;
+  --fab-bg: #3F5E73; --fab-ink: #FFFFFF;
+  --f-head: "DM Serif Text", Georgia, serif;
+  --f-body: "DM Sans", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+.page { overflow: hidden; }
+.hdr { position: relative; margin: -20px -18px 0; height: 244px; overflow: hidden; }
+@media (min-width: 520px) { .hdr { margin: -24px -22px 0; } }
+.top-actions { position: absolute; top: 14px; left: 14px; right: 14px; }
+.lrow { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); min-height: 62px; }
+.tick { background: var(--accent); color: var(--accent-ink); }
+.ltext b { font: 400 17px var(--f-head); }
+.paycard { background: var(--card); border: var(--bw2, 1.5px) solid var(--line); }
+.paycard h3 { font-family: var(--f-head); color: var(--accent); }
+.pm { background: var(--soft); }
+.faq details { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); }
+.faq summary { font: 600 14.5px var(--f-body); }
+.faq summary::after { background: var(--accent); color: var(--accent-ink); }
+.sign b { font: 400 24px var(--f-head); color: var(--accent); }
+.sign svg { width: 64px; }
+.fab { font: 400 16px var(--f-head); }
+.fab .bubble { background: var(--accent-2); color: var(--on-accent-2); }
+.sheet { background: var(--page); color: var(--ink); }
+.shead h2 { font: 400 24px var(--f-head); }
+.line { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); }
+.go { font: 400 17px var(--f-head); }
+.buy { font: 400 15px var(--f-head); }
+.cta { font: 400 16px var(--f-head); }
+.now { font: 400 19px var(--f-head); color: var(--price); }
+.card.wide .now { font-size: 24px; }
+.cname { font: 600 14.5px/1.35 var(--f-body); }
+.add.in { background: var(--accent-2); border-color: var(--accent-2); color: var(--on-accent-2); }
+.side-x { position: fixed; z-index: 1; pointer-events: none; }
+
+body { background: linear-gradient(180deg, #E9D6CC, #EFE4DC 40%) fixed; }
+.train { background: #5A3A33; padding: 16px 16px 26px; }
+.train .win { position: absolute; inset: 16px 16px 26px; border-radius: 34px; overflow: hidden; box-shadow: inset 0 0 0 6px #8A5A44, inset 0 0 0 9px #B88A6A, inset 0 10px 30px rgba(0,0,0,.35); background: linear-gradient(180deg, #4E4A86 0%, #B5739A 40%, #F29E7A 70%, #F7C78E 100%); }
+.win .sunT { position: absolute; left: 60%; top: 52%; width: 60px; height: 60px; border-radius: 50%; background: #FFE2A8; box-shadow: 0 0 40px 20px rgba(255,214,150,.6); }
+.win .lay { position: absolute; left: 0; right: 0; bottom: 0; background-repeat: repeat-x; }
+.win .far { height: 120px; background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22480%22%20height%3D%22120%22%20viewBox%3D%220%200%20480%20120%22%3E%3Cpath%20d%3D%22M0%20120V70l40-30%2050%2034%2060-50%2070%2046%2050-26%2060%2040%2070-50%2080%2040v66z%22%20fill%3D%22%238E7AA8%22%20opacity%3D%22.55%22%2F%3E%3C%2Fsvg%3E"); background-size: 480px 120px; animation: scroll 60s linear infinite; }
+.win .mid { height: 100px; background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22400%22%20height%3D%22100%22%20viewBox%3D%220%200%20400%20100%22%3E%3Cpath%20d%3D%22M0%20100V60c40-20%2080-20%20120%200s80%2030%20140%206%20100-20%20140-6v40z%22%20fill%3D%22%235E7A6B%22%2F%3E%3Cg%20fill%3D%22%23466355%22%3E%3Cpath%20d%3D%22M60%2062l8-22%208%2022zM90%2058l6-16%206%2016zM300%2066l8-22%208%2022z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); background-size: 400px 100px; animation: scroll 22s linear infinite; }
+.win .near { height: 60px; background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22260%22%20height%3D%2260%22%20viewBox%3D%220%200%20260%2060%22%3E%3Crect%20y%3D%2240%22%20width%3D%22260%22%20height%3D%2220%22%20fill%3D%22%233D4F45%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%220%22%20width%3D%224%22%20height%3D%2244%22%20fill%3D%22%232B2F38%22%2F%3E%3Cpath%20d%3D%22M42%206h-30M42%206h40%22%20stroke%3D%22%232B2F38%22%20stroke-width%3D%222%22%2F%3E%3Cpath%20d%3D%22M0%2012C80%2022%20180%2022%20260%2012%22%20stroke%3D%22%232B2F38%22%20stroke-width%3D%221%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E"); background-size: 260px 60px; animation: scroll 4s linear infinite; }
+@keyframes scroll { to { background-position: -1200px 0; } }
+.win .glare { position: absolute; inset: 0; background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.18) 38%, transparent 46%); }
+.train .sill { position: absolute; left: 0; right: 0; bottom: 0; height: 26px; background: linear-gradient(180deg, #8A5A44, #6E4535); }
+.top-actions { top: 26px; left: 28px; right: 28px; }
+.round { border: 0; background: rgba(255,251,247,.85); color: var(--accent-2); }
+.profile { margin-top: -46px; }
+.ava { border: 5px solid #fff; box-shadow: 0 0 0 3px var(--wood); background: linear-gradient(160deg, #F7C78E, #E2725B); color: #fff; font: 400 42px var(--f-head); }
+.ava-badge { background: var(--accent-2); color: #fff; border: 3px solid #fff; }
+.hi { font: 500 13px var(--f-body); letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.name { font: 400 clamp(40px, 11vw, 50px)/1.05 var(--f-head); }
+.role { margin-top: 8px; font: 500 12px var(--f-body); letter-spacing: .24em; color: var(--accent-2); }
+.socials a { background: var(--soft); color: var(--accent-2); }
+.sec-title { gap: 10px; font: italic 400 28px var(--f-head); }
+.sec-title::before { content: "GERBONG"; font: 700 10px var(--f-body); letter-spacing: .2em; color: #fff; background: var(--accent-2); padding: 4px 8px; border-radius: 4px; font-style: normal; }
+.sec-title svg { display: none; }
+.search input { border: 1.5px solid var(--line); }
+.chip { border: 1.5px solid var(--line); background: #fff; }
+.chip[aria-pressed="true"] { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+.card { border: 0; padding: 10px; background: #fff; box-shadow: 0 0 0 5px #fff, 0 0 0 7px #E2CDBF, 0 20px 34px -22px rgba(90,58,51,.6); margin: 6px; }
+.cimg { border-radius: 18px; box-shadow: inset 0 0 0 3px rgba(138,90,68,.25); }
+.card:hover { transform: translateY(-4px); }
+.off { background: var(--accent); color: #fff; }
+.ribbon { background: var(--accent-2); color: #fff; }
+.ctype { color: var(--accent-2); letter-spacing: .14em; }
+.buy { background: var(--accent); }
+.add { border: 1.5px solid var(--accent); color: var(--accent); background: #fff; }
+.cta { border: 1.5px solid var(--accent-2); background: #fff; color: var(--accent-2); font-style: italic; }
+.cta:hover { background: var(--accent-2); color: #fff; }
+.lrow { border: 0; background: #fff; box-shadow: 0 8px 18px -14px rgba(90,58,51,.6); }
+.tick { background: var(--mark); color: var(--ink); }
+.fab { background: var(--accent-2); }
+.lamp { width: 70px; }
+.lp1 { top: 0; left: max(40px, calc(50% - 470px)); } .lp2 { top: 0; right: max(40px, calc(50% - 470px)); }
+.lamp .glow { animation: glowL 4s ease-in-out infinite; }
+@keyframes glowL { 50% { opacity: .5; } }
+</style>
+
+<svg class="side-x lamp lp1 side-only" viewBox="0 0 70 200" aria-hidden="true"><path d="M35 0v120" stroke="#5A3A33" stroke-width="3"/><path d="M15 120h40l-6 26H21z" fill="#8A5A44"/><circle class="glow" cx="35" cy="160" r="30" fill="rgba(245,192,122,.45)"/><circle cx="35" cy="150" r="9" fill="#FFE2A8"/></svg>
+<svg class="side-x lamp lp2 side-only" viewBox="0 0 70 200" aria-hidden="true"><path d="M35 0v120" stroke="#5A3A33" stroke-width="3"/><path d="M15 120h40l-6 26H21z" fill="#8A5A44"/><circle class="glow" cx="35" cy="160" r="30" fill="rgba(245,192,122,.45)"/><circle cx="35" cy="150" r="9" fill="#FFE2A8"/></svg>
+
+<main class="page" id="top">
+  <div class="hdr train" aria-hidden="true">
+    <div class="win"><span class="sunT"></span><span class="lay far"></span><span class="lay mid"></span><span class="lay near"></span><span class="glare"></span></div>
+    <div class="sill"></div>
+  </div>
+  </div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Duduk santai, nikmati perjalanannya. Produk digital pilihan menemanimu sampai tujuan.",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Terima kasih telah ikut dalam perjalanan ini",
+  motif: '<svg viewBox="0 0 70 30" aria-hidden="true"><rect x="4" y="4" width="62" height="18" rx="6" fill="#3F5E73"/><rect x="10" y="8" width="12" height="8" rx="2" fill="#F5C07A"/><rect x="28" y="8" width="12" height="8" rx="2" fill="#F5C07A"/><rect x="46" y="8" width="12" height="8" rx="2" fill="#F5C07A"/><circle cx="18" cy="25" r="3" fill="#2E2A3A"/><circle cx="52" cy="25" r="3" fill="#2E2A3A"/></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-kereta-senja" }
+};
+</script>
+{{config}}
+<script src="/app.js?v={{v}}"></script>

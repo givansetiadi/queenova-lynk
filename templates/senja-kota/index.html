@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="id">
+<title>Toko Ivan Setiadi · Senja Kota</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Template website, ebook, dan panduan digital dari Ivan Setiadi. Bayar aman lewat lynk.id.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* SENJA KOTA — langit senja ungu-jingga, siluet gedung kota yang lampu jendelanya menyala bergantian, pesawat lewat. Kartu dengan siluet kota mini. */
+:root {
+  --bg: #EFECF7; --page: #FBFAFE; --card: #FFFFFF; --ink: #24223D; --muted: #6C6888;
+  --accent: #6C5DD3; --accent-ink: #FFFFFF; --accent-2: #F08A5D; --on-accent-2: #FFFFFF;
+  --soft: #F2F0FB; --line: #E4E0F3; --price: #5A4BC0; --mark: #FFE3C9;
+  --radius: 20px; --radius-img: 14px; --radius-btn: 12px; --page-radius: 28px;
+  --fab-bg: #24223D; --fab-ink: #FFFFFF;
+  --f-head: "Plus Jakarta Sans", system-ui, sans-serif;
+  --f-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+.page { overflow: hidden; }
+.hdr { position: relative; margin: -20px -18px 0; height: 244px; overflow: hidden; }
+@media (min-width: 520px) { .hdr { margin: -24px -22px 0; } }
+.top-actions { position: absolute; top: 14px; left: 14px; right: 14px; }
+.lrow { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); min-height: 62px; }
+.tick { background: var(--accent); color: var(--accent-ink); }
+.ltext b { font: 800 17px var(--f-head); }
+.paycard { background: var(--card); border: var(--bw2, 1.5px) solid var(--line); }
+.paycard h3 { font-family: var(--f-head); color: var(--accent); }
+.pm { background: var(--soft); }
+.faq details { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); }
+.faq summary { font: 600 14.5px var(--f-body); }
+.faq summary::after { background: var(--accent); color: var(--accent-ink); }
+.sign b { font: 800 24px var(--f-head); color: var(--accent); }
+.sign svg { width: 64px; }
+.fab { font: 800 16px var(--f-head); }
+.fab .bubble { background: var(--accent-2); color: var(--on-accent-2); }
+.sheet { background: var(--page); color: var(--ink); }
+.shead h2 { font: 800 24px var(--f-head); }
+.line { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); }
+.go { font: 800 17px var(--f-head); }
+.buy { font: 800 15px var(--f-head); }
+.cta { font: 800 16px var(--f-head); }
+.now { font: 800 19px var(--f-head); color: var(--price); }
+.card.wide .now { font-size: 24px; }
+.cname { font: 600 14.5px/1.35 var(--f-body); }
+.add.in { background: var(--accent-2); border-color: var(--accent-2); color: var(--on-accent-2); }
+.side-x { position: fixed; z-index: 1; pointer-events: none; }
+
+body { background: linear-gradient(180deg, #E4DFF5, #F3EFF5) fixed; }
+.city { background: linear-gradient(180deg, #3A2F6B 0%, #7A4F8C 35%, #E07B6A 70%, #F5C07A 100%); }
+.city svg { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 150px; }
+.city .w { animation: lit 4s steps(1) infinite; }
+@keyframes lit { 0%, 100% { opacity: .25; } 40%, 80% { opacity: 1; } }
+.city .plane { position: absolute; top: 40px; left: -20px; width: 6px; height: 6px; border-radius: 50%; background: #fff; box-shadow: 0 0 8px 2px rgba(255,255,255,.7); animation: plane 14s linear infinite; }
+@keyframes plane { to { transform: translate(540px, -20px); } }
+.city .sunC { position: absolute; left: 50%; bottom: 60px; width: 90px; height: 90px; margin-left: -45px; border-radius: 50%; background: radial-gradient(circle, #FFE1A8, #F5A56A); box-shadow: 0 0 60px 20px rgba(245,165,106,.5); }
+.city .stars { position: absolute; inset: 0 0 60% 0; background-image: radial-gradient(1.4px 1.4px at 20% 30%, #fff, transparent), radial-gradient(1px 1px at 70% 20%, #fff, transparent), radial-gradient(1.2px 1.2px at 50% 60%, #fff, transparent), radial-gradient(1px 1px at 88% 50%, #fff, transparent); opacity: .7; }
+.round { border: 0; background: rgba(255,255,255,.18); color: #fff; backdrop-filter: blur(6px); }
+.profile { margin-top: -46px; }
+.ava { border: 5px solid #fff; background: linear-gradient(160deg, #F5C07A, #6C5DD3); color: #fff; font: 800 38px var(--f-head); box-shadow: 0 10px 24px -10px rgba(60,40,120,.6); }
+.ava-badge { background: var(--accent-2); color: #fff; border: 3px solid #fff; }
+.hi { font: 600 13px var(--f-body); letter-spacing: .16em; text-transform: uppercase; color: var(--accent-2); }
+.name { font: 800 clamp(36px, 10vw, 46px)/1.05 var(--f-head); letter-spacing: -.03em; }
+.role { margin-top: 8px; padding: 5px 14px; border-radius: 999px; background: var(--soft); color: var(--accent); font: 700 11px var(--f-body); letter-spacing: .12em; }
+.socials a { background: var(--soft); color: var(--accent); }
+.sec-title { font: 800 22px var(--f-head); letter-spacing: -.02em; }
+.sec-title svg { color: var(--accent-2); }
+.search input { border: 1.5px solid var(--line); }
+.chip { border: 1.5px solid var(--line); background: #fff; font-weight: 600; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.card { border: 0; padding-bottom: 26px; box-shadow: 0 18px 32px -22px rgba(60,40,120,.55); overflow: hidden; }
+.card::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 18px; background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%2218%22%3E%3Cpath%20d%3D%22M0%2018V10h10V4h12v14h6V0h14v18h8V8h10v10h6V2h12v16h6V6h12v12h10V10h14v8z%22%20fill%3D%22%23E4E0F3%22%2F%3E%3C%2Fsvg%3E") 0 0 / 120px 18px repeat-x; }
+.card:hover { transform: translateY(-5px); }
+.off { background: var(--accent-2); color: #fff; }
+.ribbon { background: var(--ink); color: #fff; }
+.ctype { color: var(--accent); }
+.buy { background: linear-gradient(120deg, #7C6DE0, #5A4BC0); }
+.add { border: 1.5px solid var(--accent); color: var(--accent); background: #fff; }
+.cta { border: 0; background: var(--ink); color: #fff; }
+.lrow { border: 0; background: #fff; box-shadow: 0 8px 18px -14px rgba(60,40,120,.6); }
+.tick { background: var(--soft); color: var(--accent); }
+.tower { width: 120px; }
+.tw1 { bottom: 0; left: max(30px, calc(50% - 520px)); } .tw2 { bottom: 0; right: max(30px, calc(50% - 520px)); width: 150px; }
+</style>
+
+<svg class="side-x tower tw1 side-only" viewBox="0 0 120 400" aria-hidden="true"><rect x="20" y="40" width="80" height="360" fill="#3A3460"/><path d="M60 0v40" stroke="#3A3460" stroke-width="4"/><circle cx="60" cy="2" r="4" fill="#F08A5D"/><rect class="w" x="30" y="56" width="14" height="18" fill="#F5C07A" style="animation-delay:0s"/><rect class="w" x="52" y="56" width="14" height="18" fill="#F5C07A" style="animation-delay:0.37s"/><rect class="w" x="74" y="56" width="14" height="18" fill="#F5C07A" style="animation-delay:0.74s"/><rect class="w" x="30" y="90" width="14" height="18" fill="#F5C07A" style="animation-delay:1.1099999999999999s"/><rect class="w" x="52" y="90" width="14" height="18" fill="#F5C07A" style="animation-delay:1.48s"/><rect class="w" x="74" y="90" width="14" height="18" fill="#F5C07A" style="animation-delay:1.85s"/><rect class="w" x="30" y="124" width="14" height="18" fill="#F5C07A" style="animation-delay:2.2199999999999998s"/><rect class="w" x="52" y="124" width="14" height="18" fill="#F5C07A" style="animation-delay:2.59s"/><rect class="w" x="74" y="124" width="14" height="18" fill="#F5C07A" style="animation-delay:2.96s"/><rect class="w" x="30" y="158" width="14" height="18" fill="#F5C07A" style="animation-delay:3.33s"/><rect class="w" x="52" y="158" width="14" height="18" fill="#F5C07A" style="animation-delay:3.7s"/><rect class="w" x="74" y="158" width="14" height="18" fill="#F5C07A" style="animation-delay:0.07000000000000028s"/><rect class="w" x="30" y="192" width="14" height="18" fill="#F5C07A" style="animation-delay:0.4399999999999995s"/><rect class="w" x="52" y="192" width="14" height="18" fill="#F5C07A" style="animation-delay:0.8099999999999996s"/><rect class="w" x="74" y="192" width="14" height="18" fill="#F5C07A" style="animation-delay:1.1799999999999997s"/><rect class="w" x="30" y="226" width="14" height="18" fill="#F5C07A" style="animation-delay:1.5499999999999998s"/><rect class="w" x="52" y="226" width="14" height="18" fill="#F5C07A" style="animation-delay:1.92s"/><rect class="w" x="74" y="226" width="14" height="18" fill="#F5C07A" style="animation-delay:2.29s"/><rect class="w" x="30" y="260" width="14" height="18" fill="#F5C07A" style="animation-delay:2.66s"/><rect class="w" x="52" y="260" width="14" height="18" fill="#F5C07A" style="animation-delay:3.0300000000000002s"/><rect class="w" x="74" y="260" width="14" height="18" fill="#F5C07A" style="animation-delay:3.4000000000000004s"/><rect class="w" x="30" y="294" width="14" height="18" fill="#F5C07A" style="animation-delay:3.7699999999999996s"/><rect class="w" x="52" y="294" width="14" height="18" fill="#F5C07A" style="animation-delay:0.14000000000000057s"/><rect class="w" x="74" y="294" width="14" height="18" fill="#F5C07A" style="animation-delay:0.5099999999999998s"/><rect class="w" x="30" y="328" width="14" height="18" fill="#F5C07A" style="animation-delay:0.879999999999999s"/><rect class="w" x="52" y="328" width="14" height="18" fill="#F5C07A" style="animation-delay:1.25s"/><rect class="w" x="74" y="328" width="14" height="18" fill="#F5C07A" style="animation-delay:1.6199999999999992s"/><rect class="w" x="30" y="362" width="14" height="18" fill="#F5C07A" style="animation-delay:1.9900000000000002s"/><rect class="w" x="52" y="362" width="14" height="18" fill="#F5C07A" style="animation-delay:2.3599999999999994s"/><rect class="w" x="74" y="362" width="14" height="18" fill="#F5C07A" style="animation-delay:2.7300000000000004s"/></svg>
+<svg class="side-x tower tw2 side-only" viewBox="0 0 150 300" aria-hidden="true"><path d="M10 300V60l70-50 60 50v240z" fill="#4A3F72"/><rect class="w" x="26" y="90" width="16" height="18" fill="#F5C07A" style="animation-delay:0s"/><rect class="w" x="54" y="90" width="16" height="18" fill="#F5C07A" style="animation-delay:0.53s"/><rect class="w" x="82" y="90" width="16" height="18" fill="#F5C07A" style="animation-delay:1.06s"/><rect class="w" x="110" y="90" width="16" height="18" fill="#F5C07A" style="animation-delay:1.59s"/><rect class="w" x="26" y="124" width="16" height="18" fill="#F5C07A" style="animation-delay:2.12s"/><rect class="w" x="54" y="124" width="16" height="18" fill="#F5C07A" style="animation-delay:2.6500000000000004s"/><rect class="w" x="82" y="124" width="16" height="18" fill="#F5C07A" style="animation-delay:3.18s"/><rect class="w" x="110" y="124" width="16" height="18" fill="#F5C07A" style="animation-delay:3.71s"/><rect class="w" x="26" y="158" width="16" height="18" fill="#F5C07A" style="animation-delay:0.2400000000000002s"/><rect class="w" x="54" y="158" width="16" height="18" fill="#F5C07A" style="animation-delay:0.7700000000000005s"/><rect class="w" x="82" y="158" width="16" height="18" fill="#F5C07A" style="animation-delay:1.3000000000000007s"/><rect class="w" x="110" y="158" width="16" height="18" fill="#F5C07A" style="animation-delay:1.83s"/><rect class="w" x="26" y="192" width="16" height="18" fill="#F5C07A" style="animation-delay:2.3600000000000003s"/><rect class="w" x="54" y="192" width="16" height="18" fill="#F5C07A" style="animation-delay:2.8900000000000006s"/><rect class="w" x="82" y="192" width="16" height="18" fill="#F5C07A" style="animation-delay:3.42s"/><rect class="w" x="110" y="192" width="16" height="18" fill="#F5C07A" style="animation-delay:3.95s"/><rect class="w" x="26" y="226" width="16" height="18" fill="#F5C07A" style="animation-delay:0.4800000000000004s"/><rect class="w" x="54" y="226" width="16" height="18" fill="#F5C07A" style="animation-delay:1.0099999999999998s"/><rect class="w" x="82" y="226" width="16" height="18" fill="#F5C07A" style="animation-delay:1.540000000000001s"/><rect class="w" x="110" y="226" width="16" height="18" fill="#F5C07A" style="animation-delay:2.0700000000000003s"/><rect class="w" x="26" y="260" width="16" height="18" fill="#F5C07A" style="animation-delay:2.6000000000000014s"/><rect class="w" x="54" y="260" width="16" height="18" fill="#F5C07A" style="animation-delay:3.130000000000001s"/><rect class="w" x="82" y="260" width="16" height="18" fill="#F5C07A" style="animation-delay:3.66s"/><rect class="w" x="110" y="260" width="16" height="18" fill="#F5C07A" style="animation-delay:0.19000000000000128s"/></svg>
+
+<main class="page" id="top">
+  <div class="hdr city" aria-hidden="true">
+    <div class="stars"></div><span class="sunC"></span><span class="plane"></span>
+    <svg viewBox="0 0 480 150" preserveAspectRatio="xMidYMax slice">
+      <path d="M0 150V96h30V70h24v80h10V50h34v100h10V80h28v70h8V30h40v120h12V64h30v86h10V90h26v60h12V40h36v110h10V76h30v74h12V58h34v92z" fill="#24223D"/>
+      <rect class="w" x="36" y="64" width="6" height="7" fill="#F5C07A" style="animation-delay:0s"/><rect class="w" x="72" y="87" width="6" height="7" fill="#F5C07A" style="animation-delay:0.41s"/><rect class="w" x="80" y="110" width="6" height="7" fill="#F5C07A" style="animation-delay:0.82s"/><rect class="w" x="114" y="133" width="6" height="7" fill="#F5C07A" style="animation-delay:1.23s"/><rect class="w" x="120" y="86" width="6" height="7" fill="#F5C07A" style="animation-delay:1.64s"/><rect class="w" x="150" y="109" width="6" height="7" fill="#F5C07A" style="animation-delay:2.05s"/><rect class="w" x="158" y="132" width="6" height="7" fill="#F5C07A" style="animation-delay:2.46s"/><rect class="w" x="184" y="85" width="6" height="7" fill="#F5C07A" style="animation-delay:2.8699999999999997s"/><rect class="w" x="190" y="108" width="6" height="7" fill="#F5C07A" style="animation-delay:3.28s"/><rect class="w" x="196" y="131" width="6" height="7" fill="#F5C07A" style="animation-delay:3.69s"/><rect class="w" x="238" y="84" width="6" height="7" fill="#F5C07A" style="animation-delay:0.09999999999999964s"/><rect class="w" x="246" y="107" width="6" height="7" fill="#F5C07A" style="animation-delay:0.5099999999999998s"/><rect class="w" x="284" y="130" width="6" height="7" fill="#F5C07A" style="animation-delay:0.9199999999999999s"/><rect class="w" x="292" y="83" width="6" height="7" fill="#F5C07A" style="animation-delay:1.33s"/><rect class="w" x="330" y="106" width="6" height="7" fill="#F5C07A" style="animation-delay:1.7399999999999993s"/><rect class="w" x="338" y="129" width="6" height="7" fill="#F5C07A" style="animation-delay:2.1499999999999995s"/><rect class="w" x="372" y="82" width="6" height="7" fill="#F5C07A" style="animation-delay:2.5599999999999996s"/><rect class="w" x="380" y="105" width="6" height="7" fill="#F5C07A" style="animation-delay:2.9699999999999998s"/><rect class="w" x="418" y="128" width="6" height="7" fill="#F5C07A" style="animation-delay:3.38s"/><rect class="w" x="426" y="81" width="6" height="7" fill="#F5C07A" style="animation-delay:3.789999999999999s"/><rect class="w" x="444" y="104" width="6" height="7" fill="#F5C07A" style="animation-delay:0.1999999999999993s"/><rect class="w" x="452" y="127" width="6" height="7" fill="#F5C07A" style="animation-delay:0.6099999999999994s"/><rect class="w" x="36" y="80" width="6" height="7" fill="#F5C07A" style="animation-delay:1.0199999999999996s"/><rect class="w" x="72" y="103" width="6" height="7" fill="#F5C07A" style="animation-delay:1.4299999999999997s"/><rect class="w" x="80" y="126" width="6" height="7" fill="#F5C07A" style="animation-delay:1.8399999999999999s"/><rect class="w" x="114" y="79" width="6" height="7" fill="#F5C07A" style="animation-delay:2.25s"/><rect class="w" x="120" y="102" width="6" height="7" fill="#F5C07A" style="animation-delay:2.66s"/><rect class="w" x="150" y="125" width="6" height="7" fill="#F5C07A" style="animation-delay:3.0699999999999985s"/><rect class="w" x="158" y="78" width="6" height="7" fill="#F5C07A" style="animation-delay:3.4799999999999986s"/><rect class="w" x="184" y="101" width="6" height="7" fill="#F5C07A" style="animation-delay:3.889999999999999s"/><rect class="w" x="190" y="124" width="6" height="7" fill="#F5C07A" style="animation-delay:0.29999999999999893s"/><rect class="w" x="196" y="77" width="6" height="7" fill="#F5C07A" style="animation-delay:0.7099999999999991s"/><rect class="w" x="238" y="100" width="6" height="7" fill="#F5C07A" style="animation-delay:1.1199999999999992s"/><rect class="w" x="246" y="123" width="6" height="7" fill="#F5C07A" style="animation-delay:1.5299999999999994s"/><rect class="w" x="284" y="76" width="6" height="7" fill="#F5C07A" style="animation-delay:1.9399999999999995s"/><rect class="w" x="292" y="99" width="6" height="7" fill="#F5C07A" style="animation-delay:2.3499999999999996s"/>
+    </svg>
+  </div>
+  </div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Saat lampu kota mulai menyala, saatnya menemukan produk digital terbaik untukmu ✦",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Selamat malam, terima kasih sudah mampir",
+  motif: '<svg viewBox="0 0 70 34" aria-hidden="true" fill="#24223D"><rect x="2" y="14" width="12" height="20"/><rect x="16" y="4" width="14" height="30"/><rect x="32" y="10" width="10" height="24"/><rect x="44" y="0" width="12" height="34"/><rect x="58" y="16" width="10" height="18"/><g fill="#F5C07A"><rect x="20" y="10" width="3" height="3"/><rect x="48" y="8" width="3" height="3"/><rect x="48" y="18" width="3" height="3"/></g></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-senja-kota" }
+};
+</script>
+<script src="app.js"></script>

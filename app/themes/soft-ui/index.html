@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="id">
+<title>{{title}}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="{{description}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="/base.css">
+<style>
+/* SOFT UI — neumorphism: semua elemen timbul lembut dari permukaan yang sama (bayangan terang & gelap), tombol aktif tampak "tertekan". Sangat nyaman di mata. */
+:root {
+  --bg: #E6EAF1; --page: #E6EAF1; --card: #E6EAF1; --ink: #333B52; --muted: #626B85;
+  --accent: #6C7BFF; --accent-ink: #FFFFFF; --accent-2: #FF8FA3; --on-accent-2: #FFFFFF;
+  --soft: #E6EAF1; --line: transparent; --price: #5866E8; --mark: #FFE2EA;
+  --up: 8px 8px 16px #C5CAD6, -8px -8px 16px #FFFFFF;
+  --upS: 4px 4px 9px #C5CAD6, -4px -4px 9px #FFFFFF;
+  --in: inset 5px 5px 10px #C5CAD6, inset -5px -5px 10px #FFFFFF;
+  --radius: 26px; --radius-img: 18px; --radius-btn: 16px; --page-radius: 40px; --bw: 0px; --bw2: 0px;
+  --fab-bg: #6C7BFF; --fab-ink: #FFFFFF;
+  --page-shadow: 20px 20px 40px #C5CAD6, -20px -20px 40px #FFFFFF;
+  --f-head: "Nunito", system-ui, sans-serif;
+  --f-body: "Nunito", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+.page { overflow: hidden; }
+.hdr { position: relative; margin: -20px -18px 0; height: 244px; overflow: hidden; }
+@media (min-width: 520px) { .hdr { margin: -24px -22px 0; } }
+.top-actions { position: absolute; top: 14px; left: 14px; right: 14px; }
+.lrow { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); min-height: 62px; }
+.tick { background: var(--accent); color: var(--accent-ink); }
+.ltext b { font: 800 17px var(--f-head); }
+.paycard { background: var(--card); border: var(--bw2, 1.5px) solid var(--line); }
+.paycard h3 { font-family: var(--f-head); color: var(--accent); }
+.pm { background: var(--soft); }
+.faq details { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); }
+.faq summary { font: 600 14.5px var(--f-body); }
+.faq summary::after { background: var(--accent); color: var(--accent-ink); }
+.sign b { font: 800 24px var(--f-head); color: var(--accent); }
+.sign svg { width: 64px; }
+.fab { font: 800 16px var(--f-head); }
+.fab .bubble { background: var(--accent-2); color: var(--on-accent-2); }
+.sheet { background: var(--page); color: var(--ink); }
+.shead h2 { font: 800 24px var(--f-head); }
+.line { border: var(--bw2, 1.5px) solid var(--line); background: var(--card); }
+.go { font: 800 17px var(--f-head); }
+.buy { font: 800 15px var(--f-head); }
+.cta { font: 800 16px var(--f-head); }
+.now { font: 800 19px var(--f-head); color: var(--price); }
+.card.wide .now { font-size: 24px; }
+.cname { font: 600 14.5px/1.35 var(--f-body); }
+.add.in { background: var(--accent-2); border-color: var(--accent-2); color: var(--on-accent-2); }
+.side-x { position: fixed; z-index: 1; pointer-events: none; }
+
+body { background: var(--bg); }
+.soft { background: var(--bg); }
+.soft .knob { position: absolute; left: 34px; top: 54px; width: 110px; height: 110px; border-radius: 50%; box-shadow: var(--up); animation: turnK 8s ease-in-out infinite; }
+.soft .knob::before { content: ""; position: absolute; inset: 18px; border-radius: 50%; box-shadow: var(--in); }
+.soft .knob::after { content: ""; position: absolute; left: 50%; top: 26px; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+@keyframes turnK { 50% { transform: rotate(140deg); } }
+.soft .toggle { position: absolute; right: 34px; top: 60px; width: 120px; height: 54px; border-radius: 27px; box-shadow: var(--in); }
+.soft .toggle::after { content: ""; position: absolute; left: 7px; top: 7px; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(145deg, #7C8AFF, #5866E8); box-shadow: 3px 3px 8px rgba(88,102,232,.5); animation: slideT 4s ease-in-out infinite; }
+@keyframes slideT { 0%, 40% { transform: translateX(0); } 50%, 90% { transform: translateX(66px); } }
+.soft .slider { position: absolute; right: 34px; top: 140px; width: 150px; height: 14px; border-radius: 7px; box-shadow: var(--in); }
+.soft .slider::after { content: ""; position: absolute; left: 0; top: 0; height: 14px; border-radius: 7px; background: linear-gradient(90deg, #FF8FA3, #6C7BFF); animation: fillS 4s ease-in-out infinite alternate; width: 30%; }
+@keyframes fillS { to { width: 85%; } }
+.round { border: 0; background: var(--bg); color: var(--accent); box-shadow: var(--upS); }
+.round:hover { box-shadow: var(--in); transform: none; }
+.profile { margin-top: -24px; }
+.ava-wrap { padding: 10px; border-radius: 50%; box-shadow: var(--up); width: 140px; height: 140px; }
+.ava { border: 0; box-shadow: var(--in); background: var(--bg); color: var(--accent); font: 800 40px var(--f-head); }
+.ava-badge { background: var(--accent-2); color: #fff; box-shadow: var(--upS); }
+.hi { font: 700 14px var(--f-body); color: var(--muted); }
+.name { font: 800 clamp(36px, 10vw, 46px)/1.05 var(--f-head); color: var(--ink); text-shadow: 2px 2px 4px #fff; }
+.role { margin-top: 10px; padding: 6px 16px; border-radius: 14px; box-shadow: var(--in); font: 700 11.5px var(--f-body); letter-spacing: .1em; color: var(--accent); }
+.socials a { background: var(--bg); box-shadow: var(--upS); color: var(--accent); }
+.sec-title { width: fit-content; margin: 44px auto 20px; padding: 12px 26px; border-radius: 20px; box-shadow: var(--up); font: 800 19px var(--f-head); }
+.sec-title svg { color: var(--accent); }
+.search input { border: 0; background: var(--bg); box-shadow: var(--in); }
+.chip { border: 0; background: var(--bg); box-shadow: var(--upS); color: var(--muted); font-weight: 700; margin: 6px 4px; }
+.chip[aria-pressed="true"] { box-shadow: var(--in); color: var(--accent); background: var(--bg); }
+.grid { gap: 24px 18px; padding: 6px; }
+.card { border: 0; background: var(--bg); box-shadow: var(--up); padding: 12px; }
+.card:hover { transform: none; box-shadow: 12px 12px 22px #C1C6D3, -12px -12px 22px #FFFFFF; }
+.cimg { box-shadow: var(--in); padding: 6px; background: var(--bg); }
+.cimg img { border-radius: 14px; inset: 6px; width: calc(100% - 12px); height: calc(100% - 12px); }
+.off { background: var(--accent-2); color: #fff; box-shadow: var(--upS); }
+.ribbon { background: var(--bg); color: var(--accent); box-shadow: var(--upS); }
+.ctype { color: var(--accent-2); }
+.buy { background: linear-gradient(145deg, #7C8AFF, #5866E8); box-shadow: 4px 4px 10px rgba(88,102,232,.4), -4px -4px 10px #fff; }
+.add { border: 0; background: var(--bg); color: var(--accent); box-shadow: var(--upS); }
+.add.in { box-shadow: var(--in); background: var(--bg); color: var(--accent-2); }
+.cta { border: 0; background: var(--bg); color: var(--accent); box-shadow: var(--up); }
+.cta:hover { box-shadow: var(--in); }
+.links { gap: 16px; }
+.lrow { border: 0; background: var(--bg); box-shadow: var(--upS); }
+.lrow:hover { box-shadow: var(--in); transform: none; }
+.tick { background: var(--bg); color: var(--accent); box-shadow: var(--in); }
+.paycard, .faq details { border: 0; background: var(--bg); box-shadow: var(--upS); }
+.pm { background: var(--bg); box-shadow: var(--in); }
+.faq summary::after { background: var(--bg); color: var(--accent); box-shadow: var(--upS); }
+.fab { background: linear-gradient(145deg, #7C8AFF, #5866E8); box-shadow: 8px 8px 20px rgba(88,102,232,.45), -6px -6px 14px #fff; }
+.sheet { background: var(--bg); }
+.line { border: 0; box-shadow: var(--upS); background: var(--bg); }
+.go { background: linear-gradient(145deg, #7C8AFF, #5866E8); }
+.blob { width: 200px; height: 200px; border-radius: 50%; box-shadow: var(--up); }
+.blob::after { content: ""; position: absolute; inset: 30px; border-radius: 50%; box-shadow: var(--in); }
+.bo1 { top: 10%; left: max(30px, calc(50% - 540px)); } .bo2 { bottom: 8%; right: max(30px, calc(50% - 540px)); width: 150px; height: 150px; }
+</style>
+
+<div class="side-x blob bo1 side-only" aria-hidden="true"></div><div class="side-x blob bo2 side-only" aria-hidden="true"></div>
+
+<main class="page" id="top">
+  <div class="hdr soft" aria-hidden="true"><span class="knob"></span><span class="toggle"></span><span class="slider"></span></div>
+  </div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Tenang, lembut, dan rapi. Produk digital yang nyaman dipilih tanpa ribet.",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Terima kasih, semoga harimu ringan",
+  motif: '<svg viewBox="0 0 60 30" aria-hidden="true"><rect x="2" y="6" width="56" height="18" rx="9" fill="#E3E8F0"/><circle cx="44" cy="15" r="7" fill="#6C7BFF"/></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-soft-ui" }
+};
+</script>
+{{config}}
+<script src="/app.js?v={{v}}"></script>

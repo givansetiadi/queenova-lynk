@@ -24,7 +24,8 @@ const LABELS = {
   "susu-stroberi": "Susu Stroberi", piknik: "Piknik", "kafe-kucing": "Kafe Kucing", "awan-kapas": "Awan Kapas", "spa-imut": "Spa Imut",
   tarot: "Tarot", "cetak-biru": "Cetak Biru", gacha: "Gacha", "peta-harta": "Peta Harta Karun", "kaca-patri": "Kaca Patri",
   rpg: "Petualangan RPG", brutalis: "Brutalis", krayon: "Gambar Krayon", bioskop: "Bioskop", "koran-pagi": "Koran Pagi",
-  "jeruk-segar": "Jeruk Segar", "es-krim": "Es Krim", "lab-sains": "Lab Sains", "musim-gugur": "Musim Gugur", "stadion": "Stadion", "memphis": "Memphis", "terrazzo": "Terrazzo", "laut-dalam": "Laut Dalam", "rumah-kaca": "Rumah Kaca", "matcha": "Matcha"
+  "jeruk-segar": "Jeruk Segar", "es-krim": "Es Krim", "lab-sains": "Lab Sains", "musim-gugur": "Musim Gugur", "stadion": "Stadion", "memphis": "Memphis", "terrazzo": "Terrazzo", "laut-dalam": "Laut Dalam", "rumah-kaca": "Rumah Kaca", "matcha": "Matcha",
+  "kereta-senja": "Kereta Senja", "kantor-pos": "Kantor Pos", "perpustakaan": "Perpustakaan", "buku-agenda": "Buku Agenda", "studio-keramik": "Studio Keramik", "kebun-teh": "Kebun Teh", "senja-kota": "Senja Kota", "tenun-ikat": "Tenun Ikat", "swatch": "Swatch", "soft-ui": "Soft UI"
 };
 
 function generic(html) {
