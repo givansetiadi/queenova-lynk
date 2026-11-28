@@ -232,6 +232,17 @@ section.block { padding-block: 88px; }
 .chip[aria-pressed="true"] { background: var(--ink); color: #fff; }
 .chip .n { font-size: 12px; opacity: .6; }
 .gal-count { font-weight: 600; color: var(--muted); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.gal-tools { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.sort { position: relative; }
+.sort select { appearance: none; min-height: 42px; padding: 0 40px 0 16px; border-radius: 999px; border: 2px solid var(--ink); background: var(--paper); font: 700 14.5px var(--f-body); color: var(--ink); cursor: pointer; }
+.sort::after { content: ""; position: absolute; right: 16px; top: 50%; width: 8px; height: 8px; margin-top: -6px; border-right: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink); transform: rotate(45deg); pointer-events: none; }
+.more { grid-column: 1 / -1; display: grid; justify-items: center; gap: 12px; padding: 10px 0 4px; text-align: center; }
+.more .bar { width: min(260px, 80%); height: 8px; border-radius: 999px; border: 2px solid var(--ink); background: var(--paper); overflow: hidden; }
+.more .bar i { display: block; height: 100%; background: var(--coral); }
+.more small { font-weight: 600; color: var(--muted); }
+.tpl.fresh { animation: pop-in .45s cubic-bezier(.2,.9,.3,1.2) both; }
+@keyframes pop-in { from { opacity: 0; transform: translateY(18px) scale(.97); } }
 .gallery { display: grid; gap: 28px 22px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); }
 .tpl { display: flex; flex-direction: column; gap: 16px; padding: 18px 18px 20px; border-radius: 30px; border: 2px solid var(--ink); background: var(--tone, var(--butter)); box-shadow: 0 6px 0 var(--ink); transition: transform .2s; min-width: 0; }
 .tpl:hover { transform: translateY(-4px) rotate(-.4deg); }
@@ -434,7 +445,17 @@ footer a { color: var(--ink); }
       </div>
       <div class="gal-bar">
         <div class="chips" id="chips" role="group" aria-label="Filter gaya template"></div>
-        <span class="gal-count" id="gal-count"></span>
+        <div class="gal-tools">
+          <label class="sort"><span class="sr-only">Urutkan template</span>
+            <select id="sort" aria-label="Urutkan template">
+              <option value="pilihan">Pilihan kami</option>
+              <option value="terbaru">Terbaru</option>
+              <option value="murah">Harga termurah</option>
+              <option value="mahal">Harga termahal</option>
+            </select>
+          </label>
+          <span class="gal-count" id="gal-count" aria-live="polite"></span>
+        </div>
       </div>
       <div class="gallery" id="gallery"></div>
     </div>
@@ -698,16 +719,32 @@ $("#stage").insertAdjacentHTML("beforeend", order.map((t, i) => {
 
 /* ---------- Galeri ---------- */
 let activeTag = "Semua";
+let sortBy = "pilihan";
+const PAGE = 12;
+let shown = PAGE;
+// Urutan "Pilihan kami": tema unggulan tampil duluan, sisanya mengikuti urutan CONFIG.
+const FEATURED = ["laut-dalam", "kereta-senja", "susu-stroberi", "champagne", "tarot", "jeruk-segar", "kafe-kucing", "gacha", "terrazzo", "bioskop", "sakura", "rpg"];
+function sortedList(list) {
+  const idx = (t) => CONFIG.templates.indexOf(t);
+  const arr = [...list];
+  if (sortBy === "terbaru") return arr.sort((a, b) => idx(b) - idx(a));
+  if (sortBy === "murah") return arr.sort((a, b) => priceOf(a)[0] - priceOf(b)[0] || idx(a) - idx(b));
+  if (sortBy === "mahal") return arr.sort((a, b) => priceOf(b)[0] - priceOf(a)[0] || idx(a) - idx(b));
+  const rank = (t) => { const i = FEATURED.indexOf(t.id); return i < 0 ? FEATURED.length + idx(t) : i; };
+  return arr.sort((a, b) => rank(a) - rank(b));
+}
 function renderChips() {
   const tags = [...new Set(CONFIG.templates.flatMap((t) => t.tags || []))];
   const count = (tag) => tag === "Semua" ? CONFIG.templates.length : CONFIG.templates.filter((t) => (t.tags || []).includes(tag)).length;
   $("#chips").innerHTML = ["Semua", ...tags].map((tag) =>
     `<button class="chip" type="button" data-tag="${esc(tag)}" aria-pressed="${tag === activeTag}">${esc(tag)}<span class="n">${count(tag)}</span></button>`).join("");
 }
-function renderGallery() {
-  const list = CONFIG.templates.filter((t) => activeTag === "Semua" || (t.tags || []).includes(activeTag));
-  $("#gallery").innerHTML = list.map((t) => `
-    <article class="tpl" style="--tone:${esc(t.tone || "#FFF1BF")}">
+function renderGallery(freshFrom = -1) {
+  const all = sortedList(CONFIG.templates.filter((t) => activeTag === "Semua" || (t.tags || []).includes(activeTag)));
+  const list = all.slice(0, shown);
+  const left = all.length - list.length;
+  $("#gallery").innerHTML = list.map((t, i) => `
+    <article class="tpl${freshFrom >= 0 && i >= freshFrom ? " fresh" : ""}" style="--tone:${esc(t.tone || "#FFF1BF")}${freshFrom >= 0 && i >= freshFrom ? `;animation-delay:${(i - freshFrom) * 40}ms` : ""}">
       <button class="tpl-phone" type="button" data-view="${esc(t.id)}" aria-label="Lihat template ${esc(t.name)} lebih besar">
         ${t.isNew ? `<span class="tpl-new">Baru</span>` : ""}
         <img src="${esc(t.image)}" alt="Tampilan template ${esc(t.name)}" loading="lazy">
@@ -725,16 +762,35 @@ function renderGallery() {
         <a class="btn btn-wa" href="${esc(waLink(orderMsg(t)))}" target="_blank" rel="noopener">${ICON.wa}Pesan template ini</a>
         <button class="btn demo" type="button" data-view="${esc(t.id)}">Lihat gambar halaman penuh</button>
       </div>
-    </article>`).join("") + `
+    </article>`).join("") + (left > 0 ? `
+    <div class="more">
+      <div class="bar" aria-hidden="true"><i style="width:${Math.round(list.length / all.length * 100)}%"></i></div>
+      <small>Menampilkan ${list.length} dari ${all.length} template</small>
+      <button class="btn btn-ink" type="button" id="load-more">Lihat ${Math.min(PAGE, left)} template lagi</button>
+    </div>` : `
     <div class="tpl-soon"><div><b>Template lain segera hadir</b><p>Punya gaya yang belum ada? Ceritakan lewat WhatsApp.</p></div>
-      <a class="btn btn-paper" href="${esc(waLink("Halo kak, saya mau tanya soal template lynk.id dengan gaya: "))}" target="_blank" rel="noopener">${ICON.wa}Request gaya</a></div>`;
-  $("#gal-count").textContent = `${list.length} template`;
+      <a class="btn btn-paper" href="${esc(waLink("Halo kak, saya mau tanya soal template lynk.id dengan gaya: "))}" target="_blank" rel="noopener">${ICON.wa}Request gaya</a></div>`);
+  $("#gal-count").textContent = `${all.length} template`;
 }
 $("#chips").addEventListener("click", (e) => {
   const b = e.target.closest(".chip");
   if (!b) return;
   activeTag = b.dataset.tag;
+  shown = PAGE;
   renderChips(); renderGallery();
+});
+$("#sort").addEventListener("change", (e) => {
+  sortBy = e.target.value;
+  shown = PAGE;
+  renderGallery();
+});
+$("#gallery").addEventListener("click", (e) => {
+  if (!e.target.closest("#load-more")) return;
+  const from = shown;
+  shown += PAGE;
+  renderGallery(from);
+  const next = $("#gallery").children[from];
+  next?.querySelector("button, a")?.focus({ preventScroll: true });
 });
 
 /* ---------- Lightbox ---------- */
