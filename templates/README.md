@@ -54,6 +54,11 @@ Tiap folder tema berdiri sendiri dan bisa di-deploy terpisah (Vercel).
 | `kafe-kucing/` | Imut: kafe hangat, kucing tidur, latte, kartu bertelinga kucing |
 | `awan-kapas/` | Imut: langit pastel, awan empuk, pelangi, bulan sabit tidur |
 | `spa-imut/` | Imut: kamar mandi pastel, busa, bebek karet, botol skincare berwajah |
+| `tarot/` | Unik: malam berbintang, bola kristal, produk = kartu tarot bernomor Romawi |
+| `cetak-biru/` | Unik: gambar arsitek, grid biru, garis ukuran, kotak judul |
+| `gacha/` | Unik: mesin kapsul, tuas berputar, produk = kapsul dua warna |
+| `peta-harta/` | Unik: perkamen, pulau, jalur ke tanda X, kompas berputar |
+| `kaca-patri/` | Unik: jendela mawar katedral, kaca permata berbingkai timah |
 | `_base/` | Sumber bersama: `app.js`, `base.css`, `dev-server.js`, `lib/lynk.js` |
 
 Semua tema selain `alam`, `sage`, dan `kawaii-pink` memakai `base.css` (struktur bersama) + CSS tema di `index.html`.

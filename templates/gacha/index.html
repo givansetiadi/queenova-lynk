@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="id">
+<title>Toko Ivan Setiadi · Gacha</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Template website, ebook, dan panduan digital dari Ivan Setiadi. Bayar aman lewat lynk.id.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kosugi+Maru&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* Tema GACHA — mesin kapsul hadiah: kubah kaca penuh kapsul memantul, tuas berputar, kapsul menggelinding. Produk = kapsul dua warna. */
+:root {
+  --bg: #FFE45C; --page: #FFFDF4; --card: #FFFFFF; --ink: #2B2340; --muted: #6F6585;
+  --accent: #FF4D6D; --accent-ink: #FFFFFF; --accent-2: #3EC1D3; --on-accent-2: #FFFFFF;
+  --soft: #FFF6D6; --line: #F2E6B8; --price: #FF4D6D; --mark: #FFF1A8;
+  --purple: #9B6BFF; --green: #5CCB6B;
+  --radius: 26px; --radius-img: 16px; --radius-btn: 999px; --page-radius: 34px;
+  --fab-bg: #FF4D6D; --fab-ink: #FFFFFF;
+  --page-shadow: 0 0 0 4px var(--ink), 10px 12px 0 4px var(--ink);
+  --f-head: "Dela Gothic One", Impact, sans-serif;
+  --f-body: "Kosugi Maru", system-ui, sans-serif;
+  color-scheme: light;
+}
+body { background-color: var(--bg); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg stroke='%232B2340' stroke-width='2' opacity='.18'%3E%3Cpath d='M10 24a12 12 0 0 1 24 0z' fill='%23FF4D6D'/%3E%3Cpath d='M10 24a12 12 0 0 0 24 0z' fill='%23fff'/%3E%3Cpath d='M56 70a12 12 0 0 1 24 0z' fill='%233EC1D3'/%3E%3Cpath d='M56 70a12 12 0 0 0 24 0z' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E"); }
+.page { overflow: hidden; }
+@media (max-width: 519px) { .page { box-shadow: none; } }
+.arcade { position: relative; margin: -20px -18px 0; height: 244px; overflow: hidden; background: radial-gradient(circle at 50% 120%, #FFB8C8, #FF8FA8 60%, #FF7393); }
+@media (min-width: 520px) { .arcade { margin: -24px -22px 0; } }
+.arcade::before { content: ""; position: absolute; inset: 0; background: repeating-conic-gradient(from 0deg at 50% 110%, rgba(255,255,255,.14) 0 8deg, transparent 8deg 16deg); animation: rays 30s linear infinite; }
+@keyframes rays { to { transform: rotate(360deg); } }
+.machine { position: absolute; left: 14px; bottom: 0; width: 140px; }
+.machine .bounce { animation: jumble 1.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.machine .bounce:nth-of-type(2n) { animation-delay: -.4s; } .machine .bounce:nth-of-type(3n) { animation-delay: -.9s; }
+@keyframes jumble { 50% { transform: translateY(-4px) rotate(12deg); } }
+.machine .knob { transform-origin: 70px 176px; animation: turn 3s ease-in-out infinite; }
+@keyframes turn { 0%, 60%, 100% { transform: rotate(0); } 75% { transform: rotate(180deg); } 90% { transform: rotate(360deg); } }
+.rollcap { position: absolute; left: 150px; bottom: 14px; width: 40px; animation: rollout 3s ease-in infinite; }
+@keyframes rollout { 0%, 70% { transform: translateX(-40px) rotate(0); opacity: 0; } 75% { opacity: 1; } 100% { transform: translateX(160px) rotate(540deg); opacity: 1; } }
+.sign1 { position: absolute; right: 16px; top: 54px; padding: 8px 12px; background: #fff; border: 3px solid var(--ink); border-radius: 12px; font: 400 13px/1.2 var(--f-head); color: var(--ink); text-align: center; transform: rotate(4deg); box-shadow: 4px 4px 0 var(--ink); }
+.sign1 small { display: block; font: 400 10px var(--f-body); color: var(--accent); }
+.coins { position: absolute; right: 26px; bottom: 18px; width: 90px; }
+.top-actions { position: absolute; top: 12px; left: 14px; right: 14px; }
+.round { border: 3px solid var(--ink); background: #fff; color: var(--accent); box-shadow: 3px 3px 0 var(--ink); }
+.profile { margin-top: -54px; }
+.ava-wrap { padding: 0; }
+.ava { border: 4px solid var(--ink); background: linear-gradient(180deg, var(--accent-2) 0 50%, #fff 50%); color: var(--ink); font: 400 40px var(--f-head); box-shadow: inset 0 -4px 0 rgba(0,0,0,.06), 0 0 0 6px #fff, 0 0 0 9px var(--ink); }
+.ava-badge { background: var(--bg); color: var(--ink); border: 3px solid var(--ink); }
+.hi { margin-top: 18px; font: 400 14px var(--f-body); color: var(--accent); }
+.name { font: 400 clamp(34px, 9.5vw, 44px)/1.05 var(--f-head); color: var(--ink); text-shadow: 3px 3px 0 var(--bg); }
+.role { margin-top: 8px; padding: 6px 14px; border: 3px solid var(--ink); border-radius: 999px; background: var(--purple); color: #fff; font: 400 11.5px var(--f-body); letter-spacing: .08em; }
+.about { color: var(--muted); }
+.socials a { background: #fff; border: 3px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
+.sec-title { width: fit-content; margin: 40px auto 18px; padding: 8px 22px 8px 50px; background: #fff; color: var(--ink); font: 400 20px var(--f-head); border: 3px solid var(--ink); border-radius: 999px; box-shadow: 4px 4px 0 var(--ink); position: relative; }
+.sec-title::before { content: ""; position: absolute; left: 8px; top: 50%; width: 30px; height: 30px; margin-top: -15px; border-radius: 50%; border: 3px solid var(--ink); background: linear-gradient(180deg, var(--accent) 0 50%, #fff 50%); }
+.sec-title svg { display: none; }
+.search input { border: 3px solid var(--ink); background: #fff; }
+.chip { border: 3px solid var(--ink); background: #fff; color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--accent-2); color: #fff; }
+.grid { gap: 20px 14px; }
+.card { border: 3px solid var(--ink); border-radius: 60px 60px 26px 26px; padding: 22px 10px 12px; background: linear-gradient(180deg, var(--accent) 0 47%, #fff 47%); box-shadow: 5px 6px 0 var(--ink); overflow: hidden; }
+.card::before { content: ""; position: absolute; left: 0; right: 0; top: 47%; height: 3px; background: var(--ink); }
+.card::after { content: ""; position: absolute; left: 22%; top: 9px; width: 30%; height: 8px; border-radius: 6px; background: rgba(255,255,255,.7); transform: rotate(-8deg); }
+.card:nth-child(4n+2) { background: linear-gradient(180deg, var(--accent-2) 0 47%, #fff 47%); }
+.card:nth-child(4n+3) { background: linear-gradient(180deg, var(--purple) 0 47%, #fff 47%); }
+.card:nth-child(4n+4) { background: linear-gradient(180deg, var(--green) 0 47%, #fff 47%); }
+.card.wide::before, .card.wide { --cut: 60%; }
+.card.wide { background: linear-gradient(180deg, var(--accent) 0 60%, #fff 60%); }
+.card.wide::before { top: 60%; }
+.card:hover { transform: translateY(-5px) rotate(-2deg); }
+.cimg { border: 3px solid var(--ink); position: relative; z-index: 1; }
+.cbody { position: relative; z-index: 1; }
+.off { background: var(--bg); color: var(--ink); border: 3px solid var(--ink); border-radius: 50%; width: 48px; height: 48px; padding: 0; display: grid; place-items: center; font: 400 12px var(--f-head); }
+.ribbon { background: var(--ink); color: var(--bg); font: 400 11px var(--f-body); }
+.ribbon::before { content: "★ LANGKA · "; }
+.ctype { color: var(--accent-2); }
+.cname { font: 400 14px/1.4 var(--f-body); }
+.now { font: 400 18px var(--f-head); color: var(--price); }
+.card.wide .now { font-size: 22px; }
+.buy { border: 3px solid var(--ink); font: 400 14px var(--f-head); box-shadow: 3px 3px 0 var(--ink); }
+.add { border: 3px solid var(--ink); color: var(--ink); background: var(--bg); }
+.add.in { background: var(--green); color: #fff; }
+.cta { border: 3px solid var(--ink); background: var(--accent-2); color: #fff; font: 400 15px var(--f-head); box-shadow: 5px 5px 0 var(--ink); }
+.cta:hover { background: var(--accent); }
+.links { counter-reset: prize; }
+.lrow { counter-increment: prize; border: 3px solid var(--ink); background: #fff; min-height: 62px; box-shadow: 4px 4px 0 var(--ink); }
+.tick { background: var(--purple); color: #fff; border: 2px solid var(--ink); }
+.ltext b { font: 400 15px var(--f-head); }
+.ltext b::before { content: "#" counter(prize) " "; color: var(--accent); }
+.paycard { background: #fff; border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+.paycard h3 { font-family: var(--f-head); font-weight: 400; color: var(--accent); }
+.pm { background: var(--soft); }
+.faq details { border: 3px solid var(--ink); }
+.faq summary { font: 400 14.5px var(--f-body); }
+.faq summary::after { background: var(--bg); color: var(--ink); border: 2px solid var(--ink); }
+.sign b { font: 400 20px var(--f-head); }
+.sign svg { width: 90px; }
+.fab { border: 3px solid var(--ink); font: 400 15px var(--f-head); box-shadow: 4px 4px 0 var(--ink); }
+.fab .bubble { background: var(--bg); color: var(--ink); }
+.shead h2 { font: 400 22px var(--f-head); }
+.line { border: 3px solid var(--line); }
+.go { border: 3px solid var(--ink); font: 400 16px var(--f-head); box-shadow: 4px 4px 0 var(--ink); }
+.gen { background: linear-gradient(180deg, var(--accent) 0 50%, #fff 50%); }
+.gen span { font: 400 16px var(--f-head); color: var(--ink); background: var(--bg); padding: 4px 10px; border: 3px solid var(--ink); border-radius: 999px; }
+
+/* Hiasan samping (layar lebar) */
+.side-g { position: fixed; z-index: 1; pointer-events: none; }
+.opencap { top: 10%; left: max(30px, calc(50% - 530px)); width: 200px; }
+.opencap .star { animation: pop 2s ease-in-out infinite; transform-origin: 100px 90px; }
+@keyframes pop { 50% { transform: translateY(-14px) scale(1.15) rotate(12deg); } }
+.capbig { bottom: 6%; right: max(40px, calc(50% - 510px)); width: 150px; animation: jumble 2s ease-in-out infinite; }
+.ticket { bottom: 10%; left: max(60px, calc(50% - 480px)); width: 170px; transform: rotate(-10deg); }
+</style>
+
+<svg class="side-g opencap side-only" viewBox="0 0 200 200" aria-hidden="true"><g stroke="#2B2340" stroke-width="5" stroke-linejoin="round"><path d="M30 130a70 70 0 0 0 140 0z" fill="#fff"/><path d="M40 96a60 60 0 0 1 110-26l-104 40z" fill="#9B6BFF" transform="rotate(-24 100 100)"/></g><g class="star"><path d="M100 30l12 26 28 3-21 19 6 28-25-14-25 14 6-28-21-19 28-3z" fill="#FFE45C" stroke="#2B2340" stroke-width="5" stroke-linejoin="round"/></g><g stroke="#2B2340" stroke-width="4" stroke-linecap="round"><path d="M40 60l-12-10M160 60l12-10M100 14V2"/></g></svg>
+<svg class="side-g capbig side-only" viewBox="-40 -40 80 80" aria-hidden="true"><g transform="scale(2.6)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#3EC1D3" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g></svg>
+<svg class="side-g ticket side-only" viewBox="0 0 170 80" aria-hidden="true"><path d="M4 4h162v24a12 12 0 0 0 0 24v24H4V52a12 12 0 0 0 0-24z" fill="#FF4D6D" stroke="#2B2340" stroke-width="4"/><path d="M120 6v68" stroke="#fff" stroke-width="3" stroke-dasharray="5 5"/><text x="62" y="50" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="20" fill="#fff">1 PUTAR</text></svg>
+
+<main class="page" id="top">
+  <div class="arcade" aria-hidden="true">
+    <svg class="machine" viewBox="0 0 140 220"><g stroke="#2B2340" stroke-width="4" stroke-linejoin="round">
+      <circle cx="70" cy="72" r="58" fill="rgba(255,255,255,.55)"/>
+      <path d="M14 116h112l8 104H6z" fill="#E8344F"/><rect x="40" y="186" width="40" height="22" rx="4" fill="#2B2340"/>
+      <path d="M8 116h124v14H8z" fill="#C42740"/></g>
+      <g class="bounce" transform="translate(40 70)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#FF4D6D" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g><g class="bounce" transform="translate(70 60)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#3EC1D3" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g><g class="bounce" transform="translate(100 72)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#9B6BFF" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g><g class="bounce" transform="translate(52 96)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#5CCB6B" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g><g class="bounce" transform="translate(86 98)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#FFE45C" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g><g class="bounce" transform="translate(62 36)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#FF9F43" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g><g class="bounce" transform="translate(96 42)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#3EC1D3" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g><g class="bounce" transform="translate(32 44)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#9B6BFF" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g>
+      <path d="M30 40a46 46 0 0 1 30-26" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".8"/>
+      <g class="knob"><circle cx="70" cy="176" r="16" fill="#fff" stroke="#2B2340" stroke-width="4"/><rect x="56" y="171" width="28" height="10" rx="4" fill="#FFE45C" stroke="#2B2340" stroke-width="3"/></g>
+      <circle cx="70" cy="72" r="58" fill="none" stroke="#2B2340" stroke-width="4"/></svg>
+    <svg class="rollcap" viewBox="-16 -16 32 32"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#FFE45C" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></svg>
+    <div class="sign1">1 PUTAR =<br>1 HADIAH<small>kapsul acak!</small></div>
+    <svg class="coins" viewBox="0 0 90 40"><g stroke="#2B2340" stroke-width="3"><ellipse cx="24" cy="30" rx="18" ry="7" fill="#F5B83D"/><ellipse cx="24" cy="24" rx="18" ry="7" fill="#FFD35C"/><ellipse cx="60" cy="30" rx="18" ry="7" fill="#FFD35C"/></g><text x="24" y="28" text-anchor="middle" font-family="Dela Gothic One" font-size="9" fill="#2B2340">100</text></svg>
+  </div>
+  </div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Putar tuasnya, buka kapsulnya! Setiap produk digital di sini adalah hadiah kejutan untukmu 🎁",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Coba lagi besok, siapa tahu dapat yang langka!",
+  motif: '<svg viewBox="-40 -16 80 32" aria-hidden="true"><g transform="translate(-22 0)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#FF4D6D" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g><g transform="translate(0 0)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#3EC1D3" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g><g transform="translate(22 0)"><g><path d="M-14 0a14 14 0 0 1 28 0z" fill="#9B6BFF" stroke="#2B2340" stroke-width="2.4"/><path d="M-14 0a14 14 0 0 0 28 0z" fill="#fff" stroke="#2B2340" stroke-width="2.4"/><path d="M-9 -6a8 8 0 0 1 6 -5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/></g></g></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-gacha" }
+};
+</script>
+<script src="app.js"></script>
