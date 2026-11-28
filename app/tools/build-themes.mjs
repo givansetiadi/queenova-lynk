@@ -20,7 +20,8 @@ const LABELS = {
   aurora: "Aurora", japandi: "Japandi", lavender: "Lavender", "senja-gurun": "Senja Gurun",
   "kamar-mainan": "Kamar Mainan", "bawah-laut": "Bawah Laut", "kampung-ceria": "Kampung Ceria", "hutan-dongeng": "Hutan Dongeng", "kejar-kejaran": "Kejar-kejaran",
   champagne: "Champagne", kintsugi: "Kintsugi", atelier: "Atelier", "grand-hotel": "Grand Hotel", mutiara: "Mutiara",
-  "piringan-hitam": "Piringan Hitam", terminal: "Terminal", herbarium: "Herbarium", paspor: "Paspor", "chrome-y2k": "Chrome Y2K"
+  "piringan-hitam": "Piringan Hitam", terminal: "Terminal", herbarium: "Herbarium", paspor: "Paspor", "chrome-y2k": "Chrome Y2K",
+  "susu-stroberi": "Susu Stroberi", piknik: "Piknik", "kafe-kucing": "Kafe Kucing", "awan-kapas": "Awan Kapas", "spa-imut": "Spa Imut"
 };
 
 function generic(html) {

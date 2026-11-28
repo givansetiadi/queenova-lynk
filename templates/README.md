@@ -49,6 +49,11 @@ Tiap folder tema berdiri sendiri dan bisa di-deploy terpisah (Vercel).
 | `herbarium/` | Spesimen botani antik: pakis kering, selotip, label tinta |
 | `paspor/` | Travel: pesawat di jalur, cap imigrasi, produk = boarding pass |
 | `chrome-y2k/` | Logam cair krom, bintang 4 sudut, langit holografik |
+| `susu-stroberi/` | Imut: susu pink, stroberi, kotak susu berwajah, avatar telinga kelinci |
+| `piknik/` | Imut: taplak kotak-kotak, keranjang rotan, daisy, kupu-kupu |
+| `kafe-kucing/` | Imut: kafe hangat, kucing tidur, latte, kartu bertelinga kucing |
+| `awan-kapas/` | Imut: langit pastel, awan empuk, pelangi, bulan sabit tidur |
+| `spa-imut/` | Imut: kamar mandi pastel, busa, bebek karet, botol skincare berwajah |
 | `_base/` | Sumber bersama: `app.js`, `base.css`, `dev-server.js`, `lib/lynk.js` |
 
 Semua tema selain `alam`, `sage`, dan `kawaii-pink` memakai `base.css` (struktur bersama) + CSS tema di `index.html`.
