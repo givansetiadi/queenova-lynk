@@ -64,6 +64,16 @@ Tiap folder tema berdiri sendiri dan bisa di-deploy terpisah (Vercel).
 | `krayon/` | Coretan krayon anak: garis bergoyang (filter SVG), arsiran warna |
 | `bioskop/` | Papan lampu bohlam berjalan, tirai, produk = poster film |
 | `koran-pagi/` | Surat kabar: kop gotik, kolom, foto halftone hitam-putih |
+| `jeruk-segar/` | Irisan jeruk, lemon, dan jeruk nipis berputar, tetes jus segar. Cerah dan juicy. |
+| `es-krim/` | Kedai es krim: kanopi bergaris, cone bertumpuk, krim meleleh di setiap kartu. |
+| `lab-sains/` | Gelas kimia bergelembung, atom berputar. Produk jadi kotak tabel periodik bernomor. |
+| `musim-gugur/` | Langit sore hangat dan daun maple berguguran di seluruh halaman. |
+| `stadion/` | Lintasan lari, papan skor digital, garis finis. Sporty, miring, penuh energi. |
+| `memphis/` | Gaya 80-an: coretan, segitiga, titik-titik, bentuk melayang, bayangan blok warna-warni. |
+| `terrazzo/` | Interior modern hangat: lantai terrazzo, jendela lengkung, foto produk berbentuk arch. |
+| `laut-dalam/` | Samudra gelap dengan ubur-ubur bercahaya dan plankton berkilau. Memukau. |
+| `rumah-kaca/` | Greenhouse bercahaya: rangka kaca, tanaman gantung menjuntai, pot terakota. |
+| `matcha/` | Mangkuk matcha dengan latte art berputar, pengocok bambu, suasana tenang. |
 | `_base/` | Sumber bersama: `app.js`, `base.css`, `dev-server.js`, `lib/lynk.js` |
 
 Semua tema selain `alam`, `sage`, dan `kawaii-pink` memakai `base.css` (struktur bersama) + CSS tema di `index.html`.

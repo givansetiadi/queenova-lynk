@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="id">
+<title>Toko Ivan Setiadi · Es Krim</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Template website, ebook, dan panduan digital dari Ivan Setiadi. Bayar aman lewat lynk.id.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Leckerli+One&family=Nunito:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* ES KRIM — kedai es krim: kanopi bergaris, cone bertumpuk, krim meleleh di setiap kartu, taburan meses. */
+:root {
+  --bg: #D9F5EE; --page: #FFFBF5; --card: #FFFFFF; --ink: #5B3A46; --muted: #92707C;
+  --accent: #FF7AA2; --accent-ink: #FFFFFF; --accent-2: #4FB7A8; --on-accent-2: #FFFFFF;
+  --soft: #FFF0F4; --line: #F6DCE4; --price: #F0557F; --mark: #FFE0EA;
+  --choc: #7A4B3A; --waffle: #F2C37E;
+  --radius: 26px; --radius-img: 18px; --radius-btn: 999px; --page-radius: 38px;
+  --fab-bg: #FF7AA2; --fab-ink: #FFFFFF;
+  --sprinkle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70'%3E%3Cg stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M10 12l8 4' stroke='%23FF7AA2'/%3E%3Cpath d='M40 10l-3 8' stroke='%23FFD23F'/%3E%3Cpath d='M58 34l8 2' stroke='%237B61FF'/%3E%3Cpath d='M20 46l4 7' stroke='%234FB7A8'/%3E%3Cpath d='M46 58l7-4' stroke='%23FF9F43'/%3E%3C/g%3E%3C/svg%3E");
+  --f-head: "Leckerli One", cursive;
+  --f-body: "Nunito", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+.page { overflow: hidden; }
+.hdr { position: relative; margin: -20px -18px 0; height: 244px; overflow: hidden; }
+@media (min-width: 520px) { .hdr { margin: -24px -22px 0; } }
+.top-actions { position: absolute; top: 14px; left: 14px; right: 14px; }
+.lrow { border: var(--bw2, 2px) solid var(--line); background: var(--card); min-height: 62px; }
+.tick { background: var(--accent); color: var(--accent-ink); }
+.ltext b { font: 400 17px var(--f-head); }
+.paycard { background: var(--card); border: var(--bw2, 2px) solid var(--line); }
+.paycard h3 { font-family: var(--f-head); color: var(--accent); }
+.pm { background: var(--soft); }
+.faq details { border: var(--bw2, 2px) solid var(--line); background: var(--card); }
+.faq summary { font: 700 14.5px var(--f-body); }
+.faq summary::after { background: var(--accent); color: var(--accent-ink); }
+.sign b { font: 400 24px var(--f-head); color: var(--accent); }
+.sign svg { width: 60px; }
+.fab { font: 400 16px var(--f-head); }
+.fab .bubble { background: var(--accent-2); color: var(--on-accent-2); }
+.sheet { background: var(--page); color: var(--ink); }
+.shead h2 { font: 400 24px var(--f-head); }
+.line { border: var(--bw2, 2px) solid var(--line); background: var(--card); }
+.go { font: 400 17px var(--f-head); }
+.buy { font: 400 15px var(--f-head); }
+.cta { font: 400 16px var(--f-head); }
+.now { font: 400 19px var(--f-head); color: var(--price); }
+.card.wide .now { font-size: 24px; }
+.cname { font: 700 14.5px/1.3 var(--f-body); }
+.add.in { background: var(--accent-2); border-color: var(--accent-2); color: var(--on-accent-2); }
+.side-x { position: fixed; z-index: 1; pointer-events: none; }
+
+body { background-color: var(--bg); background-image: var(--sprinkle); }
+.parlor { background: linear-gradient(180deg, #FFE3EC, #FFF5F8); }
+.parlor::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 46px; background: repeating-linear-gradient(90deg, #FF7AA2 0 28px, #fff 28px 56px); border-radius: 0 0 40% 40% / 0 0 26px 26px; z-index: 2; }
+.parlor svg { position: absolute; left: 0; right: 0; bottom: -6px; width: 100%; height: 210px; }
+.parlor .bob { animation: bob 3s ease-in-out infinite; transform-box: fill-box; transform-origin: bottom; }
+.parlor .bob:nth-of-type(2) { animation-delay: -1s; } .parlor .bob:nth-of-type(3) { animation-delay: -2s; }
+@keyframes bob { 50% { transform: translateY(-6px) rotate(2deg); } }
+.top-actions { top: 54px; }
+.round { border: 3px solid var(--ink); background: #fff; color: var(--accent); }
+.profile { margin-top: -54px; }
+.ava { border: 5px solid #fff; outline: 4px solid var(--ink); background: radial-gradient(circle at 50% 30%, #FFF5F8, #FFC7D7); color: var(--accent); font: 400 44px var(--f-head); }
+.ava-badge { background: var(--accent-2); color: #fff; border: 3px solid #fff; }
+.hi { font: 800 15px var(--f-body); color: var(--accent-2); }
+.name { font: 400 clamp(40px, 11vw, 52px)/1.1 var(--f-head); color: var(--accent); text-shadow: 3px 3px 0 #fff, 5px 5px 0 var(--line); }
+.role { margin-top: 8px; padding: 5px 16px; background: var(--choc); color: #fff; border-radius: 999px; font: 800 11.5px var(--f-body); letter-spacing: .1em; }
+.socials a { background: #fff; border: 3px solid var(--line); color: var(--accent); }
+.sec-title { width: fit-content; margin: 40px auto 18px; padding: 8px 26px; border-radius: 999px; background: linear-gradient(45deg, rgba(216,154,76,.45) 25%, transparent 25% 75%, rgba(216,154,76,.45) 75%), linear-gradient(-45deg, rgba(216,154,76,.45) 25%, transparent 25% 75%, rgba(216,154,76,.45) 75%), var(--waffle); background-size: 16px 16px; color: var(--ink); font: 400 24px var(--f-head); border: 3px solid var(--ink); }
+.sec-title svg { width: 20px; height: 20px; }
+.search input { border: 3px solid var(--line); }
+.chip { border: 3px solid var(--line); background: #fff; font-weight: 800; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.grid { gap: 28px 14px; padding-top: 12px; }
+.card { border: 3px solid var(--ink); padding-top: 26px; box-shadow: 0 8px 0 var(--line); }
+.card::before { content: ""; position: absolute; left: -3px; right: -3px; top: -3px; height: 34px; border-radius: 26px 26px 0 0; border: 3px solid var(--ink); border-bottom: 0; background: radial-gradient(circle at 12px 30px, var(--accent) 9px, transparent 9.5px) 0 0 / 34px 44px repeat-x, linear-gradient(var(--accent) 0 26px, transparent 26px); }
+.card:nth-child(3n+2)::before { background: radial-gradient(circle at 12px 30px, #8ED1C6 9px, transparent 9.5px) 0 0 / 34px 44px repeat-x, linear-gradient(#8ED1C6 0 26px, transparent 26px); }
+.card:nth-child(3n+3)::before { background: radial-gradient(circle at 12px 30px, var(--choc) 9px, transparent 9.5px) 0 0 / 34px 44px repeat-x, linear-gradient(var(--choc) 0 26px, transparent 26px); }
+.card:hover { transform: translateY(-5px) rotate(1deg); }
+.off { background: #FFD23F; color: var(--ink); border: 3px solid var(--ink); border-radius: 50%; width: 48px; height: 48px; padding: 0; display: grid; place-items: center; font: 800 12px var(--f-body); }
+.ribbon { background: #fff; color: var(--accent); border: 2px solid var(--accent); }
+.ctype { color: var(--accent-2); }
+.buy { box-shadow: 0 4px 0 #D84E78; }
+.add { border: 3px solid var(--ink); color: var(--ink); background: #FFD23F; }
+.cta { border: 3px solid var(--ink); background: #fff; color: var(--accent); box-shadow: 0 5px 0 var(--ink); }
+.lrow { border: 3px solid var(--line); background: #fff; }
+.tick { background: var(--accent-2); color: #fff; }
+.fab { border: 3px solid #fff; box-shadow: 0 5px 0 #D84E78, 0 14px 30px -10px rgba(240,85,127,.6); }
+.bigcone { width: 150px; animation: bob 4s ease-in-out infinite; }
+.bc1 { bottom: 4%; left: max(40px, calc(50% - 520px)); } .bc2 { top: 6%; right: max(50px, calc(50% - 500px)); width: 120px; animation-delay: -2s; }
+</style>
+
+<svg class="side-x bigcone bc1 side-only" viewBox="-40 -110 80 190" aria-hidden="true"><g transform="translate(0 0)"><path d="M-20 0h40L0 70z" fill="#F2C37E" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/><path d="M-14 10l26 26M-6 2l22 22M-18 22l18 18M14 10l-26 26M6 2l-22 22M18 22 0 40" stroke="#D89A4C" stroke-width="2"/><g transform="translate(0 -16)"><circle r="22" fill="#FF7AA2" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#FF7AA2" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g><g transform="translate(0 -46)"><circle r="22" fill="#8ED1C6" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#8ED1C6" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g><g transform="translate(0 -76)"><circle r="22" fill="#7A4B3A" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#7A4B3A" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g></g></svg>
+<svg class="side-x bigcone bc2 side-only" viewBox="-40 -80 80 160" aria-hidden="true"><g transform="translate(0 0)"><path d="M-20 0h40L0 70z" fill="#F2C37E" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/><path d="M-14 10l26 26M-6 2l22 22M-18 22l18 18M14 10l-26 26M6 2l-22 22M18 22 0 40" stroke="#D89A4C" stroke-width="2"/><g transform="translate(0 -16)"><circle r="22" fill="#FFE08A" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#FFE08A" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g><g transform="translate(0 -46)"><circle r="22" fill="#FF7AA2" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#FF7AA2" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g></g></svg>
+
+<main class="page" id="top">
+  <div class="hdr parlor" aria-hidden="true">
+    <svg viewBox="0 0 480 210" preserveAspectRatio="xMidYMax meet">
+      <g class="bob"><g transform="translate(60 130)"><path d="M-20 0h40L0 70z" fill="#F2C37E" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/><path d="M-14 10l26 26M-6 2l22 22M-18 22l18 18M14 10l-26 26M6 2l-22 22M18 22 0 40" stroke="#D89A4C" stroke-width="2"/><g transform="translate(0 -16)"><circle r="22" fill="#FF7AA2" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#FF7AA2" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g><g transform="translate(0 -46)"><circle r="22" fill="#FFF3C4" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#FFF3C4" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g></g></g>
+      <g class="bob"><g transform="translate(420 130)"><path d="M-20 0h40L0 70z" fill="#F2C37E" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/><path d="M-14 10l26 26M-6 2l22 22M-18 22l18 18M14 10l-26 26M6 2l-22 22M18 22 0 40" stroke="#D89A4C" stroke-width="2"/><g transform="translate(0 -16)"><circle r="22" fill="#8ED1C6" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#8ED1C6" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g><g transform="translate(0 -46)"><circle r="22" fill="#7A4B3A" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#7A4B3A" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g><g transform="translate(0 -76)"><circle r="22" fill="#FF7AA2" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#FF7AA2" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g></g></g>
+      <g class="bob"><g transform="translate(130 150)"><path d="M-20 0h40L0 70z" fill="#F2C37E" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/><path d="M-14 10l26 26M-6 2l22 22M-18 22l18 18M14 10l-26 26M6 2l-22 22M18 22 0 40" stroke="#D89A4C" stroke-width="2"/><g transform="translate(0 -16)"><circle r="22" fill="#FFE08A" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#FFE08A" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g></g></g>
+      <g class="bob"><g transform="translate(352 150)"><path d="M-20 0h40L0 70z" fill="#F2C37E" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/><path d="M-14 10l26 26M-6 2l22 22M-18 22l18 18M14 10l-26 26M6 2l-22 22M18 22 0 40" stroke="#D89A4C" stroke-width="2"/><g transform="translate(0 -16)"><circle r="22" fill="#C9B6FF" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#C9B6FF" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g></g></g>
+    </svg>
+  </div>
+  </div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Pilih rasa favoritmu! Produk digital yang manis, lembut, dan bikin nagih 🍦",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Makasih sudah mampir, jangan lupa senyum!",
+  motif: '<svg viewBox="-30 -80 60 160" aria-hidden="true"><g transform="translate(0 10)"><path d="M-20 0h40L0 70z" fill="#F2C37E" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/><path d="M-14 10l26 26M-6 2l22 22M-18 22l18 18M14 10l-26 26M6 2l-22 22M18 22 0 40" stroke="#D89A4C" stroke-width="2"/><g transform="translate(0 -16)"><circle r="22" fill="#FF7AA2" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#FF7AA2" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g><g transform="translate(0 -46)"><circle r="22" fill="#8ED1C6" stroke="#5B3A46" stroke-width="3"/><path d="M-22 4c4 8 8 0 12 10 4-8 8 2 12-6 4 10 8 0 12 8 4-6 6 0 8-10" fill="#8ED1C6" stroke="#5B3A46" stroke-width="3" stroke-linejoin="round"/></g></g></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-es-krim" }
+};
+</script>
+<script src="app.js"></script>

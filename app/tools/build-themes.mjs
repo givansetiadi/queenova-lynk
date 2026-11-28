@@ -23,7 +23,8 @@ const LABELS = {
   "piringan-hitam": "Piringan Hitam", terminal: "Terminal", herbarium: "Herbarium", paspor: "Paspor", "chrome-y2k": "Chrome Y2K",
   "susu-stroberi": "Susu Stroberi", piknik: "Piknik", "kafe-kucing": "Kafe Kucing", "awan-kapas": "Awan Kapas", "spa-imut": "Spa Imut",
   tarot: "Tarot", "cetak-biru": "Cetak Biru", gacha: "Gacha", "peta-harta": "Peta Harta Karun", "kaca-patri": "Kaca Patri",
-  rpg: "Petualangan RPG", brutalis: "Brutalis", krayon: "Gambar Krayon", bioskop: "Bioskop", "koran-pagi": "Koran Pagi"
+  rpg: "Petualangan RPG", brutalis: "Brutalis", krayon: "Gambar Krayon", bioskop: "Bioskop", "koran-pagi": "Koran Pagi",
+  "jeruk-segar": "Jeruk Segar", "es-krim": "Es Krim", "lab-sains": "Lab Sains", "musim-gugur": "Musim Gugur", "stadion": "Stadion", "memphis": "Memphis", "terrazzo": "Terrazzo", "laut-dalam": "Laut Dalam", "rumah-kaca": "Rumah Kaca", "matcha": "Matcha"
 };
 
 function generic(html) {

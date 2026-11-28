@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="id">
+<title>Toko Ivan Setiadi · Lab Sains</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Template website, ebook, dan panduan digital dari Ivan Setiadi. Bayar aman lewat lynk.id.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* LAB SAINS — laboratorium cerah: gelas kimia bergelembung, model atom berputar, kertas grafik. Produk = kotak tabel periodik bernomor. */
+:root {
+  --bg: #E8F3FF; --page: #FFFFFF; --card: #FFFFFF; --ink: #1F2A44; --muted: #5E6A85;
+  --accent: #6C5CE7; --accent-ink: #FFFFFF; --accent-2: #00C2A8; --on-accent-2: #FFFFFF;
+  --soft: #F1F0FF; --line: #DDE3F2; --price: #6C5CE7; --mark: #FFF1B8;
+  --radius: 12px; --radius-img: 8px; --radius-btn: 10px; --page-radius: 22px;
+  --fab-bg: #6C5CE7; --fab-ink: #FFFFFF;
+  --graph: linear-gradient(rgba(108,92,231,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(108,92,231,.07) 1px, transparent 1px);
+  --f-head: "Rubik", system-ui, sans-serif;
+  --f-body: "Rubik", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+.page { overflow: hidden; }
+.hdr { position: relative; margin: -20px -18px 0; height: 244px; overflow: hidden; }
+@media (min-width: 520px) { .hdr { margin: -24px -22px 0; } }
+.top-actions { position: absolute; top: 14px; left: 14px; right: 14px; }
+.lrow { border: var(--bw2, 2px) solid var(--line); background: var(--card); min-height: 62px; }
+.tick { background: var(--accent); color: var(--accent-ink); }
+.ltext b { font: 700 17px var(--f-head); }
+.paycard { background: var(--card); border: var(--bw2, 2px) solid var(--line); }
+.paycard h3 { font-family: var(--f-head); color: var(--accent); }
+.pm { background: var(--soft); }
+.faq details { border: var(--bw2, 2px) solid var(--line); background: var(--card); }
+.faq summary { font: 700 14.5px var(--f-body); }
+.faq summary::after { background: var(--accent); color: var(--accent-ink); }
+.sign b { font: 700 24px var(--f-head); color: var(--accent); }
+.sign svg { width: 60px; }
+.fab { font: 700 16px var(--f-head); }
+.fab .bubble { background: var(--accent-2); color: var(--on-accent-2); }
+.sheet { background: var(--page); color: var(--ink); }
+.shead h2 { font: 700 24px var(--f-head); }
+.line { border: var(--bw2, 2px) solid var(--line); background: var(--card); }
+.go { font: 700 17px var(--f-head); }
+.buy { font: 700 15px var(--f-head); }
+.cta { font: 700 16px var(--f-head); }
+.now { font: 700 19px var(--f-head); color: var(--price); }
+.card.wide .now { font-size: 24px; }
+.cname { font: 700 14.5px/1.3 var(--f-body); }
+.add.in { background: var(--accent-2); border-color: var(--accent-2); color: var(--on-accent-2); }
+.side-x { position: fixed; z-index: 1; pointer-events: none; }
+
+body { background-color: var(--bg); background-image: var(--graph); background-size: 20px 20px; }
+.page { background-image: var(--graph); background-size: 14px 14px; }
+.lab { background: linear-gradient(180deg, #EFEBFF, #F8FBFF); border-bottom: 2px solid var(--line); }
+.lab .shelf { position: absolute; left: 0; right: 0; bottom: 30px; height: 10px; background: #C9D3EA; }
+.lab svg.glass { position: absolute; bottom: 40px; }
+.g1 { left: 16px; width: 80px; } .g2 { left: 96px; width: 56px; } .g3 { right: 20px; width: 84px; } .g4 { right: 108px; width: 50px; }
+.bub { animation: rise 2.2s ease-in infinite; transform-box: fill-box; }
+.bub:nth-of-type(2n) { animation-delay: -.9s; } .bub:nth-of-type(3n) { animation-delay: -1.5s; }
+@keyframes rise { from { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } to { transform: translateY(-46px); opacity: 0; } }
+.atom { position: absolute; left: 50%; top: 18px; width: 120px; margin-left: -60px; animation: spin 10s linear infinite; }
+.atom .e { animation: spin 3s linear infinite; transform-origin: 60px 60px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.formula { position: absolute; right: 18px; top: 52px; font: 700 13px var(--f-body); color: var(--accent); background: #fff; padding: 4px 8px; border-radius: 6px; border: 1.5px solid var(--line); transform: rotate(4deg); }
+.round { border: 2px solid var(--line); background: #fff; color: var(--accent); }
+.profile { margin-top: -54px; }
+.ava { border: 4px solid #fff; box-shadow: 0 0 0 3px var(--accent); border-radius: 18px; background: var(--soft); color: var(--accent); font: 800 40px var(--f-head); }
+.ava-badge { background: var(--accent-2); color: #fff; border: 3px solid #fff; }
+.hi { font: 600 13px var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); }
+.name { font: 800 clamp(36px, 10vw, 46px)/1.05 var(--f-head); letter-spacing: -.02em; }
+.role { margin-top: 8px; padding: 4px 12px; border-radius: 6px; background: var(--mark); font: 600 12px var(--f-body); letter-spacing: .06em; }
+.socials a { background: var(--soft); color: var(--accent); border-radius: 10px; }
+.sec-title { justify-content: flex-start; gap: 10px; font: 800 22px var(--f-head); }
+.sec-title::before { content: "§"; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 8px; background: var(--accent); color: #fff; font: 800 18px var(--f-head); }
+.sec-title svg { display: none; }
+.search input { border: 2px solid var(--line); }
+.chip { border: 2px solid var(--line); background: #fff; font-weight: 600; border-radius: 8px; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.grid { gap: 14px; counter-reset: el; }
+.card { counter-increment: el; border: 2px solid var(--line); padding: 34px 10px 12px; border-top: 6px solid var(--accent); }
+.card:nth-child(4n+2) { border-top-color: var(--accent-2); } .card:nth-child(4n+3) { border-top-color: #FF9F43; } .card:nth-child(4n+4) { border-top-color: #FF5E8E; }
+.card::before { content: counter(el); position: absolute; top: 8px; left: 12px; font: 800 15px var(--f-head); color: var(--ink); }
+.card::after { content: "PRODUK"; position: absolute; top: 10px; right: 12px; font: 600 9px var(--f-body); letter-spacing: .16em; color: var(--muted); }
+.card:hover { transform: translateY(-4px); box-shadow: 0 16px 30px -16px rgba(108,92,231,.5); }
+.off { top: 40px; background: #FF5E8E; color: #fff; border-radius: 6px; font: 700 11.5px var(--f-body); }
+.ribbon { top: 40px; background: var(--ink); color: #fff; border-radius: 6px; }
+.ctype { color: var(--accent-2); letter-spacing: .12em; }
+.buy { box-shadow: 0 6px 14px -6px rgba(108,92,231,.7); }
+.add { border: 2px solid var(--accent); color: var(--accent); background: #fff; }
+.cta { border: 2px solid var(--ink); background: #fff; color: var(--ink); }
+.cta:hover { background: var(--ink); color: #fff; }
+.lrow { border-left: 6px solid var(--accent-2); }
+.tick { background: var(--accent-2); color: #fff; border-radius: 6px; }
+.flask { width: 170px; }
+.fl1 { bottom: 5%; left: max(30px, calc(50% - 530px)); } .fl2 { top: 8%; right: max(30px, calc(50% - 530px)); width: 160px; animation: spin 16s linear infinite; }
+</style>
+
+<svg class="side-x flask fl1 side-only" viewBox="0 0 170 220" aria-hidden="true"><path d="M60 10h50M70 10v60L20 190c-6 14 4 24 18 24h94c14 0 24-10 18-24L100 70V10" fill="#fff" stroke="#1F2A44" stroke-width="5" stroke-linejoin="round"/><path d="M42 140h86l26 50c4 10-2 18-12 18H28c-10 0-16-8-12-18z" fill="#00C2A8"/><g fill="#fff"><circle class="bub" cx="70" cy="170" r="6"/><circle class="bub" cx="100" cy="180" r="4"/><circle class="bub" cx="86" cy="160" r="5"/></g></svg>
+<svg class="side-x flask fl2 side-only" viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="#6C5CE7" stroke-width="3"><circle cx="60" cy="60" r="9" fill="#6C5CE7"/><ellipse cx="60" cy="60" rx="54" ry="20"/><ellipse cx="60" cy="60" rx="54" ry="20" transform="rotate(60 60 60)"/><ellipse cx="60" cy="60" rx="54" ry="20" transform="rotate(-60 60 60)"/></svg>
+
+<main class="page" id="top">
+  <div class="hdr lab" aria-hidden="true">
+    <svg class="atom" viewBox="0 0 120 120" fill="none" stroke="#6C5CE7" stroke-width="2.4"><circle cx="60" cy="60" r="8" fill="#6C5CE7"/><ellipse cx="60" cy="60" rx="54" ry="20"/><ellipse cx="60" cy="60" rx="54" ry="20" transform="rotate(60 60 60)"/><ellipse cx="60" cy="60" rx="54" ry="20" transform="rotate(-60 60 60)"/><g class="e"><circle cx="114" cy="60" r="5" fill="#00C2A8" stroke="none"/></g></svg>
+    <span class="formula">C₈H₁₀N₄O₂</span>
+    <svg class="glass g1" viewBox="0 0 80 110"><path d="M28 4h24M32 4v34L6 92c-4 10 2 16 12 16h44c10 0 16-6 12-16L48 38V4" fill="#fff" stroke="#1F2A44" stroke-width="3.5" stroke-linejoin="round"/><path d="M16 74h48l12 22c2 6-2 10-8 10H12c-6 0-10-4-8-10z" fill="#6C5CE7"/><g fill="#fff"><circle class="bub" cx="30" cy="90" r="4"/><circle class="bub" cx="46" cy="96" r="3"/><circle class="bub" cx="40" cy="84" r="3.5"/></g></svg>
+    <svg class="glass g2" viewBox="0 0 56 110"><rect x="10" y="4" width="36" height="100" rx="16" fill="#fff" stroke="#1F2A44" stroke-width="3.5"/><path d="M12 56h32v30a16 16 0 0 1-32 0z" fill="#FF5E8E"/><g fill="#fff"><circle class="bub" cx="24" cy="86" r="3"/><circle class="bub" cx="32" cy="74" r="3"/></g></svg>
+    <svg class="glass g3" viewBox="0 0 84 100"><path d="M8 6h68M14 6v80c0 6 4 10 10 10h36c6 0 10-4 10-10V6" fill="#fff" stroke="#1F2A44" stroke-width="3.5" stroke-linejoin="round"/><path d="M16 46h52v40c0 4-2 6-6 6H22c-4 0-6-2-6-6z" fill="#00C2A8"/><path d="M14 30h10M14 46h10M14 62h10" stroke="#1F2A44" stroke-width="2"/><g fill="#fff"><circle class="bub" cx="36" cy="80" r="4"/><circle class="bub" cx="52" cy="84" r="3"/><circle class="bub" cx="44" cy="70" r="3.5"/></g></svg>
+    <svg class="glass g4" viewBox="0 0 50 110"><path d="M18 4h14v40c10 6 16 16 16 30a23 23 0 0 1-46 0c0-14 6-24 16-30z" fill="#fff" stroke="#1F2A44" stroke-width="3.5" stroke-linejoin="round"/><path d="M4 74a21 21 0 0 0 42 0z" fill="#FF9F43"/></svg>
+    <div class="shelf"></div>
+  </div>
+  </div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Diracik dengan rumus yang tepat. Produk digital teruji, siap bereaksi untuk bisnismu ⚗️",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Eksperimen selesai. Terima kasih!",
+  motif: '<svg viewBox="0 0 60 60" aria-hidden="true" fill="none" stroke="#6C5CE7" stroke-width="2.4"><circle cx="30" cy="30" r="5" fill="#6C5CE7"/><ellipse cx="30" cy="30" rx="26" ry="10"/><ellipse cx="30" cy="30" rx="26" ry="10" transform="rotate(60 30 30)"/><ellipse cx="30" cy="30" rx="26" ry="10" transform="rotate(-60 30 30)"/></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-lab-sains" }
+};
+</script>
+<script src="app.js"></script>
