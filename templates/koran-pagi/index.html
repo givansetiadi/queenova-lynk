@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="id">
+<title>Toko Ivan Setiadi · Koran Pagi</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Template website, ebook, dan panduan digital dari Ivan Setiadi. Bayar aman lewat lynk.id.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* Tema KORAN PAGI — surat kabar: kertas koran, kop huruf gotik, garis kolom, foto hitam-putih bertitik (halftone), kepala berita, iklan baris. */
+:root {
+  --bg: #D8D2C3; --page: #F3EEE2; --card: #F3EEE2; --ink: #1A1A1A; --muted: #4F4B44;
+  --accent: #1A1A1A; --accent-ink: #F3EEE2; --accent-2: #A4161A; --on-accent-2: #FFFFFF;
+  --soft: #E8E2D3; --line: #1A1A1A; --price: #A4161A; --mark: #E9DFC4;
+  --radius: 0px; --radius-img: 0px; --radius-btn: 0px; --page-radius: 0px; --round-radius: 0px;
+  --fab-bg: #1A1A1A; --fab-ink: #F3EEE2;
+  --page-shadow: 6px 8px 0 rgba(0,0,0,.15), 0 30px 60px -30px rgba(0,0,0,.5);
+  --f-head: "Old Standard TT", Georgia, serif;
+  --f-body: "Old Standard TT", Georgia, serif;
+  --f-sans: "Libre Franklin", system-ui, sans-serif;
+  color-scheme: light;
+}
+body { font-size: 16px; background-color: var(--bg); background-image: radial-gradient(rgba(0,0,0,.06) 1px, transparent 1.2px); background-size: 4px 4px; }
+.page { overflow: hidden; background-image: radial-gradient(rgba(0,0,0,.035) 1px, transparent 1.2px); background-size: 3px 3px; }
+.mast { position: relative; margin: -20px -18px 0; padding: 12px 16px 0; height: 236px; overflow: hidden; border-bottom: 4px double var(--ink); }
+@media (min-width: 520px) { .mast { margin: -24px -22px 0; } }
+.dateline { display: flex; justify-content: space-between; padding: 4px 0; border-top: 1px solid var(--ink); border-bottom: 3px double var(--ink); font: 700 9.5px var(--f-sans); letter-spacing: .12em; text-transform: uppercase; margin-top: 46px; }
+.headline { margin-top: 10px; font: 700 26px/1 var(--f-head); letter-spacing: -.01em; }
+.headline small { display: block; font: 500 9.5px var(--f-sans); letter-spacing: .2em; color: var(--accent-2); margin-bottom: 4px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 12px; margin-top: 10px; }
+.cols p { margin: 0; padding-right: 10px; border-right: 1px solid var(--ink); font: 400 8.5px/1.35 var(--f-body); text-align: justify; color: var(--muted); }
+.cols p:last-child { border: 0; }
+.photo { height: 66px; background: radial-gradient(circle, #1A1A1A 0 1.1px, transparent 1.4px) 0 0 / 4px 4px, radial-gradient(circle at 30% 40%, transparent 30%, rgba(26,26,26,.5) 70%); border: 1px solid var(--ink); }
+.weather { position: absolute; right: 16px; top: 10px; padding: 4px 8px; border: 1px solid var(--ink); font: 700 9px/1.2 var(--f-sans); text-align: center; }
+.extra { position: absolute; left: 16px; top: 12px; padding: 3px 8px; background: var(--accent-2); color: #fff; font: 900 12px var(--f-sans); letter-spacing: .14em; transform: rotate(-4deg); animation: shout 2s ease-in-out infinite; }
+@keyframes shout { 50% { transform: rotate(-4deg) scale(1.08); } }
+.top-actions { position: absolute; top: 12px; left: auto; right: 90px; gap: 8px; }
+.round { border: 1px solid var(--ink); background: var(--page); color: var(--ink); width: 36px; height: 36px; }
+.profile { margin-top: 22px; }
+.ava { border: 1px solid var(--ink); outline: 1px solid var(--ink); outline-offset: 4px; background: radial-gradient(circle, #1A1A1A 0 1.2px, transparent 1.5px) 0 0 / 5px 5px, var(--page); color: var(--ink); font: 700 40px var(--f-head); filter: grayscale(1); }
+.ava img { filter: grayscale(1) contrast(1.2); }
+.ava-badge { background: var(--accent-2); color: #fff; border-radius: 0; }
+.hi { margin-top: 16px; font: 700 10.5px var(--f-sans); letter-spacing: .3em; text-transform: uppercase; color: var(--accent-2); }
+.name { font: 400 clamp(46px, 13vw, 60px)/1 "UnifrakturMaguntia", serif; color: var(--ink); }
+.role { margin-top: 6px; padding: 4px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); font: 700 10.5px var(--f-sans); letter-spacing: .3em; text-transform: uppercase; }
+.about { max-width: 36ch; font: italic 400 16px/1.45 var(--f-body); color: var(--muted); }
+.socials a { background: transparent; border: 1px solid var(--ink); color: var(--ink); }
+.sec-title { flex-direction: column; gap: 2px; margin: 40px 0 18px; padding: 8px 0; border-top: 4px double var(--ink); border-bottom: 1px solid var(--ink); font: 700 30px/1 var(--f-head); text-transform: uppercase; letter-spacing: .02em; }
+.sec-title::before { content: "— RUBRIK —"; font: 700 9.5px var(--f-sans); letter-spacing: .3em; color: var(--accent-2); }
+.sec-title svg { display: none; }
+.search input { border: 1px solid var(--ink); background: var(--page); font: 400 15px var(--f-body); }
+.chip { border: 1px solid var(--ink); background: var(--page); color: var(--ink); font: 700 11.5px var(--f-sans); letter-spacing: .08em; text-transform: uppercase; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+.grid { gap: 0; background: linear-gradient(var(--ink), var(--ink)) 50% 0 / 1px 100% no-repeat; }
+.card { border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: 12px 10px 14px; }
+.card { background-color: transparent; }
+.card.wide { border-bottom: 3px double var(--ink); background: var(--page); }
+.card:hover { transform: none; background: var(--soft); }
+.cimg { border: 1px solid var(--ink); }
+.cimg img { filter: grayscale(1) contrast(1.15); transition: filter .5s; }
+.card:hover .cimg img { filter: none; }
+.cimg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle, rgba(0,0,0,.25) 0 .8px, transparent 1.1px) 0 0 / 3px 3px; pointer-events: none; transition: opacity .5s; }
+.card:hover .cimg::after { opacity: 0; }
+.off { background: var(--accent-2); color: #fff; font: 900 11px var(--f-sans); border-radius: 0; }
+.ribbon { background: var(--ink); color: var(--page); font: 700 10px var(--f-sans); letter-spacing: .14em; text-transform: uppercase; border-radius: 0; }
+.ctype { color: var(--accent-2); font: 700 10px var(--f-sans); letter-spacing: .2em; }
+.cname { font: 700 19px/1.1 var(--f-head); }
+.card.wide .cname { font-size: 26px; }
+.now { font: 900 17px var(--f-sans); color: var(--price); }
+.card.wide .now { font-size: 22px; }
+.buy { font: 700 12px var(--f-sans); letter-spacing: .2em; text-transform: uppercase; }
+.add { border: 1px solid var(--ink); color: var(--ink); background: transparent; }
+.add.in { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+.cta { border: 1px solid var(--ink); background: transparent; color: var(--ink); font: italic 700 17px var(--f-head); }
+.cta:hover { background: var(--ink); color: var(--page); }
+.links { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.lrow { border: 1px solid var(--ink); background: var(--page); min-height: 60px; box-shadow: 3px 3px 0 var(--ink); }
+.lrow:hover { background: var(--mark); transform: none; }
+.tick { background: var(--ink); color: var(--page); border-radius: 0; }
+.ltext b { font: 700 17px var(--f-head); text-transform: uppercase; letter-spacing: .02em; }
+.ltext span { font-style: italic; }
+.paycard { background: transparent; border: 1px solid var(--ink); }
+.paycard h3 { font-family: var(--f-head); text-transform: uppercase; }
+.pm { background: var(--soft); border-radius: 0; }
+.faq details { border: 0; border-bottom: 1px solid var(--ink); background: transparent; }
+.faq summary { font: 700 16px var(--f-head); }
+.faq summary::after { background: var(--ink); color: var(--page); border-radius: 0; }
+.sign b { font: 400 34px "UnifrakturMaguntia", serif; }
+.sign svg { width: 90px; }
+.fab { font: 700 13px var(--f-sans); letter-spacing: .16em; text-transform: uppercase; }
+.fab .bubble { background: var(--accent-2); color: #fff; border-radius: 0; }
+.shead h2 { font: 700 26px var(--f-head); text-transform: uppercase; }
+.line { border: 1px solid var(--ink); }
+.go { font: 700 14px var(--f-sans); letter-spacing: .16em; text-transform: uppercase; }
+.gen { background: radial-gradient(circle, #1A1A1A 0 1px, transparent 1.3px) 0 0 / 4px 4px, var(--page); }
+.gen span { font: 700 18px var(--f-head); color: var(--ink); background: var(--page); padding: 4px 10px; border: 1px solid var(--ink); }
+
+/* Lembar koran di samping (layar lebar) */
+.side-kn { position: fixed; z-index: 1; pointer-events: none; width: 230px; padding: 14px; background: #F3EEE2; box-shadow: 0 20px 40px -16px rgba(0,0,0,.5); font: 400 11px/1.4 "Old Standard TT", serif; color: #4F4B44; text-align: justify; }
+.side-kn b { display: block; font: 700 20px/1 "Old Standard TT", serif; color: #1A1A1A; margin-bottom: 6px; text-align: left; }
+.side-kn i { display: block; height: 80px; margin: 8px 0; background: radial-gradient(circle, #1A1A1A 0 1px, transparent 1.3px) 0 0 / 4px 4px; border: 1px solid #1A1A1A; }
+.kn1 { top: 8%; left: max(30px, calc(50% - 540px)); transform: rotate(-5deg); }
+.kn2 { bottom: 8%; right: max(30px, calc(50% - 540px)); transform: rotate(4deg); }
+</style>
+
+<div class="side-kn kn1 side-only" aria-hidden="true"><b>Belanja Online Kian Diminati</b><i></i>Para pembeli kini semakin nyaman berbelanja produk digital. Proses pembayaran yang cepat dan aman menjadi alasan utama.</div>
+<div class="side-kn kn2 side-only" aria-hidden="true"><b>IKLAN BARIS</b>DICARI: pembaca yang ingin produk digital berkualitas. Hub. toko ini, pembayaran via lynk.id. Proses cepat, layanan ramah.</div>
+
+<main class="page" id="top">
+  <div class="mast" aria-hidden="true">
+    <span class="extra">EDISI KHUSUS!</span>
+    <div class="weather">CERAH<br>31°C</div>
+    <div class="dateline"><span>Sabtu, 28 November 2026</span><span>Edisi Digital</span><span>Gratis</span></div>
+    <div class="headline"><small>KABAR TOKO</small>Produk Baru Resmi Diluncurkan!</div>
+    <div class="cols"><p>Pembeli menyambut antusias koleksi terbaru yang tersedia mulai hari ini. Pembayaran dapat dilakukan dengan mudah.</p><div class="photo"></div><p>Menurut pengamat, produk digital menjadi pilihan cerdas untuk belajar dan berkarya dari rumah.</p></div>
+  </div>
+  </div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Kabar gembira bagi pembaca setia: koleksi produk digital terbaru kini tersedia. Simak selengkapnya di halaman ini.",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Terima kasih telah membaca edisi hari ini",
+  motif: '<svg viewBox="0 0 80 20" aria-hidden="true"><path d="M2 6h76M2 14h76" stroke="#1A1A1A" stroke-width="2"/><circle cx="40" cy="10" r="4" fill="#1A1A1A"/></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-koran-pagi" }
+};
+</script>
+<script src="app.js"></script>

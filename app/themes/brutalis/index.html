@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="id">
+<title>{{title}}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="{{description}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Schibsted+Grotesk:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="/base.css">
+<style>
+/* Tema BRUTALIS — poster tipografi gaya Swiss/brutalis: huruf raksasa, rata kiri, garis tebal, tanpa sudut membulat, teks berjalan, nomor besar per produk. */
+:root {
+  --bg: #E9E6DF; --page: #F4F2ED; --card: #F4F2ED; --ink: #0A0A0A; --muted: #4A4A4A;
+  --accent: #FF3B1F; --accent-ink: #FFFFFF; --accent-2: #0047FF; --on-accent-2: #FFFFFF;
+  --soft: #E2DED5; --line: #0A0A0A; --price: #0A0A0A; --mark: #FFE14D;
+  --radius: 0px; --radius-img: 0px; --radius-btn: 0px; --page-radius: 0px; --round-radius: 0px; --ava-radius: 0px; --bw: 4px;
+  --fab-bg: #0A0A0A; --fab-ink: #FFFFFF;
+  --page-shadow: 14px 14px 0 #0A0A0A;
+  --f-head: "Anton", Impact, sans-serif;
+  --f-body: "Schibsted Grotesk", system-ui, sans-serif;
+  color-scheme: light;
+}
+body { background-color: var(--bg); background-image: linear-gradient(90deg, rgba(10,10,10,.08) 1px, transparent 1px); background-size: 80px 100%; }
+.page { overflow: hidden; border: 4px solid var(--ink); }
+@media (max-width: 519px) { .page { border-width: 0 0 4px; } }
+.poster { position: relative; margin: -20px -18px 0; height: 270px; overflow: hidden; background: var(--page); border-bottom: 4px solid var(--ink); }
+@media (min-width: 520px) { .poster { margin: -24px -22px 0; } }
+.bigword { position: absolute; top: 20px; left: 0; white-space: nowrap; font: 400 150px/1 var(--f-head); color: transparent; -webkit-text-stroke: 2px var(--ink); animation: slide 14s linear infinite; }
+@keyframes slide { to { transform: translateX(-50%); } }
+.disc { position: absolute; right: -40px; top: 60px; width: 200px; height: 200px; border-radius: 50%; background: var(--accent); mix-blend-mode: multiply; animation: pulse 4s ease-in-out infinite; }
+@keyframes pulse { 50% { transform: scale(1.08); } }
+.bar { position: absolute; left: 0; bottom: 0; width: 64%; height: 70px; background: var(--accent-2); }
+.bar span { position: absolute; left: 16px; bottom: 10px; font: 400 40px/1 var(--f-head); color: #fff; letter-spacing: .02em; }
+.est { position: absolute; right: 18px; bottom: 14px; padding: 6px 10px; border: 3px solid var(--ink); background: var(--mark); font: 900 12px var(--f-body); letter-spacing: .14em; transform: rotate(-90deg) translateX(40px); transform-origin: right bottom; }
+.top-actions { position: absolute; top: 12px; left: 14px; right: 14px; }
+.round { border: 3px solid var(--ink); background: var(--page); color: var(--ink); }
+.round:hover { background: var(--ink); color: #fff; transform: none; }
+.profile { justify-items: start; text-align: left; margin-top: 26px; }
+.ava-wrap { width: 96px; height: 96px; }
+.ava { border: 4px solid var(--ink); background: var(--mark); color: var(--ink); font: 400 44px var(--f-head); filter: grayscale(1) contrast(1.2); }
+.ava-badge { border-radius: 0; background: var(--accent); color: #fff; right: -10px; }
+.hi { margin-top: 18px; font: 900 13px var(--f-body); letter-spacing: .3em; text-transform: uppercase; }
+.name { font: 400 clamp(56px, 16vw, 78px)/.88 var(--f-head); text-transform: uppercase; letter-spacing: -.01em; margin-top: 4px; }
+.role { margin-top: 12px; padding: 6px 10px; background: var(--ink); color: #fff; font: 900 12px var(--f-body); letter-spacing: .14em; }
+.about { max-width: none; font: 500 18px/1.35 var(--f-body); color: var(--ink); border-left: 8px solid var(--accent); padding-left: 12px; margin-top: 14px; }
+.socials { justify-content: flex-start; }
+.socials a { background: var(--page); border: 3px solid var(--ink); color: var(--ink); }
+.sec-title { justify-content: space-between; gap: 10px; margin: 44px -18px 18px; padding: 10px 18px; background: var(--ink); color: var(--page); font: 400 40px/1 var(--f-head); text-transform: uppercase; text-align: left; }
+@media (min-width: 520px) { .sec-title { margin-left: -22px; margin-right: -22px; padding: 10px 22px; } }
+.sec-title svg { order: 2; width: 34px; height: 34px; color: var(--accent); }
+.search input { border: 4px solid var(--ink); background: #fff; font-weight: 700; height: 54px; }
+.chip { border: 3px solid var(--ink); background: var(--page); color: var(--ink); font: 900 13px var(--f-body); text-transform: uppercase; letter-spacing: .06em; }
+.chip[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.grid { gap: 0; border-top: 4px solid var(--ink); border-left: 4px solid var(--ink); counter-reset: no; }
+.card { counter-increment: no; border: 0; border-right: 4px solid var(--ink); border-bottom: 4px solid var(--ink); padding: 44px 10px 12px; transition: background .2s, color .2s; }
+.card::before { content: counter(no, decimal-leading-zero); position: absolute; top: 4px; left: 10px; font: 400 34px/1 var(--f-head); color: transparent; -webkit-text-stroke: 1.5px var(--ink); }
+.card::after { content: "→"; position: absolute; top: 8px; right: 12px; font: 900 22px var(--f-body); }
+.card:hover { transform: none; background: var(--ink); color: #fff; }
+.card:hover::before { -webkit-text-stroke-color: #fff; }
+.card:hover .now, .card:hover .cname { color: #fff; }
+.cimg { border: 3px solid var(--ink); filter: grayscale(.2) contrast(1.1); }
+.off { top: 0; right: 0; background: var(--accent); color: #fff; font: 400 18px var(--f-head); padding: 6px 8px; border-radius: 0; }
+.ribbon { top: 0; left: 0; background: var(--mark); color: var(--ink); font: 900 11px var(--f-body); text-transform: uppercase; border-radius: 0; }
+.ctype { color: var(--accent); font: 900 11px var(--f-body); letter-spacing: .14em; }
+.cname { font: 900 16px/1.15 var(--f-body); text-transform: uppercase; letter-spacing: -.01em; }
+.now { font: 400 26px/1 var(--f-head); }
+.card.wide .now { font-size: 34px; }
+.buy { background: var(--ink); color: #fff; font: 900 13px var(--f-body); letter-spacing: .14em; text-transform: uppercase; }
+.card:hover .buy { background: var(--accent); }
+.add { border: 3px solid currentColor; color: inherit; background: transparent; }
+.add.in { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+.cta { border: 4px solid var(--ink); background: var(--accent); color: #fff; font: 400 26px var(--f-head); text-transform: uppercase; justify-content: space-between; padding: 0 18px; }
+.cta:hover { background: var(--ink); }
+.links { gap: 0; border-top: 4px solid var(--ink); }
+.lrow { border: 0; border-bottom: 4px solid var(--ink); background: transparent; min-height: 74px; padding-left: 0; }
+.lrow:hover { background: var(--accent); color: #fff; transform: none; padding-left: 12px; }
+.tick { display: none; }
+.ltext b { font: 400 28px/1 var(--f-head); text-transform: uppercase; }
+.ltext span { font-weight: 700; }
+.lrow > svg { width: 30px; height: 30px; color: currentColor; }
+.paycard { background: var(--mark); border: 4px solid var(--ink); }
+.paycard h3 { font: 400 26px var(--f-head); text-transform: uppercase; }
+.pm { background: #fff; border: 2px solid var(--ink); }
+.faq details { border: 0; border-bottom: 4px solid var(--ink); background: transparent; }
+.faq summary { font: 900 16px var(--f-body); text-transform: uppercase; }
+.faq summary::after { background: var(--ink); color: #fff; }
+.sign { justify-items: start; text-align: left; }
+.sign b { font: 400 48px/.95 var(--f-head); }
+.sign svg { width: 90px; }
+.fab { font: 900 14px var(--f-body); letter-spacing: .14em; text-transform: uppercase; box-shadow: 6px 6px 0 var(--accent); }
+.fab .bubble { background: var(--accent); color: #fff; border-radius: 0; }
+.shead h2 { font: 400 34px var(--f-head); text-transform: uppercase; }
+.line { border: 3px solid var(--ink); }
+.go { font: 900 15px var(--f-body); letter-spacing: .14em; text-transform: uppercase; }
+.gen { background: var(--accent-2); }
+.gen span { font: 400 26px var(--f-head); color: #fff; text-transform: uppercase; }
+
+/* Poster samping (layar lebar) */
+.side-b { position: fixed; z-index: 1; pointer-events: none; }
+.vword { top: 0; bottom: 0; left: max(10px, calc(50% - 520px)); writing-mode: vertical-rl; transform: rotate(180deg); font: 400 150px/1 "Anton", sans-serif; color: transparent; -webkit-text-stroke: 2px #0A0A0A; white-space: nowrap; }
+.blue { top: 12%; right: max(40px, calc(50% - 520px)); width: 180px; height: 260px; background: #0047FF; }
+.red { top: calc(12% + 200px); right: max(140px, calc(50% - 420px)); width: 140px; height: 140px; border-radius: 50%; background: #FF3B1F; mix-blend-mode: multiply; }
+</style>
+
+<div class="side-b vword side-only" aria-hidden="true">PRODUK DIGITAL</div>
+<div class="side-b blue side-only" aria-hidden="true"></div><div class="side-b red side-only" aria-hidden="true"></div>
+
+<main class="page" id="top">
+  <div class="poster" aria-hidden="true">
+    <div class="bigword">TOKO DIGITAL — TOKO DIGITAL — TOKO DIGITAL — TOKO DIGITAL — </div>
+    <div class="disc"></div>
+    <div class="bar"><span>NO. 001</span></div>
+    <span class="est">EST. 2026</span>
+  </div>
+  </div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Tanpa basa-basi. Produk digital yang langsung bekerja. Pilih. Bayar. Pakai.",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "SELESAI. TERIMA KASIH.",
+  motif: '<svg viewBox="0 0 60 20" aria-hidden="true"><rect x="0" y="0" width="20" height="20" fill="#FF3B1F"/><rect x="20" y="0" width="20" height="20" fill="#0A0A0A"/><rect x="40" y="0" width="20" height="20" fill="#0047FF"/></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-brutalis" }
+};
+</script>
+{{config}}
+<script src="/app.js?v={{v}}"></script>

@@ -59,6 +59,11 @@ Tiap folder tema berdiri sendiri dan bisa di-deploy terpisah (Vercel).
 | `gacha/` | Unik: mesin kapsul, tuas berputar, produk = kapsul dua warna |
 | `peta-harta/` | Unik: perkamen, pulau, jalur ke tanda X, kompas berputar |
 | `kaca-patri/` | Unik: jendela mawar katedral, kaca permata berbingkai timah |
+| `rpg/` | Antarmuka game 8-bit: dialog, slime pixel, bar HP/MP, item inventaris |
+| `brutalis/` | Poster tipografi raksasa rata kiri, garis tebal, nomor besar |
+| `krayon/` | Coretan krayon anak: garis bergoyang (filter SVG), arsiran warna |
+| `bioskop/` | Papan lampu bohlam berjalan, tirai, produk = poster film |
+| `koran-pagi/` | Surat kabar: kop gotik, kolom, foto halftone hitam-putih |
 | `_base/` | Sumber bersama: `app.js`, `base.css`, `dev-server.js`, `lib/lynk.js` |
 
 Semua tema selain `alam`, `sage`, dan `kawaii-pink` memakai `base.css` (struktur bersama) + CSS tema di `index.html`.
