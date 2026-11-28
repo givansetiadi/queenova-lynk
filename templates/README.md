@@ -44,6 +44,11 @@ Tiap folder tema berdiri sendiri dan bisa di-deploy terpisah (Vercel).
 | `atelier/` | Premium: rumah mode, huruf Didone, pita ukur, jahitan |
 | `grand-hotel/` | Premium: lobi hotel dongker & kuningan, produk = kunci kamar bernomor |
 | `mutiara/` | Premium: putih mutiara iridescent, untaian mutiara, cangkang |
+| `piringan-hitam/` | Toko vinyl: piringan berputar, lengan jarum, equalizer, tracklist |
+| `terminal/` | Layar terminal hijau: perintah diketik, kursor berkedip, garis CRT |
+| `herbarium/` | Spesimen botani antik: pakis kering, selotip, label tinta |
+| `paspor/` | Travel: pesawat di jalur, cap imigrasi, produk = boarding pass |
+| `chrome-y2k/` | Logam cair krom, bintang 4 sudut, langit holografik |
 | `_base/` | Sumber bersama: `app.js`, `base.css`, `dev-server.js`, `lib/lynk.js` |
 
 Semua tema selain `alam`, `sage`, dan `kawaii-pink` memakai `base.css` (struktur bersama) + CSS tema di `index.html`.

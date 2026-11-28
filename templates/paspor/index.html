@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="id">
+<title>Toko Ivan Setiadi · Paspor</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Template website, ebook, dan panduan digital dari Ivan Setiadi. Bayar aman lewat lynk.id.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* Tema PASPOR — perjalanan: pesawat terbang di jalur putus-putus, cap imigrasi, produk = boarding pass berlubang sobek, link = papan keberangkatan. */
+:root {
+  --bg: #CFE0EA; --page: #FFFDF7; --card: #FFFFFF; --ink: #1E2A3A; --muted: #66707E;
+  --accent: #D2452F; --accent-ink: #FFFFFF; --accent-2: #2E6F9E; --on-accent-2: #FFFFFF;
+  --soft: #F1F4F2; --line: #E1E4DC; --price: #D2452F; --mark: #FBE3A7;
+  --sun: #E9A93A; --board: #1E2A3A;
+  --radius: 14px; --radius-img: 8px; --radius-btn: 10px; --page-radius: 22px;
+  --fab-bg: #D2452F; --fab-ink: #FFFFFF;
+  --f-head: "Oswald", Impact, sans-serif;
+  --f-body: "DM Sans", system-ui, sans-serif;
+  --f-mono: "DM Mono", ui-monospace, monospace;
+  color-scheme: light;
+}
+body { background-color: var(--bg); background-image: linear-gradient(rgba(30,42,58,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,42,58,.07) 1px, transparent 1px); background-size: 60px 60px; }
+.page { overflow: hidden; background-image: repeating-radial-gradient(circle at 50% 0, transparent 0 18px, rgba(46,111,158,.035) 18px 19px); }
+.sky { position: relative; margin: -20px -18px 0; height: 240px; overflow: hidden; background: linear-gradient(180deg, #8EC9EE 0%, #CBE7F7 70%, #FFFDF7 100%); }
+@media (min-width: 520px) { .sky { margin: -24px -22px 0; } }
+.route { position: absolute; inset: 0; width: 100%; height: 100%; }
+.route path { fill: none; stroke: var(--ink); stroke-width: 2; stroke-dasharray: 6 7; opacity: .55; }
+.plane { position: absolute; left: 0; top: 0; width: 42px; offset-path: path("M -20 190 C 100 40, 300 40, 520 150"); offset-rotate: auto; animation: fly 8s linear infinite; }
+@keyframes fly { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+.cloud { position: absolute; height: 22px; border-radius: 20px; background: #fff; opacity: .9; animation: drift 18s linear infinite; }
+.cloud::before { content: ""; position: absolute; left: 22%; top: -14px; width: 34px; height: 34px; border-radius: 50%; background: #fff; }
+.cloud.c1 { width: 90px; top: 60px; left: 10%; } .cloud.c2 { width: 70px; top: 110px; left: 62%; animation-duration: 24s; } .cloud.c3 { width: 60px; top: 34px; left: 80%; animation-duration: 30s; }
+@keyframes drift { to { transform: translateX(-60px); } }
+.stamp { position: absolute; display: grid; place-items: center; text-align: center; border-radius: 50%; font: 700 10px/1.1 var(--f-head); letter-spacing: .08em; text-transform: uppercase; opacity: .78; }
+.stamp.s1 { left: 16px; bottom: 26px; width: 84px; height: 84px; color: var(--accent); border: 3px double var(--accent); transform: rotate(-14deg); }
+.stamp.s2 { right: 16px; bottom: 34px; width: 96px; height: 60px; border-radius: 10px; color: var(--accent-2); border: 3px solid var(--accent-2); transform: rotate(10deg); }
+.stamp small { display: block; font: 500 8.5px var(--f-mono); letter-spacing: 0; }
+.top-actions { position: absolute; top: 14px; left: 14px; right: 14px; }
+.round { border: 0; background: #fff; color: var(--accent); box-shadow: 0 6px 14px -6px rgba(30,42,58,.4); }
+.profile { margin-top: -62px; }
+.ava { border: 5px solid #fff; box-shadow: 0 0 0 2px var(--ink); background: linear-gradient(150deg, #FBE3A7, var(--sun)); color: var(--ink); font: 700 44px var(--f-head); }
+.ava-badge { background: var(--accent-2); color: #fff; border: 3px solid #fff; }
+.hi { margin-top: 14px; font: 500 12px var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); }
+.name { font: 700 clamp(40px, 11vw, 52px)/1 var(--f-head); text-transform: uppercase; letter-spacing: .01em; }
+.role { margin-top: 10px; padding: 4px 12px; border: 1.5px solid var(--ink); border-radius: 4px; font: 500 11px var(--f-mono); letter-spacing: .1em; }
+.about { color: var(--muted); }
+.socials a { background: #fff; border: 1.5px solid var(--line); color: var(--accent-2); }
+.sec-title { position: relative; width: fit-content; margin: 40px auto 18px; padding: 10px 26px 10px 44px; background: var(--sun); color: var(--ink); font: 700 20px var(--f-head); letter-spacing: .06em; text-transform: uppercase; border-radius: 6px 14px 14px 6px; clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0 50%); }
+.sec-title::before { content: ""; position: absolute; left: 20px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--page); box-shadow: 0 0 0 2px rgba(30,42,58,.4); }
+.sec-title svg { width: 20px; height: 20px; }
+.search input { border: 1.5px solid var(--line); background: #fff; }
+.chip { border: 1.5px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.grid { gap: 20px 14px; }
+.card { border: 0; padding: 40px 10px 12px; box-shadow: 0 16px 30px -18px rgba(30,42,58,.55);
+  -webkit-mask: radial-gradient(circle 10px at 0 62%, transparent 9.5px, #000 10px) left / 51% 100% no-repeat, radial-gradient(circle 10px at 100% 62%, transparent 9.5px, #000 10px) right / 51% 100% no-repeat;
+          mask: radial-gradient(circle 10px at 0 62%, transparent 9.5px, #000 10px) left / 51% 100% no-repeat, radial-gradient(circle 10px at 100% 62%, transparent 9.5px, #000 10px) right / 51% 100% no-repeat; }
+.card::before { content: "BOARDING PASS"; position: absolute; left: 0; right: 0; top: 0; height: 30px; padding: 0 12px; display: flex; align-items: center; background: var(--accent-2); color: #fff; font: 600 12px var(--f-head); letter-spacing: .16em; }
+.card:nth-child(3n+2)::before { background: var(--accent); }
+.card:nth-child(3n+3)::before { background: var(--ink); }
+.card::after { content: "✈"; position: absolute; top: 6px; right: 12px; color: #fff; font-size: 15px; }
+.card .cbody { border-top: 2px dashed var(--line); margin-top: 10px; padding-top: 10px; }
+.card:hover { transform: translateY(-4px) rotate(.4deg); }
+.cimg { border-radius: 8px; }
+.off { top: 46px; background: var(--sun); color: var(--ink); font: 700 12px var(--f-head); border-radius: 4px; }
+.ribbon { top: 46px; background: #fff; color: var(--accent); border: 1.5px solid var(--accent); font: 700 10.5px var(--f-mono); border-radius: 4px; }
+.ctype { font: 500 11px var(--f-mono); color: var(--muted); letter-spacing: .08em; }
+.ctype::before { content: "GATE A · "; color: var(--accent-2); }
+.cname { font: 700 14.5px/1.3 var(--f-body); }
+.now { font: 700 20px var(--f-head); color: var(--price); }
+.card.wide .now { font-size: 25px; }
+.buy { font: 700 15px var(--f-head); letter-spacing: .1em; text-transform: uppercase; }
+.add { border: 1.5px solid var(--accent); color: var(--accent); background: #fff; }
+.add.in { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+.cta { border: 0; background: var(--ink); color: #fff; font: 700 15px var(--f-head); letter-spacing: .12em; text-transform: uppercase; box-shadow: 0 10px 20px -10px rgba(30,42,58,.6); }
+.cta:hover { background: var(--accent); }
+.links { gap: 4px; padding: 10px; background: var(--board); border-radius: 12px; }
+.lrow { border: 0; border-radius: 4px; background: #26354A; color: #FBE3A7; min-height: 54px; }
+.lrow:hover { background: #2E4058; transform: none; }
+.tick { background: var(--sun); color: var(--board); border-radius: 3px; }
+.ltext b { font: 500 14px var(--f-mono); text-transform: uppercase; letter-spacing: .04em; color: #FBE3A7; }
+.ltext span { color: #9FB0C6; font-family: var(--f-mono); font-size: 11px; }
+.lrow > svg { color: var(--sun); }
+.paycard { background: #fff; border: 1.5px solid var(--line); }
+.paycard h3 { font-family: var(--f-head); text-transform: uppercase; letter-spacing: .06em; }
+.pm { background: var(--soft); }
+.faq details { border: 1.5px solid var(--line); }
+.faq summary { font: 700 14.5px var(--f-body); }
+.faq summary::after { background: var(--sun); color: var(--ink); }
+.sign b { font: 700 22px var(--f-head); text-transform: uppercase; letter-spacing: .04em; }
+.sign svg { width: 56px; transform: rotate(-12deg); }
+.fab { font: 700 15px var(--f-head); letter-spacing: .1em; text-transform: uppercase; box-shadow: 0 14px 28px -10px rgba(210,69,47,.6); }
+.fab .bubble { background: var(--sun); color: var(--ink); }
+.shead h2 { font: 700 24px var(--f-head); text-transform: uppercase; }
+.line { border: 1.5px solid var(--line); }
+.go { font: 700 17px var(--f-head); letter-spacing: .1em; text-transform: uppercase; }
+.gen { background: linear-gradient(180deg, #8EC9EE, #CBE7F7); }
+.gen span { font: 700 18px var(--f-head); color: var(--ink); text-transform: uppercase; }
+
+/* Hiasan samping (layar lebar) */
+.side-p { position: fixed; z-index: 1; pointer-events: none; }
+.suitcase { bottom: 6%; left: max(30px, calc(50% - 520px)); width: 200px; transform: rotate(-4deg); }
+.postcard { top: 10%; right: max(40px, calc(50% - 520px)); width: 210px; transform: rotate(6deg); }
+.bigplane { top: 12%; left: max(60px, calc(50% - 480px)); width: 150px; animation: glide 6s ease-in-out infinite; }
+@keyframes glide { 50% { transform: translate(14px, -16px) rotate(-4deg); } }
+</style>
+
+<svg class="side-p bigplane side-only" viewBox="0 0 150 90" aria-hidden="true"><path d="M8 52 140 20c8-2 10 8 2 12L70 64l-18 22-8-2 6-20-26 8-8 10-6-2 4-14z" fill="#fff" stroke="#1E2A3A" stroke-width="3" stroke-linejoin="round"/><path d="M60 40 40 14l8-2 34 22" fill="#D2452F" stroke="#1E2A3A" stroke-width="3" stroke-linejoin="round"/></svg>
+<svg class="side-p suitcase side-only" viewBox="0 0 200 200" aria-hidden="true"><g stroke="#1E2A3A" stroke-width="3.5" stroke-linejoin="round">
+  <path d="M74 40V26c0-6 4-10 10-10h32c6 0 10 4 10 10v14" fill="none"/>
+  <rect x="20" y="40" width="160" height="140" rx="16" fill="#2E6F9E"/>
+  <path d="M20 90h160M60 40v140M140 40v140" stroke-width="2.5"/></g>
+  <circle cx="160" cy="70" r="22" fill="#E9A93A" stroke="#1E2A3A" stroke-width="2.5"/><text x="160" y="74" text-anchor="middle" font-family="Oswald, sans-serif" font-size="11" fill="#1E2A3A">BALI</text>
+  <rect x="34" y="118" width="58" height="34" rx="4" fill="#FFFDF7" stroke="#1E2A3A" stroke-width="2.5" transform="rotate(-8 63 135)"/><text x="62" y="140" text-anchor="middle" font-family="Oswald, sans-serif" font-size="12" fill="#D2452F" transform="rotate(-8 63 135)">TOKYO</text>
+  <circle cx="120" cy="140" r="18" fill="#D2452F" stroke="#1E2A3A" stroke-width="2.5"/><text x="120" y="144" text-anchor="middle" font-family="Oswald, sans-serif" font-size="9" fill="#fff">PARIS</text>
+</svg>
+<svg class="side-p postcard side-only" viewBox="0 0 210 140" aria-hidden="true">
+  <rect x="2" y="2" width="206" height="136" rx="4" fill="#FFFDF7" stroke="#1E2A3A" stroke-width="2.5"/>
+  <path d="M110 18v104M124 70h70M124 88h70M124 106h56" stroke="#C9CFC5" stroke-width="2"/>
+  <rect x="162" y="14" width="34" height="40" fill="#fff" stroke="#D2452F" stroke-width="2" stroke-dasharray="3 2"/><path d="M168 46l8-14 6 8 4-6 6 12z" fill="#2E6F9E"/>
+  <circle cx="150" cy="40" r="18" fill="none" stroke="#D2452F" stroke-width="1.6" opacity=".7"/>
+  <text x="20" y="46" font-family="Oswald, sans-serif" font-size="22" fill="#1E2A3A">SALAM</text><text x="20" y="72" font-family="Oswald, sans-serif" font-size="22" fill="#D2452F">DARI</text><text x="20" y="98" font-family="Oswald, sans-serif" font-size="22" fill="#2E6F9E">TOKO!</text>
+</svg>
+
+<main class="page" id="top">
+  <div class="sky" aria-hidden="true">
+    <span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span>
+    <svg class="route" viewBox="0 0 500 240" preserveAspectRatio="none"><path d="M -20 190 C 100 40, 300 40, 520 150"/></svg>
+    <svg class="plane" viewBox="0 0 42 28"><path d="M2 14h30c6 0 8 3 8 0s-2-0-8 0" fill="none"/><path d="M4 12h26c8 0 10 2 10 2s-2 2-10 2H4l-2-2z" fill="#fff" stroke="#1E2A3A" stroke-width="1.6"/><path d="M16 12 10 2h4l10 10M16 16l-6 10h4l10-10M4 12 1 6h3l4 6" fill="#D2452F" stroke="#1E2A3A" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    <div class="stamp s1">Berangkat<small>28 NOV 2026</small>✓</div>
+    <div class="stamp s2">Imigrasi<small>DIGITAL · OK</small></div>
+  </div>
+  </div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Produk digital yang siap menemanimu ke tujuan berikutnya. Kencangkan sabuk pengaman! ✈️",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Selamat jalan, sampai jumpa di perjalanan berikutnya",
+  motif: '<svg viewBox="0 0 60 44" aria-hidden="true"><circle cx="30" cy="22" r="19" fill="none" stroke="#D2452F" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="30" cy="22" r="13" fill="none" stroke="#D2452F" stroke-width="1.5"/><path d="M22 23l14-6-4 12-3-4z" fill="#D2452F"/></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-paspor" }
+};
+</script>
+<script src="app.js"></script>

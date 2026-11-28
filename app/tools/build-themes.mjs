@@ -19,7 +19,8 @@ const LABELS = {
   marmer: "Marmer Emas", "art-deco": "Art Deco", amalfi: "Amalfi", velvet: "Velvet", "galeri-seni": "Galeri Seni",
   aurora: "Aurora", japandi: "Japandi", lavender: "Lavender", "senja-gurun": "Senja Gurun",
   "kamar-mainan": "Kamar Mainan", "bawah-laut": "Bawah Laut", "kampung-ceria": "Kampung Ceria", "hutan-dongeng": "Hutan Dongeng", "kejar-kejaran": "Kejar-kejaran",
-  champagne: "Champagne", kintsugi: "Kintsugi", atelier: "Atelier", "grand-hotel": "Grand Hotel", mutiara: "Mutiara"
+  champagne: "Champagne", kintsugi: "Kintsugi", atelier: "Atelier", "grand-hotel": "Grand Hotel", mutiara: "Mutiara",
+  "piringan-hitam": "Piringan Hitam", terminal: "Terminal", herbarium: "Herbarium", paspor: "Paspor", "chrome-y2k": "Chrome Y2K"
 };
 
 function generic(html) {
