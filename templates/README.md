@@ -39,6 +39,11 @@ Tiap folder tema berdiri sendiri dan bisa di-deploy terpisah (Vercel).
 | `kampung-ceria/` | Kartun: kampung Nusantara, rumah panggung, rambutan, layang-layang |
 | `hutan-dongeng/` | Kartun: hutan pinus bersalju, pondok berasap, madu, beruang |
 | `kejar-kejaran/` | Kartun klasik: lubang tikus, keju, debu kecepatan |
+| `champagne/` | Premium: satin rose-gold, gelembung emas, gelas coupe garis tipis |
+| `kintsugi/` | Premium gelap: keramik arang dengan retakan emas beranimasi |
+| `atelier/` | Premium: rumah mode, huruf Didone, pita ukur, jahitan |
+| `grand-hotel/` | Premium: lobi hotel dongker & kuningan, produk = kunci kamar bernomor |
+| `mutiara/` | Premium: putih mutiara iridescent, untaian mutiara, cangkang |
 | `_base/` | Sumber bersama: `app.js`, `base.css`, `dev-server.js`, `lib/lynk.js` |
 
 Semua tema selain `alam`, `sage`, dan `kawaii-pink` memakai `base.css` (struktur bersama) + CSS tema di `index.html`.

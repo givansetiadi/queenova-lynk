@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="id">
+<title>{{title}}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="{{description}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Inter+Tight:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/base.css">
+<style>
+/* Tema MUTIARA — putih mutiara berkilau pelangi (iridescent), untaian mutiara, cangkang kerang garis halus. */
+:root {
+  --bg: #F2EFF6; --page: rgba(255,255,255,.82); --card: #FFFFFF; --ink: #2F2B3A; --muted: #7A7388;
+  --accent: #8D6E9F; --accent-ink: #FFFFFF; --accent-2: #6FA8A2; --on-accent-2: #FFFFFF;
+  --soft: #F5F1F9; --line: #E7E0EF; --price: #7B5A8E; --mark: #EADFF4;
+  --iri: linear-gradient(115deg, #F7D9E6 0%, #E3DDF7 25%, #D3EEF0 50%, #F3EBD3 75%, #F7D9E6 100%);
+  --radius: 24px; --radius-img: 18px; --radius-btn: 999px; --page-radius: 36px;
+  --fab-bg: #8D6E9F; --fab-ink: #FFFFFF;
+  --page-shadow: 0 0 0 1px rgba(255,255,255,.9), 0 40px 80px -40px rgba(90,70,120,.45);
+  --f-head: "Forum", Georgia, serif;
+  --f-body: "Inter Tight", system-ui, sans-serif;
+  color-scheme: light;
+}
+body { background: var(--iri) fixed; background-size: 300% 300%; animation: iri 18s ease-in-out infinite alternate; }
+@keyframes iri { to { background-position: 100% 100%; } }
+.page { overflow: hidden; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+.shellsky { position: relative; margin: -20px -18px 0; height: 236px; overflow: hidden; background: var(--iri); background-size: 220% 220%; animation: iri 9s ease-in-out infinite alternate; }
+@media (min-width: 520px) { .shellsky { margin: -24px -22px 0; } }
+.shellsky::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(255,255,255,.85)); }
+.strand { position: absolute; left: -10px; right: -10px; top: 18px; width: calc(100% + 20px); height: 120px; }
+.shell { position: absolute; bottom: 26px; width: 92px; opacity: .9; }
+.shell.l { left: 18px; transform: rotate(-14deg); } .shell.r { right: 18px; transform: rotate(14deg) scaleX(-1); }
+.sparkle { position: absolute; width: 14px; height: 14px; background: #fff; clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%); animation: twinkle 2.6s ease-in-out infinite; }
+.sparkle.s1 { left: 30%; top: 120px; } .sparkle.s2 { right: 28%; top: 100px; animation-delay: -1s; width: 10px; height: 10px; } .sparkle.s3 { left: 60%; top: 150px; animation-delay: -1.8s; }
+@keyframes twinkle { 0%, 100% { transform: scale(.3); opacity: .3; } 50% { transform: scale(1); opacity: 1; } }
+.top-actions { position: absolute; top: 14px; left: 14px; right: 14px; }
+.round { border: 1px solid rgba(255,255,255,.9); background: rgba(255,255,255,.6); color: var(--accent); backdrop-filter: blur(6px); }
+.profile { margin-top: -64px; }
+.ava-wrap { padding: 4px; border-radius: 50%; background: conic-gradient(from 30deg, #F7D9E6, #E3DDF7, #D3EEF0, #F3EBD3, #F7D9E6); animation: turn 10s linear infinite; }
+@keyframes turn { to { rotate: 360deg; } }
+.ava { border: 4px solid #fff; background: radial-gradient(circle at 32% 28%, #fff, #EFE8F5 55%, #D9CCE6); color: var(--accent); font: 400 48px var(--f-head); animation: turn 10s linear infinite reverse; }
+.ava-badge { background: #fff; color: var(--accent); border: 1px solid var(--line); }
+.hi { margin-top: 16px; font: 500 11.5px var(--f-body); letter-spacing: .3em; text-transform: uppercase; color: var(--accent-2); }
+.name { font: 400 clamp(44px, 12vw, 56px)/1 var(--f-head); color: var(--ink); letter-spacing: .01em; }
+.role { margin-top: 8px; padding: 6px 16px; border-radius: 999px; background: var(--iri); font: 600 10.5px var(--f-body); letter-spacing: .26em; color: var(--accent); }
+.about { color: var(--muted); }
+.socials a { background: #fff; border: 1px solid var(--line); color: var(--accent); }
+.sec-title { gap: 12px; margin: 44px 0 20px; font: 400 28px var(--f-head); color: var(--ink); }
+.sec-title::before, .sec-title::after { content: ""; width: 12px; height: 12px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, #E3D8EE 60%, #C4B3D6); box-shadow: 0 2px 4px rgba(90,70,120,.25); }
+.sec-title svg { display: none; }
+.search input { border: 1px solid var(--line); background: #fff; }
+.chip { border: 1px solid var(--line); background: #fff; color: var(--muted); font-weight: 500; }
+.chip[aria-pressed="true"] { background: var(--iri); border-color: #fff; color: var(--accent); font-weight: 700; box-shadow: 0 6px 14px -8px rgba(90,70,120,.5); }
+.grid { gap: 18px 14px; }
+.card { border: 1.5px solid transparent; background: linear-gradient(#fff, #fff) padding-box, var(--iri) border-box; box-shadow: 0 20px 36px -26px rgba(90,70,120,.55); }
+.card:hover { transform: translateY(-5px); }
+.off { background: #fff; color: var(--accent); border: 1px solid var(--line); box-shadow: 0 4px 10px -4px rgba(90,70,120,.4); font: 700 11.5px var(--f-body); }
+.ribbon { background: var(--iri); color: var(--accent); font: 700 10.5px var(--f-body); letter-spacing: .1em; text-transform: uppercase; }
+.ctype { color: var(--accent-2); letter-spacing: .14em; }
+.cname { font: 600 14.5px/1.35 var(--f-body); }
+.now { font: 400 23px var(--f-head); color: var(--price); }
+.card.wide .now { font-size: 28px; }
+.buy { background: linear-gradient(120deg, #A588B6, #7E6191); font: 600 13px var(--f-body); letter-spacing: .1em; }
+.add { border: 1px solid var(--accent); color: var(--accent); background: #fff; }
+.add.in { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+.cta { border: 1px solid #fff; background: var(--iri); color: var(--accent); font: 700 13px var(--f-body); letter-spacing: .14em; text-transform: uppercase; box-shadow: 0 10px 20px -12px rgba(90,70,120,.5); }
+.lrow { border: 1.5px solid transparent; background: linear-gradient(#fff, #fff) padding-box, var(--iri) border-box; min-height: 64px; }
+.tick { background: var(--iri); color: var(--accent); }
+.ltext b { font: 400 21px var(--f-head); }
+.paycard { background: #fff; border: 1px solid var(--line); }
+.paycard h3 { font-family: var(--f-head); font-weight: 400; color: var(--accent); }
+.pm { background: var(--soft); }
+.faq details { border: 1px solid var(--line); background: #fff; }
+.faq summary { font: 600 14px var(--f-body); }
+.faq summary::after { background: var(--iri); color: var(--accent); }
+.sign b { font: 400 30px var(--f-head); }
+.sign svg { width: 96px; }
+.fab { background: linear-gradient(120deg, #A588B6, #7E6191); font: 600 13px var(--f-body); letter-spacing: .1em; box-shadow: 0 16px 32px -12px rgba(110,80,140,.6); }
+.fab .bubble { background: #fff; color: var(--accent); }
+.sheet { background: #fff; }
+.shead h2 { font: 400 30px var(--f-head); }
+.line { border: 1px solid var(--line); }
+.go { background: linear-gradient(120deg, #A588B6, #7E6191); font: 600 14px var(--f-body); letter-spacing: .1em; }
+.gen { background: var(--iri); }
+.gen span { font: 400 24px var(--f-head); color: var(--accent); }
+
+/* Hiasan samping (layar lebar) */
+.side-mu { position: fixed; z-index: 1; pointer-events: none; }
+.bigshell { bottom: 5%; left: max(30px, calc(50% - 520px)); width: 230px; animation: breathe 7s ease-in-out infinite; }
+@keyframes breathe { 50% { transform: translateY(-10px) rotate(-3deg); } }
+.longstrand { top: 6%; right: max(30px, calc(50% - 500px)); width: 150px; animation: sway2 6s ease-in-out infinite; transform-origin: 50% 0; }
+@keyframes sway2 { 50% { transform: rotate(5deg); } }
+</style>
+
+<svg class="side-mu bigshell side-only" viewBox="0 0 230 190" aria-hidden="true" fill="none" stroke="#B9A6CC" stroke-width="2">
+  <path d="M115 180C40 180 8 120 14 76 46 30 80 10 115 10s69 20 101 66c6 44-26 104-101 104z" fill="rgba(255,255,255,.6)"/>
+  <path d="M115 180 30 80M115 180 60 40M115 180V12M115 180l55-140M115 180l85-100"/>
+  <path d="M90 186h50l-10-14h-30z" fill="rgba(255,255,255,.8)"/>
+  <circle cx="115" cy="140" r="18" fill="url(#pm2)" stroke="#C4B3D6"/>
+  <defs><radialGradient id="pm2" cx=".35" cy=".3"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#EFE6F5"/><stop offset="1" stop-color="#CBB9DB"/></radialGradient></defs>
+</svg>
+<svg class="side-mu longstrand side-only" viewBox="0 0 150 400" aria-hidden="true"><defs><radialGradient id="pm3" cx=".35" cy=".3"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#EFE6F5"/><stop offset="1" stop-color="#CBB9DB"/></radialGradient></defs>
+  <g fill="url(#pm3)" stroke="#C4B3D6" stroke-width="1"><circle cx="75" cy="10" r="8"/><circle cx="72" cy="30" r="9"/><circle cx="68" cy="52" r="10"/><circle cx="64" cy="76" r="11"/><circle cx="62" cy="102" r="12"/><circle cx="62" cy="130" r="13"/><circle cx="64" cy="160" r="14"/><circle cx="68" cy="192" r="14"/><circle cx="74" cy="224" r="13"/><circle cx="80" cy="254" r="12"/><circle cx="84" cy="281" r="11"/><circle cx="86" cy="305" r="10"/><circle cx="86" cy="327" r="9"/></g>
+</svg>
+
+<main class="page" id="top">
+  <div class="shellsky" aria-hidden="true">
+    <svg class="strand" viewBox="0 0 500 120" preserveAspectRatio="none"><defs><radialGradient id="pm1" cx=".35" cy=".3"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#EFE6F5"/><stop offset="1" stop-color="#CBB9DB"/></radialGradient></defs>
+      <g fill="url(#pm1)" stroke="#C4B3D6" stroke-width="1">
+        <circle cx="10" cy="20" r="9"/><circle cx="34" cy="30" r="10"/><circle cx="60" cy="40" r="10"/><circle cx="88" cy="50" r="11"/><circle cx="118" cy="58" r="11"/><circle cx="150" cy="64" r="12"/><circle cx="184" cy="68" r="12"/><circle cx="218" cy="70" r="12"/><circle cx="250" cy="71" r="13"/><circle cx="282" cy="70" r="12"/><circle cx="316" cy="68" r="12"/><circle cx="350" cy="64" r="12"/><circle cx="382" cy="58" r="11"/><circle cx="412" cy="50" r="11"/><circle cx="440" cy="40" r="10"/><circle cx="466" cy="30" r="10"/><circle cx="490" cy="20" r="9"/></g></svg>
+    <span class="sparkle s1"></span><span class="sparkle s2"></span><span class="sparkle s3"></span>
+    <svg class="shell l" viewBox="0 0 92 80" fill="rgba(255,255,255,.7)" stroke="#B9A6CC" stroke-width="1.6"><path d="M46 76C14 76 2 50 4 32 18 12 32 4 46 4s28 8 42 28c2 18-10 44-42 44z"/><path d="M46 76 12 34M46 76 26 14M46 76V4M46 76l20-62M46 76l34-42" fill="none"/></svg>
+    <svg class="shell r" viewBox="0 0 92 80" fill="rgba(255,255,255,.7)" stroke="#B9A6CC" stroke-width="1.6"><path d="M46 76C14 76 2 50 4 32 18 12 32 4 46 4s28 8 42 28c2 18-10 44-42 44z"/><path d="M46 76 12 34M46 76 26 14M46 76V4M46 76l20-62M46 76l34-42" fill="none"/></svg>
+  </div>
+  </div>
+  <div class="top-actions">
+    <button class="round" type="button" id="share" aria-label="Bagikan halaman ini"></button>
+    <button class="round" type="button" id="cart-top" aria-label="Buka keranjang"><span id="cart-top-icon"></span><span class="bubble" id="bubble-top" hidden>0</span></button>
+  </div>
+
+  <section class="profile">
+    <div class="ava-wrap">
+      <div class="ava" id="ava"></div>
+      <span class="ava-badge" id="ava-badge"></span>
+    </div>
+    <span class="hi" id="hi"></span>
+    <h1 class="name" id="name"></h1>
+    <span class="role" id="role"></span>
+    <p class="about" id="about"></p>
+    <nav class="socials" id="socials" aria-label="Sosial media" hidden></nav>
+  </section>
+
+  <h2 class="sec-title" id="produk"><span id="bag-icon"></span>Produk aku</h2>
+  <div class="search" role="search">
+    <span id="search-icon"></span>
+    <input id="q" type="search" placeholder="Cari produk…" autocomplete="off" aria-label="Cari produk">
+    <button class="clear" type="button" id="q-clear" aria-label="Hapus pencarian" hidden></button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status" hidden><span id="status-text"></span><button class="linkbtn" type="button" id="reset">Hapus filter</button></div>
+  <div class="grid" id="grid"></div>
+  <a class="cta" id="all-link" target="_blank" rel="noopener">Lihat semua di lynk.id <span id="ext-icon"></span></a>
+
+  <h2 class="sec-title">Link penting</h2>
+  <div class="links" id="links"></div>
+
+  <h2 class="sec-title" id="cara-bayar">Cara bayar</h2>
+  <div class="paycard">
+    <p>Tekan <b>Beli</b>, kamu langsung dibawa ke halaman checkout lynk.id. Pilih cara bayar, dan link produk langsung muncul serta dikirim ke email kamu.</p>
+    <div id="pay-groups"></div>
+    <p class="fine" id="pay-note"></p>
+  </div>
+
+  <h2 class="sec-title" id="tanya-jawab">Tanya jawab</h2>
+  <div class="faq">
+    <details><summary>Apakah pembayarannya aman?</summary><p>Pembayaran diproses oleh lynk.id. Halaman ini tidak meminta atau menyimpan data pembayaran kamu.</p></details>
+    <details><summary>Kapan produknya saya terima?</summary><p>Setelah pembayaran berhasil. Link akses muncul di halaman terima kasih lynk.id dan dikirim ke email yang kamu isi saat checkout.</p></details>
+    <details><summary>Bisa beli beberapa produk sekaligus?</summary><p>Bisa. Tekan tombol keranjang di tiap produk, lalu buka keranjang dan tekan "Lanjut bayar". Semua dibayar sekali.</p></details>
+    <details><summary>Saya punya kode voucher.</summary><p>Masukkan di keranjang sebelum lanjut bayar, atau di halaman checkout lynk.id. Potongannya dihitung oleh lynk.id.</p></details>
+    <details><summary>Kenapa ada produk tanpa tombol keranjang?</summary><p>Produk dengan pilihan varian, harga bebas, event, atau jadwal temu dibeli satu per satu lewat tombol "Beli", supaya pilihannya bisa kamu atur di lynk.id.</p></details>
+  </div>
+
+  <div class="sign">
+    <span id="sign-motif"></span>
+    <b id="sign-text"></b>
+    <small id="foot"></small>
+  </div>
+</main>
+
+<button class="fab" type="button" id="fab" aria-haspopup="dialog"><span id="fab-icon"></span>Keranjang <span class="bubble" id="bubble-fab">0</span></button>
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="shead"><h2 id="sheet-title">Keranjang</h2><button class="round" type="button" id="sheet-close" aria-label="Tutup keranjang"></button></div>
+  <div class="slist" id="slist"></div>
+  <div class="sfoot" id="sfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* PENGATURAN — edit bagian ini saja. Produk diambil otomatis dari lynk.id. */
+window.CONFIG = {
+  username: "ivansetiadi",
+  hi: "Halo, aku",
+  name: "Ivan Setiadi",
+  role: "Template · Ebook · Panduan",
+  about: "Produk digital yang lahir perlahan dan berkilau, seperti mutiara dari lautan.",
+  avatar: "",
+  socials: [],  // type: instagram, tiktok, youtube, whatsapp, email, link
+  links: [
+    { title: "Semua produk di lynk.id", note: "Etalase lengkap + checkout", href: "lynk" },
+    { title: "Cara bayar", note: "QRIS, e-wallet, transfer bank", href: "#cara-bayar" },
+    { title: "Tanya jawab", note: "Jawaban cepat sebelum beli", href: "#tanya-jawab" }
+  ],
+  signoff: "Terima kasih, semoga harimu berkilau",
+  motif: '<svg viewBox="0 0 90 20" aria-hidden="true"><defs><radialGradient id="pm" cx=".35" cy=".35"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#EDE4F2"/><stop offset="1" stop-color="#C9B8D8"/></radialGradient></defs><g fill="url(#pm)" stroke="#BFAFCF" stroke-width=".8"><circle cx="9" cy="10" r="6"/><circle cx="27" cy="10" r="7"/><circle cx="45" cy="10" r="8"/><circle cx="63" cy="10" r="7"/><circle cx="81" cy="10" r="6"/></g></svg>',
+  text: {
+    favorite: "★ Favorit", soldOverlay: "Habis", promo: "Lagi promo", emptySearchTitle: "Belum ketemu",
+    emptyCartTitle: "Keranjang masih kosong", ready: "Siap dibayar!", added: "Masuk keranjang"
+  },
+  api: { catalog: "/api/catalog", cart: "/api/cart" },
+  snapshot: "snapshot.json",
+  utm: { utm_source: "website", utm_medium: "landing", utm_campaign: "tema-mutiara" }
+};
+</script>
+{{config}}
+<script src="/app.js?v={{v}}"></script>
